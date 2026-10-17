@@ -1,0 +1,2634 @@
+# Stage-3 indices pool — derived from spyndex.indices via
+# `uv run python -m spectralcular.pool_gen` (see src/spectralcular/pool_gen.py).
+# Each entry maps spyndex parameter names to STAC asset keys on `platform`
+# (see src/spectralcular/platforms.py). spyndex auto-supplies constants
+# (g/C1/C2/L/…); band-centre wavelengths (lambda*) come from the platform.
+#
+# Resolution floor surfaces implicitly through `bands`: on Sentinel-2 any
+# SWIR (S1/S2), N2 (B8A) or red-edge parameter pulls the grid to 20 m and
+# A (coastal) to 60 m; Landsat is 30 m; Sentinel-1 RTC is 10 m.
+#
+# Edit `status:` / `notes:` / `expressive_in:` in place to drive the editorial
+# loop — regeneration preserves them.
+
+entries:
+- name: AFRI1600
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Aerosol Free Vegetation Index (1600 nm). Formula: (N-0.66*S1)/(N+0.66*S1). Reference: https://doi.org/10.1016/S0034-4257(01)00190-0'
+- name: AFRI2100
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Aerosol Free Vegetation Index (2100 nm). Formula: (N-0.5*S2)/(N+0.5*S2). Reference: https://doi.org/10.1016/S0034-4257(01)00190-0'
+- name: ARI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Anthocyanin Reflectance Index. Formula: (1/G)-(1/RE1). Reference: https://doi.org/10.1562/0031-8655(2001)074%3C0038:OPANEO%3E2.0.CO;2'
+- name: ARI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Anthocyanin Reflectance Index 2. Formula: N*((1/G)-(1/RE1)). Reference: https://doi.org/10.1562/0031-8655(2001)074%3C0038:OPANEO%3E2.0.CO;2'
+- name: ARVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Atmospherically Resistant Vegetation Index. Formula: (N-(R-gamma*(R-B)))/(N+(R-gamma*(R-B))). Reference:
+    https://doi.org/10.1109/36.134076'
+- name: ATSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Adjusted Transformed Soil-Adjusted Vegetation Index. Formula: sla*(N-sla*R-slb)/(sla*N+R-sla*slb+0.08*(1+sla**2.0)).
+    Reference: https://doi.org/10.1016/0034-4257(91)90009-U'
+- name: AVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Advanced Vegetation Index. Formula: (N*(1.0-R)*(N-R))**(1/3). Reference: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf'
+- name: BCC
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Blue Chromatic Coordinate. Formula: B/(R+G+B). Reference: https://doi.org/10.1016/0034-4257(87)90088-5'
+- name: BNDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Blue Normalized Difference Vegetation Index. Formula: (N-B)/(N+B). Reference: https://doi.org/10.1016/S1672-6308(07)60027-4'
+- name: BWDRVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Blue Wide Dynamic Range Vegetation Index. Formula: (alpha*N-B)/(alpha*N+B). Reference: https://doi.org/10.2135/cropsci2007.01.0031'
+- name: CIG
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Chlorophyll Index Green. Formula: (N/G)-1.0. Reference: https://doi.org/10.1078/0176-1617-00887'
+- name: CIRE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Chlorophyll Index Red Edge. Formula: (N/RE1)-1. Reference: https://doi.org/10.1078/0176-1617-00887'
+- name: CRI550
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Carotenoid Reflectance Index using 550 nm. Formula: (1.0/B)-(1.0/G). Reference: https://doi.org/10.1562/0031-8655(2002)0750272ACCIPL2.0.CO2'
+- name: CRI700
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Carotenoid Reflectance Index using 700 nm. Formula: (1.0/B)-(1.0/RE1). Reference: https://doi.org/10.1562/0031-8655(2002)0750272ACCIPL2.0.CO2'
+- name: CRSWIR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    N2: nir08
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Continuum Removal SWIR. Formula: S1/(N2+((S2-N2)/(lambdaS2-lambdaN2))*(lambdaS1-lambdaN2)). Reference:
+    https://www.onf.fr/onf/+/cec::les-rendez-vous-techniques-de-lonf-no69-70.html'
+- name: CVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Chlorophyll Vegetation Index. Formula: (N*R)/(G**2.0). Reference: https://doi.org/10.1007/s11119-010-9204-3'
+- name: DSI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Drought Stress Index. Formula: S1/N. Reference: https://www.asprs.org/wp-content/uploads/pers/1999journal/apr/1999_apr_495-501.pdf'
+- name: DSWI1
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Disease-Water Stress Index 1. Formula: N/S1. Reference: https://doi.org/10.1080/01431160310001618031'
+- name: DSWI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Disease-Water Stress Index 2. Formula: S1/G. Reference: https://doi.org/10.1080/01431160310001618031'
+- name: DSWI3
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Disease-Water Stress Index 3. Formula: S1/R. Reference: https://doi.org/10.1080/01431160310001618031'
+- name: DSWI4
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Disease-Water Stress Index 4. Formula: G/R. Reference: https://doi.org/10.1080/01431160310001618031'
+- name: DSWI5
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    S1: swir16
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Disease-Water Stress Index 5. Formula: (N+G)/(S1+R). Reference: https://doi.org/10.1080/01431160310001618031'
+- name: DVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Difference Vegetation Index. Formula: N-R. Reference: https://doi.org/10.1016/0034-4257(94)00114-3'
+- name: DVIplus
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Difference Vegetation Index Plus. Formula: ((lambdaN-lambdaR)/(lambdaN-lambdaG))*G+(1.0-((lambdaN-lambdaR)/(lambdaN-lambdaG)))*N-R.
+    Reference: https://doi.org/10.1016/j.rse.2019.03.028'
+- name: EBI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Enhanced Bloom Index. Formula: (R+G+B)/((G/B)*(R-B+epsilon)). Reference: https://doi.org/10.1016/j.isprsjprs.2019.08.006'
+- name: ENDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Enhanced Normalized Difference Vegetation Index. Formula: ((N+G)-(2*B))/((N+G)+(2*B)). Reference: https://doi.org/10.1371/journal.pone.0186193'
+- name: EVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    B: blue
+  expressive_in: []
+  status: approved
+  notes: 'Enhanced Vegetation Index. Formula: g*(N-R)/(N+C1*R-C2*B+L). Reference: https://doi.org/10.1016/S0034-4257(96)00112-5'
+- name: EVI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Two-Band Enhanced Vegetation Index. Formula: g*(N-R)/(N+2.4*R+L). Reference: https://doi.org/10.1016/j.rse.2008.06.006'
+- name: EVIv
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Enhanced Vegetation Index of Vegetation. Formula: 2.5*((N-R)/(N+6*R-7.5*B+1.0))*N. Reference: https://doi.org/10.1029/2024JG008240'
+- name: ExG
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Excess Green Index. Formula: 2*G-R-B. Reference: https://doi.org/10.13031/2013.27838'
+- name: ExGR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'ExG - ExR Vegetation Index. Formula: (2.0*G-R-B)-(1.3*R-G). Reference: https://doi.org/10.1016/j.compag.2008.03.009'
+- name: ExR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Excess Red Index. Formula: 1.3*R-G. Reference: https://doi.org/10.1117/12.336896'
+- name: FCVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Fluorescence Correction Vegetation Index. Formula: N-((R+G+B)/3.0). Reference: https://doi.org/10.1016/j.rse.2020.111676'
+- name: GARI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    B: blue
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Green Atmospherically Resistant Vegetation Index. Formula: (N-(G-(B-R)))/(N-(G+(B-R))). Reference: https://doi.org/10.1016/S0034-4257(96)00072-7'
+- name: GBNDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Green-Blue Normalized Difference Vegetation Index. Formula: (N-(G+B))/(N+(G+B)). Reference: https://doi.org/10.1016/S1672-6308(07)60027-4'
+- name: GCC
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Green Chromatic Coordinate. Formula: G/(R+G+B). Reference: https://doi.org/10.1016/0034-4257(87)90088-5'
+- name: GDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Generalized Difference Vegetation Index. Formula: ((N**nexp)-(R**nexp))/((N**nexp)+(R**nexp)). Reference:
+    https://doi.org/10.3390/rs6021211'
+- name: GEMI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Global Environment Monitoring Index. Formula: ((2.0*((N**2.0)-(R**2.0))+1.5*N+0.5*R)/(N+R+0.5))*(1.0-0.25*((2.0*((N**2.0)-(R**2))+1.5*N+0.5*R)/(N+R+0.5)))-((R-0.125)/(1-R)).
+    Reference: http://dx.doi.org/10.1007/bf00031911'
+- name: GLI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Green Leaf Index. Formula: (2.0*G-R-B)/(2.0*G+R+B). Reference: http://dx.doi.org/10.1080/10106040108542184'
+- name: GM1
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Gitelson and Merzlyak Index 1. Formula: RE2/G. Reference: https://doi.org/10.1016/S0176-1617(96)80284-7'
+- name: GM2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Gitelson and Merzlyak Index 2. Formula: RE2/RE1. Reference: https://doi.org/10.1016/S0176-1617(96)80284-7'
+- name: GNDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Green Normalized Difference Vegetation Index. Formula: (N-G)/(N+G). Reference: https://doi.org/10.1016/S0034-4257(96)00072-7'
+- name: GOSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Green Optimized Soil Adjusted Vegetation Index. Formula: (N-G)/(N+G+0.16). Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: GRNDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Green-Red Normalized Difference Vegetation Index. Formula: (N-(G+R))/(N+(G+R)). Reference: https://doi.org/10.1016/S1672-6308(07)60027-4'
+- name: GRVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Green Ratio Vegetation Index. Formula: N/G. Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: GSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Green Soil Adjusted Vegetation Index. Formula: (1.0+L)*(N-G)/(N+G+L). Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: GVMI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Global Vegetation Moisture Index. Formula: ((N+0.1)-(S2+0.02))/((N+0.1)+(S2+0.02)). Reference: https://doi.org/10.1016/S0034-4257(02)00037-8'
+- name: IAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'New Atmospherically Resistant Vegetation Index. Formula: (N-(R-gamma*(B-R)))/(N+(R-gamma*(B-R))). Reference:
+    https://www.jipb.net/EN/abstract/abstract23925.shtml'
+- name: IKAW
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Kawashima Index. Formula: (R-B)/(R+B). Reference: https://doi.org/10.1006/anbo.1997.0544'
+- name: IPVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Infrared Percentage Vegetation Index. Formula: N/(N+R). Reference: https://doi.org/10.1016/0034-4257(90)90085-Z'
+- name: IRECI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    R: red
+    RE1: rededge1
+    RE2: rededge2
+  expressive_in: []
+  status: proposed
+  notes: 'Inverted Red-Edge Chlorophyll Index. Formula: (RE3-R)/(RE1/RE2). Reference: https://doi.org/10.1016/j.isprsjprs.2013.04.007'
+- name: IRGBVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Improved-Red-Green-Blue Vegetation Index. Formula: (5.0*(G**2.0)-2.0*(R**2.0)-5.0*(B**2.0))/(5.0*(G**2.0)+2.0*(R**2.0)+5.0*(B**2.0)).
+    Reference: https://doi.org/10.1016/j.jag.2024.103668'
+- name: MCARI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Chlorophyll Absorption in Reflectance Index. Formula: ((RE1-R)-0.2*(RE1-G))*(RE1/R). Reference:
+    http://dx.doi.org/10.1016/S0034-4257(00)00113-9'
+- name: MCARI1
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Chlorophyll Absorption in Reflectance Index 1. Formula: 1.2*(2.5*(N-R)-1.3*(N-G)). Reference:
+    https://doi.org/10.1016/j.rse.2003.12.013'
+- name: MCARI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Chlorophyll Absorption in Reflectance Index 2. Formula: (1.5*(2.5*(N-R)-1.3*(N-G)))/((((2.0*N+1)**2)-(6.0*N-5*(R**0.5))-0.5)**0.5).
+    Reference: https://doi.org/10.1016/j.rse.2003.12.013'
+- name: MCARI705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Chlorophyll Absorption in Reflectance Index (705 and 750 nm). Formula: ((RE2-RE1)-0.2*(RE2-G))*(RE2/RE1).
+    Reference: https://doi.org/10.1016/j.agrformet.2008.03.005'
+- name: MCARIOSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+    G: green
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'MCARI/OSAVI Ratio. Formula: (((RE1-R)-0.2*(RE1-G))*(RE1/R))/(1.16*(N-R)/(N+R+0.16)). Reference: https://doi.org/10.1016/S0034-4257(00)00113-9'
+- name: MCARIOSAVI705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'MCARI/OSAVI Ratio (705 and 750 nm). Formula: (((RE2-RE1)-0.2*(RE2-G))*(RE2/RE1))/(1.16*(RE2-RE1)/(RE2+RE1+0.16)).
+    Reference: https://doi.org/10.1016/j.agrformet.2008.03.005'
+- name: MGRVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Green Red Vegetation Index. Formula: (G**2.0-R**2.0)/(G**2.0+R**2.0). Reference: https://doi.org/10.1016/j.jag.2015.02.012'
+- name: MI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Mangrove Index. Formula: (N-S1)/(N*S1). Reference: https://www.researchgate.net/profile/Gathot-Winarso/publication/277137915_NEW_MANGROVE_INDEX_AS_DEGRADATIONHEALTH_INDICATOR_USING_REMOTE_SENSING_DATA_SEGARA_ANAKAN_AND_ALAS_PURWO_CASE_STUDY/links/5562d90c08ae8c0cab333ab4/NEW-MANGROVE-INDEX-AS-DEGRADATION-HEALTH-INDICATOR-USING-REMOTE-SENSING-DATA-SEGARA-ANAKAN-AND-ALAS-PURWO-CASE-STUDY.pdf'
+- name: MNDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Normalized Difference Vegetation Index. Formula: (N-S2)/(N+S2). Reference: https://doi.org/10.1080/014311697216810'
+- name: MNLI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Non-Linear Vegetation Index. Formula: (1+L)*((N**2)-R)/((N**2)+R+L). Reference: https://doi.org/10.1109/TGRS.2003.812910'
+- name: MRBVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Red Blue Vegetation Index. Formula: (R**2.0-B**2.0)/(R**2.0+B**2.0). Reference: https://doi.org/10.3390/s20185055'
+- name: MSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Soil-Adjusted Vegetation Index. Formula: 0.5*(2.0*N+1-(((2*N+1)**2)-8*(N-R))**0.5). Reference:
+    https://doi.org/10.1016/0034-4257(94)90134-1'
+- name: MSI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Moisture Stress Index. Formula: S1/N. Reference: https://doi.org/10.1016/0034-4257(89)90046-1'
+- name: MSR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Simple Ratio. Formula: (N/R-1)/((N/R+1)**0.5). Reference: https://doi.org/10.1080/07038992.1996.10855178'
+- name: MSR705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Simple Ratio (705 and 750 nm). Formula: (RE2/RE1-1)/((RE2/RE1+1)**0.5). Reference: https://doi.org/10.1016/j.agrformet.2008.03.005'
+- name: MTCI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'MERIS Terrestrial Chlorophyll Index. Formula: (RE2-RE1)/(RE1-R). Reference: https://doi.org/10.1080/0143116042000274015'
+- name: MTVI1
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Triangular Vegetation Index 1. Formula: 1.2*(1.2*(N-G)-2.5*(R-G)). Reference: https://doi.org/10.1016/j.rse.2003.12.013'
+- name: MTVI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Triangular Vegetation Index 2. Formula: (1.5*(1.2*(N-G)-2.5*(R-G)))/((((2.0*N+1)**2)-(6.0*N-5*(R**0.5))-0.5)**0.5).
+    Reference: https://doi.org/10.1016/j.rse.2003.12.013'
+- name: MVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Mangrove Vegetation Index. Formula: (N-G)/(S1-G). Reference: https://doi.org/10.1016/j.isprsjprs.2020.06.001'
+- name: ND705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference (705 and 750 nm). Formula: (RE2-RE1)/(RE2+RE1). Reference: https://doi.org/10.1016/S0034-4257(02)00010-X'
+- name: NDDI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Drought Index. Formula: (((N-R)/(N+R))-((G-N)/(G+N)))/(((N-R)/(N+R))+((G-N)/(G+N))).
+    Reference: https://doi.org/10.1029/2006GL029127'
+- name: NDGI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Greenness Index. Formula: (((lambdaN-lambdaR)/(lambdaN-lambdaG))*G+(1.0-((lambdaN-lambdaR)/(lambdaN-lambdaG)))*N-R)/(((lambdaN-lambdaR)/(lambdaN-lambdaG))*G+(1.0-((lambdaN-lambdaR)/(lambdaN-lambdaG)))*N+R).
+    Reference: https://doi.org/10.1016/j.rse.2019.03.028'
+- name: NDII
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Infrared Index. Formula: (N-S1)/(N+S1). Reference: https://www.asprs.org/wp-content/uploads/pers/1983journal/jan/1983_jan_77-83.pdf'
+- name: NDMI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: approved
+  notes: 'Normalized Difference Moisture Index. Formula: (N-S1)/(N+S1). Reference: https://doi.org/10.1016/S0034-4257(01)00318-2'
+- name: NDPI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Phenology Index. Formula: (N-(alpha*R+(1.0-alpha)*S1))/(N+(alpha*R+(1.0-alpha)*S1)).
+    Reference: https://doi.org/10.1016/j.rse.2017.04.031'
+- name: NDREI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Red Edge Index. Formula: (N-RE1)/(N+RE1). Reference: https://doi.org/10.1016/1011-1344(93)06963-4'
+- name: NDTI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+    N: nir
+    RE3: rededge3
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Normalized Difference Tillage Index. Formula: gamma*(S1-S2)/(S1+S2)+(1-gamma)*(N-RE3)/(N+RE3).
+    Reference: https://doi.org/10.1016/j.jag.2022.102793'
+- name: NDTillI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Tillage Index. Formula: (S1-S2)/(S1+S2). Reference: https://www.asprs.org/wp-content/uploads/pers/1997journal/jan/1997_jan_87-93.pdf'
+- name: NDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: approved
+  notes: 'Normalized Difference Vegetation Index. Formula: (N-R)/(N+R). Reference: https://ntrs.nasa.gov/citations/19740022614'
+- name: NDVI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    RE2: rededge2
+    R: red
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Normalized Difference Vegetation Index. Formula: ((alpha*RE3+(1-alpha)*RE2)-(beta*R+(1-beta)*RE1))/((alpha*RE3+(1-alpha)*RE2)+(beta*R+(1-beta)*RE1)).
+    Reference: https://doi.org/10.1016/j.jag.2022.102793'
+- name: NDVI705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Vegetation Index (705 and 750 nm). Formula: (RE2-RE1)/(RE2+RE1). Reference: https://doi.org/10.1016/S0176-1617(11)81633-0'
+- name: NDYI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Yellowness Index. Formula: (G-B)/(G+B). Reference: https://doi.org/10.1016/j.rse.2016.06.016'
+- name: NGRDI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Green Red Difference Index. Formula: (G-R)/(G+R). Reference: https://doi.org/10.1016/0034-4257(79)90013-0'
+- name: NIRv
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Near-Infrared Reflectance of Vegetation. Formula: ((N-R)/(N+R))*N. Reference: https://doi.org/10.1126/sciadv.1602244'
+- name: NIRvH2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Hyperspectral Near-Infrared Reflectance of Vegetation. Formula: N-R-k*(lambdaN-lambdaR). Reference: https://doi.org/10.1016/j.rse.2021.112723'
+- name: NIRvP
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Near-Infrared Reflectance of Vegetation and Incoming PAR. Formula: ((N-R)/(N+R))*N*PAR. Reference: https://doi.org/10.1016/j.rse.2021.112763'
+- name: NLI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Non-Linear Vegetation Index. Formula: ((N**2)-R)/((N**2)+R). Reference: https://doi.org/10.1080/02757259409532252'
+- name: NMDI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Multi-band Drought Index. Formula: (N-(S1-S2))/(N+(S1-S2)). Reference: https://doi.org/10.1029/2007GL031021'
+- name: NPCI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    A: coastal
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Pigments Chlorophyll Ratio Index. Formula: (R-A)/(R+A). Reference: https://doi.org/10.1016/0034-4257(94)90136-8'
+- name: NRFIg
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Rapeseed Flowering Index Green. Formula: (G-S2)/(G+S2). Reference: https://doi.org/10.3390/rs13010105'
+- name: NRFIr
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Rapeseed Flowering Index Red. Formula: (R-S2)/(R+S2). Reference: https://doi.org/10.3390/rs13010105'
+- name: NormG
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Green. Formula: G/(N+G+R). Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: NormNIR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized NIR. Formula: N/(N+G+R). Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: NormR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Red. Formula: R/(N+G+R). Reference: https://doi.org/10.2134/agronj2004.0314'
+- name: OCVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Optimized Chlorophyll Vegetation Index. Formula: (N/G)*(R/G)**cexp. Reference: http://dx.doi.org/10.1007/s11119-008-9075-z'
+- name: OSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Optimized Soil-Adjusted Vegetation Index. Formula: (N-R)/(N+R+0.16). Reference: https://doi.org/10.1016/0034-4257(95)00186-7'
+- name: PSRI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    B: blue
+    RE2: rededge2
+  expressive_in: []
+  status: proposed
+  notes: 'Plant Senescing Reflectance Index. Formula: (R-B)/RE2. Reference: https://doi.org/10.1034/j.1399-3054.1999.106119.x'
+- name: RCC
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Red Chromatic Coordinate. Formula: R/(R+G+B). Reference: https://doi.org/10.1016/0034-4257(87)90088-5'
+- name: RDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Renormalized Difference Vegetation Index. Formula: (N-R)/((N+R)**0.5). Reference: https://doi.org/10.1016/0034-4257(94)00114-3'
+- name: REDSI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    R: red
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Red-Edge Disease Stress Index. Formula: ((705.0-665.0)*(RE3-R)-(783.0-665.0)*(RE1-R))/(2.0*R). Reference:
+    https://doi.org/10.3390/s18030868'
+- name: RENDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Red Edge Normalized Difference Vegetation Index. Formula: (RE2-RE1)/(RE2+RE1). Reference: https://doi.org/10.1016/S0176-1617(11)81633-0'
+- name: RGBVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    B: blue
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Red Green Blue Vegetation Index. Formula: (G**2.0-B*R)/(G**2.0+B*R). Reference: https://doi.org/10.1016/j.jag.2015.02.012'
+- name: RGRI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Red-Green Ratio Index. Formula: R/G. Reference: https://doi.org/10.1016/j.jag.2014.03.018'
+- name: RI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Redness Index. Formula: (R-G)/(R+G). Reference: https://www.documentation.ird.fr/hor/fdi:34390'
+- name: RVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Ratio Vegetation Index. Formula: RE2/R. Reference: https://doi.org/10.2134/agronj1968.00021962006000060016x'
+- name: RVI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    RE2: rededge2
+    R: red
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Ratio Vegetation Index. Formula: (alpha*RE3+(1-alpha)*RE2)/(beta*R+(1-beta)*RE1). Reference:
+    https://doi.org/10.1016/j.jag.2022.102793'
+- name: S2REP
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    R: red
+    RE1: rededge1
+    RE2: rededge2
+  expressive_in: []
+  status: proposed
+  notes: 'Sentinel-2 Red-Edge Position. Formula: 705.0+35.0*((((RE3+R)/2.0)-RE1)/(RE2-RE1)). Reference: https://doi.org/10.1016/j.isprsjprs.2013.04.007'
+- name: SARVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Soil Adjusted and Atmospherically Resistant Vegetation Index. Formula: (1+L)*(N-(R-(R-B)))/(N+(R-(R-B))+L).
+    Reference: https://doi.org/10.1109/36.134076'
+- name: SAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Soil-Adjusted Vegetation Index. Formula: (1.0+L)*(N-R)/(N+R+L). Reference: https://doi.org/10.1016/0034-4257(88)90106-X'
+- name: SAVI2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Soil-Adjusted Vegetation Index 2. Formula: N/(R+(slb/sla)). Reference: https://doi.org/10.1080/01431169008955053'
+- name: SAVI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    RE2: rededge2
+    R: red
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Soil Adjusted Vegetation Index. Formula: 2.0*((alpha*RE3+(1-alpha)*RE2)-(beta*R+(1-beta)*RE1))/((alpha*RE3+(1-alpha)*RE2)+(beta*R+(1-beta)*RE1+1)).
+    Reference: https://doi.org/10.1016/j.jag.2022.102793'
+- name: SEVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Shadow-Eliminated Vegetation Index. Formula: (N/R)+fdelta*(1.0/R). Reference: https://doi.org/10.1080/17538947.2018.1495770'
+- name: SI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Shadow Index. Formula: ((1.0-B)*(1.0-G)*(1.0-R))**(1/3). Reference: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf'
+- name: SIPI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    A: coastal
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Structure Insensitive Pigment Index. Formula: (N-A)/(N-R). Reference: https://eurekamag.com/research/009/395/009395053.php'
+- name: SLAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Specific Leaf Area Vegetation Index. Formula: N/(R+S2). Reference: https://www.asprs.org/wp-content/uploads/pers/2000journal/february/2000_feb_183-191.pdf'
+- name: SNDTI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Soil-Adjusted Normalized Difference Tillage Index. Formula: (1.0+L)*(S1-S2)/(S1+S2+L). Reference: https://doi.org/10.1080/22797254.2017.1418186'
+- name: SNDTI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+    N: nir
+    RE3: rededge3
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Soil-Adjusted Normalized Difference Tillage Index. Formula: gamma*((S1-S2)*2.0)/(S1+S2+1.0)+(1-gamma)*((N-RE3)*2.0)/(N+RE3+1.0).
+    Reference: https://doi.org/10.1016/j.jag.2022.102793'
+- name: SR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Ratio. Formula: N/R. Reference: https://doi.org/10.2307/1936256'
+- name: SR2
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Ratio (800 and 550 nm). Formula: N/G. Reference: https://doi.org/10.1080/01431169308904370'
+- name: SR3
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N2: nir08
+    G: green
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Ratio (860, 550 and 708 nm). Formula: N2/(G*RE1). Reference: https://doi.org/10.1016/S0034-4257(98)00046-7'
+- name: SR555
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Ratio (555 and 750 nm). Formula: RE2/G. Reference: https://doi.org/10.1016/S0176-1617(11)81633-0'
+- name: SR705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Ratio (705 and 750 nm). Formula: RE2/RE1. Reference: https://doi.org/10.1016/S0176-1617(11)81633-0'
+- name: STI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Simple Tillage Index. Formula: S1/S2. Reference: https://www.asprs.org/wp-content/uploads/pers/1997journal/jan/1997_jan_87-93.pdf'
+- name: STI4RE
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+    N: nir
+    RE3: rededge3
+  expressive_in: []
+  status: proposed
+  notes: '4-band Red Edge Soil Tillage Index. Formula: gamma*S1/S2+(1-gamma)*N/RE3. Reference: https://doi.org/10.1016/j.jag.2022.102793'
+- name: SeLI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N2: nir08
+    RE1: rededge1
+  expressive_in: []
+  status: proposed
+  notes: 'Sentinel-2 LAI Green Index. Formula: (N2-RE1)/(N2+RE1). Reference: https://doi.org/10.3390/s19040904'
+- name: TCARI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Chlorophyll Absorption in Reflectance Index. Formula: 3*((RE1-R)-0.2*(RE1-G)*(RE1/R)). Reference:
+    https://doi.org/10.1016/S0034-4257(02)00018-4'
+- name: TCARIOSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+    G: green
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'TCARI/OSAVI Ratio. Formula: (3*((RE1-R)-0.2*(RE1-G)*(RE1/R)))/(1.16*(N-R)/(N+R+0.16)). Reference: https://doi.org/10.1016/S0034-4257(02)00018-4'
+- name: TCARIOSAVI705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'TCARI/OSAVI Ratio (705 and 750 nm). Formula: (3*((RE2-RE1)-0.2*(RE2-G)*(RE2/RE1)))/(1.16*(RE2-RE1)/(RE2+RE1+0.16)).
+    Reference: https://doi.org/10.1016/j.agrformet.2008.03.005'
+- name: TCI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Triangular Chlorophyll Index. Formula: 1.2*(RE1-G)-1.5*(R-G)*(RE1/R)**0.5. Reference: http://dx.doi.org/10.1109/TGRS.2007.904836'
+- name: TDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Difference Vegetation Index. Formula: 1.5*((N-R)/((N**2.0+R+0.5)**0.5)). Reference: https://doi.org/10.1109/IGARSS.2002.1026867'
+- name: TGI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Triangular Greenness Index. Formula: -0.5*(190*(R-G)-120*(R-B)). Reference: http://dx.doi.org/10.1016/j.jag.2012.07.020'
+- name: TRRVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Red Range Vegetation Index. Formula: ((RE2-R)/(RE2+R))/(((N-R)/(N+R))+1.0). Reference: https://doi.org/10.3390/rs12152359'
+- name: TSAVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Soil-Adjusted Vegetation Index. Formula: sla*(N-sla*R-slb)/(sla*N+R-sla*slb). Reference: https://doi.org/10.1109/IGARSS.1989.576128'
+- name: TTVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE3: rededge3
+    RE2: rededge2
+    N2: nir08
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Triangular Vegetation Index. Formula: 0.5*((865.0-740.0)*(RE3-RE2)-(N2-RE2)*(783.0-740)).
+    Reference: https://doi.org/10.3390/rs12010016'
+- name: TVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Transformed Vegetation Index. Formula: (((N-R)/(N+R))+0.5)**0.5. Reference: https://ntrs.nasa.gov/citations/19740022614'
+- name: TriVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Triangular Vegetation Index. Formula: 0.5*(120*(N-G)-200*(R-G)). Reference: http://dx.doi.org/10.1016/S0034-4257(00)00197-8'
+- name: VARI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Visible Atmospherically Resistant Index. Formula: (G-R)/(G+R-B). Reference: https://doi.org/10.1016/S0034-4257(01)00289-9'
+- name: VARI700
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Visible Atmospherically Resistant Index (700 nm). Formula: (RE1-1.7*R+0.7*B)/(RE1+1.3*R-1.3*B). Reference:
+    https://doi.org/10.1016/S0034-4257(01)00289-9'
+- name: VI700
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Vegetation Index (700 nm). Formula: (RE1-R)/(RE1+R). Reference: https://doi.org/10.1016/S0034-4257(01)00289-9'
+- name: VIG
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Vegetation Index Green. Formula: (G-R)/(G+R). Reference: https://doi.org/10.1016/S0034-4257(01)00289-9'
+- name: WDRVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Wide Dynamic Range Vegetation Index. Formula: (alpha*N-R)/(alpha*N+R). Reference: https://doi.org/10.1078/0176-1617-01176'
+- name: WDVI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Weighted Difference Vegetation Index. Formula: N-sla*R. Reference: https://doi.org/10.1016/0034-4257(89)90076-X'
+- name: bNIRv
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Blue Near-Infrared Reflectance of Vegetation. Formula: ((N-B)/(N+B))*N. Reference: https://doi.org/10.1029/2024JG008240'
+- name: mND705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE1: rededge1
+    A: coastal
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Normalized Difference (705, 750 and 445 nm). Formula: (RE2-RE1)/(RE2+RE1-A). Reference: https://doi.org/10.1016/S0034-4257(02)00010-X'
+- name: mSR705
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    A: coastal
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Simple Ratio (705 and 445 nm). Formula: (RE2-A)/(RE2+A). Reference: https://doi.org/10.1016/S0034-4257(02)00010-X'
+- name: sNIRvLSWI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'SWIR-enhanced Near-Infrared Reflectance of Vegetation for LSWI. Formula: ((N-S2)/(N+S2))*N. Reference:
+    https://doi.org/10.1029/2024JG008240'
+- name: sNIRvNDPI
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'SWIR-enhanced Near-Infrared Reflectance of Vegetation for NDPI. Formula: (N-(alpha*R+(1.0-alpha)*S2))/(N+(alpha*R+(1.0-alpha)*S2))*N.
+    Reference: https://doi.org/10.1029/2024JG008240'
+- name: sNIRvNDVILSWIP
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'SWIR-enhanced Near-Infrared Reflectance of Vegetation for the NDVI-LSWI Product. Formula: ((N-R)/(N+R))*((N-S2)/(N+S2))*N.
+    Reference: https://doi.org/10.1029/2024JG008240'
+- name: sNIRvNDVILSWIS
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'SWIR-enhanced Near-Infrared Reflectance of Vegetation for the NDVI-LSWI Sum. Formula: (((N-R)/(N+R))+((N-S2)/(N+S2)))*N.
+    Reference: https://doi.org/10.1029/2024JG008240'
+- name: sNIRvSWIR
+  theme: vegetation
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'SWIR-enhanced Near-Infrared Reflectance of Vegetation. Formula: ((N-R-S2**2.0)/(N+R+S2**2.0))*N. Reference:
+    https://doi.org/10.1029/2024JG008240'
+- name: ANDWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Augmented Normalized Difference Water Index. Formula: (B+G+R-N-S1-S2)/(B+G+R+N+S1+S2). Reference: https://doi.org/10.1016/j.envsoft.2021.105030'
+- name: AWEInsh
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S1: swir16
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Automated Water Extraction Index. Formula: 4.0*(G-S1)-0.25*N+2.75*S2. Reference: https://doi.org/10.1016/j.rse.2013.08.029'
+- name: AWEIsh
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Automated Water Extraction Index with Shadows Elimination. Formula: B+2.5*G-1.5*(N+S1)-0.25*S2. Reference:
+    https://doi.org/10.1016/j.rse.2013.08.029'
+- name: FAI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Floating Algae Index. Formula: N-(R+(S1-R)*((lambdaN-lambdaR)/(lambdaS1-lambdaR))). Reference: https://doi.org/10.1016/j.rse.2009.05.012'
+- name: FDI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    RE2: rededge2
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Floating Debris Index. Formula: N-(RE2+10*(S1-RE2)*(lambdaN-lambdaR)/(lambdaS1-lambdaR)). Reference: https://doi.org/10.1038/s41598-020-62298-z'
+- name: FWEI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Flood/Water Extraction Index. Formula: (((B+G+R)/3.0)-N)/(((B+G+R)/3.0)+N). Reference: https://doi.org/10.1007/s00477-024-02660-z'
+- name: LSWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Land Surface Water Index. Formula: (N-S1)/(N+S1). Reference: https://doi.org/10.1016/j.rse.2003.11.008'
+- name: MBWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Multi-Band Water Index. Formula: (omega*G)-R-N-S1-S2. Reference: https://doi.org/10.1016/j.jag.2018.01.018'
+- name: MLSWI26
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Land Surface Water Index (MODIS Bands 2 and 6). Formula: (1.0-N-S1)/(1.0-N+S1). Reference: https://doi.org/10.3390/rs71215805'
+- name: MLSWI27
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Land Surface Water Index (MODIS Bands 2 and 7). Formula: (1.0-N-S2)/(1.0-N+S2). Reference: https://doi.org/10.3390/rs71215805'
+- name: MNDWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Normalized Difference Water Index. Formula: (G-S1)/(G+S1). Reference: https://doi.org/10.1080/01431160600589179'
+- name: MuWIR
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    N: nir
+    S2: swir22
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Revised Multi-Spectral Water Index. Formula: -4.0*((B-G)/(B+G))+2.0*((G-N)/(G+N))+2.0*((G-S2)/(G+S2))-((G-S1)/(G+S1)).
+    Reference: https://doi.org/10.3390/rs10101643'
+- name: NDCI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Chlorophyll Index. Formula: (RE1-R)/(RE1+R). Reference: https://doi.org/10.1016/j.rse.2011.10.016'
+- name: NDPonI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Pond Index. Formula: (S1-G)/(S1+G). Reference: https://doi.org/10.1016/j.rse.2006.07.012'
+- name: NDTI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Turbidity Index. Formula: (R-G)/(R+G). Reference: https://doi.org/10.1016/j.rse.2006.07.012'
+- name: NDVIMNDWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    G: green
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'NDVI-MNDWI Model. Formula: ((N-R)/(N+R))-((G-S1)/(G+S1)). Reference: https://doi.org/10.1007/978-3-662-45737-5_51'
+- name: NDWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+  expressive_in: []
+  status: approved
+  notes: 'Normalized Difference Water Index. Formula: (G-N)/(G+N). Reference: https://doi.org/10.1080/01431169608948714'
+- name: NDWIns
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Water Index with no Snow Cover and Glaciers. Formula: (G-alpha*N)/(G+N). Reference:
+    https://doi.org/10.3390/w12051339'
+- name: NWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'New Water Index. Formula: (B-(N+S1+S2))/(B+(N+S1+S2)). Reference: https://doi.org/10.11873/j.issn.1004-0323.2009.2.167'
+- name: OSI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Oil Spill Index. Formula: (G+R)/B. Reference: https://doi.org/10.1016/j.mex.2021.101327'
+- name: PI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Plastic Index. Formula: N/(N+R). Reference: https://doi.org/10.3390/rs12162648'
+- name: RNDVI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Reversed Normalized Difference Vegetation Index. Formula: (R-N)/(R+N). Reference: https://doi.org/10.3390/rs12162648'
+- name: RWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Rescaled Water Index. Formula: ((G**(1.0/2.71828))*(1.0/n)-S1)/((G**(1.0/2.71828))*(1.0/n)+S1). Reference:
+    https://doi.org/10.1109/JSTARS.2025.3562089'
+- name: S2WI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Sentinel-2 Water Index. Formula: (RE1-S2)/(RE1+S2). Reference: https://doi.org/10.3390/w13121647'
+- name: SCoWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Subtractive Coastal Water Index. Formula: B+2.0*(G-N)-0.75*S1-0.5*S2. Reference: https://doi.org/10.3390/rs16152795'
+- name: SWM
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Sentinel Water Mask. Formula: (B+G)/(N+S1). Reference: https://eoscience.esa.int/landtraining2017/files/posters/MILCZAREK.pdf'
+- name: TWI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    RE2: rededge2
+    G: green
+    S2: swir22
+    B: blue
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Triangle Water Index. Formula: (2.84*(RE1-RE2)/(G+S2))+((1.25*(G-B)-(N-B))/(N+1.25*G-0.25*B)). Reference:
+    https://doi.org/10.3390/rs14215289'
+- name: WI1
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Water Index 1. Formula: (G-S2)/(G+S2). Reference: https://doi.org/10.3390/rs11182186'
+- name: WI2
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Water Index 2. Formula: (B-S2)/(B+S2). Reference: https://doi.org/10.3390/rs11182186'
+- name: WI2015
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Water Index 2015. Formula: 1.7204+171*G+3*R-70*N-45*S1-71*S2. Reference: https://doi.org/10.1016/j.rse.2015.12.055'
+- name: WRI
+  theme: water
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Water Ratio Index. Formula: (G+R)/(N+S1). Reference: https://doi.org/10.1109/GEOINFORMATICS.2010.5567762'
+- name: BAI
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Burned Area Index. Formula: 1.0/((0.1-R)**2.0+(0.06-N)**2.0). Reference: https://digital.csic.es/bitstream/10261/6426/1/Martin_Isabel_Serie_Geografica.pdf'
+- name: BAIM
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Burned Area Index adapted to MODIS. Formula: 1.0/((0.05-N)**2.0)+((0.2-S2)**2.0). Reference: https://doi.org/10.1016/j.foreco.2006.08.248'
+- name: BAIS2
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    RE2: rededge2
+    RE3: rededge3
+    N2: nir08
+    R: red
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Burned Area Index for Sentinel 2. Formula: (1.0-((RE2*RE3*N2)/R)**0.5)*(((S2-N2)/(S2+N2)**0.5)+1.0). Reference:
+    https://doi.org/10.3390/ecrs-2-05177'
+- name: CSI
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Char Soil Index. Formula: N/S2. Reference: https://doi.org/10.1016/j.rse.2005.04.014'
+- name: MIRBI
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Mid-Infrared Burn Index. Formula: 10.0*S2-9.8*S1+2.0. Reference: https://doi.org/10.1080/01431160110053185'
+- name: NBR
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S2: swir22
+  expressive_in: []
+  status: approved
+  notes: 'Normalized Burn Ratio. Formula: (N-S2)/(N+S2). Reference: https://doi.org/10.3133/ofr0211'
+- name: NBR2
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio 2. Formula: (S1-S2)/(S1+S2). Reference: https://www.usgs.gov/core-science-systems/nli/landsat/landsat-normalized-burn-ratio-2'
+- name: NBRSWIR
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio SWIR. Formula: (S2-S1-0.02)/(S2+S1+0.1). Reference: https://doi.org/10.1080/22797254.2020.1738900'
+- name: NBRplus
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    N2: nir08
+    G: green
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio Plus. Formula: (S2-N2-G-B)/(S2+N2+G+B). Reference: https://doi.org/10.3390/rs14071727'
+- name: NDSWIR
+  theme: burn
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference SWIR. Formula: (N-S1)/(N+S1). Reference: https://doi.org/10.1109/TGRS.2003.819190'
+- name: BI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    R: red
+    N: nir
+    B: blue
+  expressive_in: []
+  status: proposed
+  notes: 'Bare Soil Index. Formula: ((S1+R)-(N+B))/((S1+R)+(N+B)). Reference: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.465.8749&rep=rep1&type=pdf'
+- name: BITM
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Landsat TM-based Brightness Index. Formula: (((B**2.0)+(G**2.0)+(R**2.0))/3.0)**0.5. Reference: https://doi.org/10.1016/S0034-4257(98)00030-3'
+- name: BIXS
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'SPOT HRV XS-based Brightness Index. Formula: (((G**2.0)+(R**2.0))/2.0)**0.5. Reference: https://doi.org/10.1016/S0034-4257(98)00030-3'
+- name: BaI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    S1: swir16
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Bareness Index. Formula: R+S1-N. Reference: https://doi.org/10.1109/IGARSS.2005.1525743'
+- name: DBSI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    G: green
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Dry Bareness Index. Formula: ((S1-G)/(S1+G))-((N-R)/(N+R)). Reference: https://doi.org/10.3390/land7030081'
+- name: EMBI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+    N: nir
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Enhanced Modified Bare Soil Index. Formula: ((((S1-S2-N)/(S1+S2+N))+0.5)-((G-S1)/(G+S1))-0.5)/((((S1-S2-N)/(S1+S2+N))+0.5)+((G-S1)/(G+S1))+1.5).
+    Reference: https://doi.org/10.1016/j.jag.2022.102703'
+- name: MBI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Modified Bare Soil Index. Formula: ((S1-S2-N)/(S1+S2+N))+0.5. Reference: https://doi.org/10.3390/land10030231'
+- name: NDSoI
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Soil Index. Formula: (S2-G)/(S2+G). Reference: https://doi.org/10.1016/j.jag.2015.02.010'
+- name: NSDS
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Shortwave Infrared Difference Soil-Moisture. Formula: (S1-S2)/(S1+S2). Reference: https://doi.org/10.3390/land10030231'
+- name: NSDSI1
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Shortwave-Infrared Difference Bare Soil Moisture Index 1. Formula: (S1-S2)/S1. Reference: https://doi.org/10.1016/j.isprsjprs.2019.06.012'
+- name: NSDSI2
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Shortwave-Infrared Difference Bare Soil Moisture Index 2. Formula: (S1-S2)/S2. Reference: https://doi.org/10.1016/j.isprsjprs.2019.06.012'
+- name: NSDSI3
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Shortwave-Infrared Difference Bare Soil Moisture Index 3. Formula: (S1-S2)/(S1+S2). Reference:
+    https://doi.org/10.1016/j.isprsjprs.2019.06.012'
+- name: RI4XS
+  theme: soil_geology
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'SPOT HRV XS-based Redness Index 4. Formula: (R**2.0)/(G**4.0). Reference: https://doi.org/10.1016/S0034-4257(98)00030-3'
+- name: BLFEI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    S2: swir22
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Built-Up Land Features Extraction Index. Formula: (((G+R+S2)/3.0)-S1)/(((G+R+S2)/3.0)+S1). Reference:
+    https://doi.org/10.1080/10106049.2018.1497094'
+- name: BRBA
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Band Ratio for Built-up Area. Formula: R/S1. Reference: https://www.omicsonline.org/scientific-reports/JGRS-SR136.pdf'
+- name: IBI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    N: nir
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Index-Based Built-Up Index. Formula: (((S1-N)/(S1+N))-(((N-R)*(1.0+L)/(N+R+L))+((G-S1)/(G+S1)))/2.0)/(((S1-N)/(S1+N))+(((N-R)*(1.0+L)/(N+R+L))+((G-S1)/(G+S1)))/2.0).
+    Reference: https://doi.org/10.1080/01431160802039957'
+- name: NBAI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    S1: swir16
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Built-up Area Index. Formula: (S2-S1/G)/(S2+S1/G). Reference: https://www.omicsonline.org/scientific-reports/JGRS-SR136.pdf'
+- name: NDBI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    S1: swir16
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Built-Up Index. Formula: (S1-N)/(S1+N). Reference: http://dx.doi.org/10.1080/01431160304987'
+- name: NHFD
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    RE1: rededge1
+    A: coastal
+  expressive_in: []
+  status: proposed
+  notes: 'Non-Homogeneous Feature Difference. Formula: (RE1-A)/(RE1+A). Reference: https://www.semanticscholar.org/paper/Using-WorldView-2-Vis-NIR-MSI-Imagery-to-Support-Wolf/5e5063ccc4ee76b56b721c866e871d47a77f9fb4'
+- name: PISI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Perpendicular Impervious Surface Index. Formula: 0.8192*B-0.5735*N+0.0750. Reference: https://doi.org/10.3390/rs10101521'
+- name: UI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    S2: swir22
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Urban Index. Formula: (S2-N)/(S2+N). Reference: https://www.isprs.org/proceedings/XXXI/congress/part7/321_XXXI-part7.pdf'
+- name: VIBI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Vegetation Index Built-up Index. Formula: ((N-R)/(N+R))/(((N-R)/(N+R))+((S1-N)/(S1+N))). Reference: http://dx.doi.org/10.1080/01431161.2012.687842'
+- name: VgNIRBI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Visible Green-Based Built-Up Index. Formula: (G-N)/(G+N). Reference: https://doi.org/10.1016/j.ecolind.2015.03.037'
+- name: VrNIRBI
+  theme: urban
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Visible Red-Based Built-Up Index. Formula: (R-N)/(R+N). Reference: https://doi.org/10.1016/j.ecolind.2015.03.037'
+- name: NBSIMS
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+    N: nir
+    B: blue
+    S2: swir22
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Non-Binary Snow Index for Multi-Component Surfaces. Formula: 0.36*(G+R+N)-(((B+S2)/G)+S1). Reference:
+    https://doi.org/10.3390/rs13142777'
+- name: NDGlaI
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Glacier Index. Formula: (G-R)/(G+R). Reference: https://doi.org/10.1080/01431160802385459'
+- name: NDSI
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Snow Index. Formula: (G-S1)/(G+S1). Reference: https://doi.org/10.1109/IGARSS.1994.399618'
+- name: NDSII
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Snow Ice Index. Formula: (G-N)/(G+N). Reference: https://doi.org/10.1080/01431160802385459'
+- name: NDSIITM
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Snow/Ice Index for Landsat TM. Formula: (R-S1)/(R+S1). Reference: https://doi.org/10.1080/01431160119766'
+- name: NDSInw
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Snow Index with no Water. Formula: (N-S1-beta)/(N+S1). Reference: https://doi.org/10.3390/w12051339'
+- name: NDSaII
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Snow and Ice Index. Formula: (R-S1)/(R+S1). Reference: https://doi.org/10.1080/01431160119766'
+- name: S3
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'S3 Snow Index. Formula: (N*(R-S1))/((N+R)*(N+S1)). Reference: https://doi.org/10.3178/jjshwr.12.28'
+- name: SWI
+  theme: snow_ice
+  platform: sentinel-2-l2a
+  bands:
+    G: green
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Snow Water Index. Formula: (G*(N-S1))/((G+N)*(N+S1)). Reference: https://doi.org/10.3390/rs11232774'
+- name: CI1SWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+    B: blue
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Index Form 1 with SWIR 1. Formula: (N+2.0*S1)/(B+G+R). Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CI1woSWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    B: blue
+    G: green
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Index Form 1 without SWIR bands. Formula: (3.0*N)/(B+G+R). Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CI2SWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+    N: nir
+    S1: swir16
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Index Form 2 with SWIR bands. Formula: (B+G+R+N+S1+S2)/6.0. Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CI2woSWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    B: blue
+    G: green
+    R: red
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Index Form 2 without SWIR bands. Formula: (B+G+R+N)/4.0. Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CLOSDI
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Shadow Detection Index. Formula: (1.0-1.5*N-0.1*R)/(1.0+3.5*N+4.9*R). Reference: https://doi.org/10.1016/j.rsase.2026.101990'
+- name: CSISWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Shadow Index with SWIR 1. Formula: (N+S1)/2.0. Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CSIwoSWIR
+  theme: atmosphere
+  platform: sentinel-2-l2a
+  bands:
+    N: nir
+  expressive_in: []
+  status: proposed
+  notes: 'Cloud Shadow Index without SWIR bands. Formula: N. Reference: https://doi.org/10.1016/j.isprsjprs.2018.07.006'
+- name: CSIT
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    S2: swir22
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Char Soil Index Thermal. Formula: N/(S2*T/10000.0). Reference: https://doi.org/10.1080/01431160600954704'
+- name: NBRT1
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    S2: swir22
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio Thermal 1. Formula: (N-(S2*T/10000.0))/(N+(S2*T/10000.0)). Reference: https://doi.org/10.1080/01431160500239008'
+- name: NBRT2
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    T: lwir11
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio Thermal 2. Formula: ((N/(T/10000.0))-S2)/((N/(T/10000.0))+S2). Reference: https://doi.org/10.1080/01431160500239008'
+- name: NBRT3
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    T: lwir11
+    S2: swir22
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Burn Ratio Thermal 3. Formula: ((N-(T/10000.0))-S2)/((N-(T/10000.0))+S2). Reference: https://doi.org/10.1080/01431160500239008'
+- name: NDVIT
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    R: red
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Vegetation Index Thermal. Formula: (N-(R*T/10000.0))/(N+(R*T/10000.0)). Reference:
+    https://doi.org/10.1080/01431160600954704'
+- name: NSTv1
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    S2: swir22
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'NIR-SWIR-Temperature Version 1. Formula: ((N-S2)/(N+S2))*T. Reference: https://doi.org/10.1016/j.rse.2011.06.010'
+- name: NSTv2
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    S2: swir22
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'NIR-SWIR-Temperature Version 2. Formula: (N-(S2+T))/(N+(S2+T)). Reference: https://doi.org/10.1016/j.rse.2011.06.010'
+- name: SAVIT
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    R: red
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Soil-Adjusted Vegetation Index Thermal. Formula: (1.0+L)*(N-(R*T/10000.0))/(N+(R*T/10000.0)+L). Reference:
+    https://doi.org/10.1080/01431160600954704'
+- name: VI6T
+  theme: burn
+  platform: landsat-c2-l2
+  bands:
+    N: nir08
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'VI6T Index. Formula: (N-T/10000.0)/(N+T/10000.0). Reference: https://doi.org/10.1080/01431160500239008'
+- name: NBLI
+  theme: soil_geology
+  platform: landsat-c2-l2
+  bands:
+    R: red
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Bare Land Index. Formula: (R-T)/(R+T). Reference: https://doi.org/10.3390/rs9030249'
+- name: NBLIOLI
+  theme: soil_geology
+  platform: landsat-c2-l2
+  bands:
+    R: red
+    T1: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Bare Land Index for Landsat-OLI. Formula: (R-T1)/(R+T1). Reference: https://doi.org/10.3390/rs9030249'
+- name: NDBaI
+  theme: soil_geology
+  platform: landsat-c2-l2
+  bands:
+    S1: swir16
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Bareness Index. Formula: (S1-T)/(S1+T). Reference: https://doi.org/10.1109/IGARSS.2005.1526319'
+- name: DBI
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    B: blue
+    T1: lwir11
+    N: nir08
+    R: red
+  expressive_in: []
+  status: proposed
+  notes: 'Dry Built-Up Index. Formula: ((B-T1)/(B+T1))-((N-R)/(N+R)). Reference: https://doi.org/10.3390/land7030081'
+- name: EBBI
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    S1: swir16
+    N: nir08
+    T: lwir11
+  expressive_in: []
+  status: proposed
+  notes: 'Enhanced Built-Up and Bareness Index. Formula: (S1-N)/(10.0*((S1+T)**0.5)). Reference: https://doi.org/10.3390/rs4102957'
+- name: NBUI
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    S1: swir16
+    N: nir08
+    T: lwir11
+    R: red
+    G: green
+  expressive_in: []
+  status: proposed
+  notes: 'New Built-Up Index. Formula: ((S1-N)/(10.0*(T+S1)**0.5))-(((N-R)*(1.0+L))/(N-R+L))-(G-S1)/(G+S1). Reference:
+    https://hdl.handle.net/1959.11/29500'
+- name: NDISIb
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    T: lwir11
+    B: blue
+    N: nir08
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Impervious Surface Index Blue. Formula: (T-(B+N+S1)/3.0)/(T+(B+N+S1)/3.0). Reference:
+    https://doi.org/10.14358/PERS.76.5.557'
+- name: NDISIg
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    T: lwir11
+    G: green
+    N: nir08
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Impervious Surface Index Green. Formula: (T-(G+N+S1)/3.0)/(T+(G+N+S1)/3.0). Reference:
+    https://doi.org/10.14358/PERS.76.5.557'
+- name: NDISImndwi
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    T: lwir11
+    G: green
+    S1: swir16
+    N: nir08
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Impervious Surface Index with MNDWI. Formula: (T-(((G-S1)/(G+S1))+N+S1)/3.0)/(T+(((G-S1)/(G+S1))+N+S1)/3.0).
+    Reference: https://doi.org/10.14358/PERS.76.5.557'
+- name: NDISIndwi
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    T: lwir11
+    G: green
+    N: nir08
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Impervious Surface Index with NDWI. Formula: (T-(((G-N)/(G+N))+N+S1)/3.0)/(T+(((G-N)/(G+N))+N+S1)/3.0).
+    Reference: https://doi.org/10.14358/PERS.76.5.557'
+- name: NDISIr
+  theme: urban
+  platform: landsat-c2-l2
+  bands:
+    T: lwir11
+    R: red
+    N: nir08
+    S1: swir16
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Impervious Surface Index Red. Formula: (T-(R+N+S1)/3.0)/(T+(R+N+S1)/3.0). Reference:
+    https://doi.org/10.14358/PERS.76.5.557'
+- name: DPDD
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'Dual-Pol Diagonal Distance. Formula: (VV+VH)/2.0**0.5. Reference: https://doi.org/10.1016/j.rse.2018.09.003'
+- name: DpRVIHH
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    HV: hv
+    HH: hh
+  expressive_in: []
+  status: proposed
+  notes: 'Dual-Polarized Radar Vegetation Index HH. Formula: (4.0*HV)/(HH+HV). Reference: https://www.tandfonline.com/doi/abs/10.5589/m12-043'
+- name: DpRVIVV
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VH: vh
+    VV: vv
+  expressive_in: []
+  status: proposed
+  notes: 'Dual-Polarized Radar Vegetation Index VV. Formula: (4.0*VH)/(VV+VH). Reference: https://doi.org/10.3390/app9040655'
+- name: NDPolI
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'Normalized Difference Polarization Index. Formula: (VV-VH)/(VV+VH). Reference: https://www.isprs.org/proceedings/XXXVII/congress/4_pdf/267.pdf'
+- name: RFDI
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    HH: hh
+    HV: hv
+  expressive_in: []
+  status: proposed
+  notes: 'Radar Forest Degradation Index. Formula: (HH-HV)/(HH+HV). Reference: https://doi.org/10.5194/bg-9-179-2012'
+- name: VDDPI
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'Vertical Dual De-Polarization Index. Formula: (VV+VH)/VV. Reference: https://doi.org/10.1016/j.rse.2018.09.003'
+- name: VHVVD
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VH: vh
+    VV: vv
+  expressive_in: []
+  status: proposed
+  notes: 'VH-VV Difference. Formula: VH-VV. Reference: https://doi.org/10.3390/app9040655'
+- name: VHVVP
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VH: vh
+    VV: vv
+  expressive_in: []
+  status: proposed
+  notes: 'VH-VV Product. Formula: VH*VV. Reference: https://doi.org/10.1109/IGARSS47720.2021.9554099'
+- name: VHVVR
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VH: vh
+    VV: vv
+  expressive_in: []
+  status: proposed
+  notes: 'VH-VV Ratio. Formula: VH/VV. Reference: https://doi.org/10.1109/IGARSS47720.2021.9554099'
+- name: VVVHD
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'VV-VH Difference. Formula: VV-VH. Reference: https://doi.org/10.1109/IGARSS47720.2021.9554099'
+- name: VVVHR
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'VV-VH Ratio. Formula: VV/VH. Reference: https://doi.org/10.3390/app9040655'
+- name: VVVHS
+  theme: radar
+  platform: sentinel-1-rtc
+  bands:
+    VV: vv
+    VH: vh
+  expressive_in: []
+  status: proposed
+  notes: 'VV-VH Sum. Formula: VV+VH. Reference: https://doi.org/10.1109/IGARSS47720.2021.9554099'

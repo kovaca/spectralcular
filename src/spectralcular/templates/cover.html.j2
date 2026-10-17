@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ meta.title }} — cover</title>
+<style>
+{{ css | safe }}
+@page cover { size: {{ '%.4f' % g.width_in }}in {{ '%.4f' % g.height_in }}in; margin: 0; }
+.cv { page: cover; position: relative; width: {{ '%.4f' % g.width_in }}in; height: {{ '%.4f' % g.height_in }}in;
+      background: var(--paper); overflow: hidden; }
+.cv > * { position: absolute; margin: 0; }
+</style>
+</head>
+<body class="fm-doc">
+{# cover.py: positions are inches from the top-left of the bleed-inclusive sheet.
+   Back panel | spine | front panel; every box below sits inside the 0.5 in
+   safety margin of its panel (and 0.5 in from the spine folds). #}
+<section class="cv">
+
+    {# ───── Back ───── #}
+    {# Same width and left edge as the plate mosaic below it. #}
+    <div class="cv-blurb" style="left: {{ back.x + (back.w - mosaic.w) / 2 }}in; top: {{ back.y }}in; width: {{ mosaic.w }}in;">
+        {%- for para in blurb %}<p>{{ para }}</p>{% endfor %}
+    </div>
+    <img class="cv-mosaic" src="{{ mosaic.uri }}" alt="Every plate in the book"
+         style="left: {{ back.x + (back.w - mosaic.w) / 2 }}in; top: {{ mosaic.y }}in; width: {{ mosaic.w }}in; height: {{ mosaic.h }}in;">
+    <div class="cv-back-foot" style="left: {{ back.x }}in; top: {{ back.y + back.h - 0.42 }}in; width: {{ back.w - (barcode.w + 0.2 if barcode.show else 0) }}in;">
+        <span class="cv-back-title">{{ meta.title }}</span>
+        {%- if meta.author %}<span class="cv-back-author">{{ meta.author }}</span>{% endif %}
+    </div>
+    {%- if barcode.show %}
+    <div class="cv-barcode" style="left: {{ back.x + back.w - barcode.w }}in; top: {{ back.y + back.h - barcode.h }}in; width: {{ barcode.w }}in; height: {{ barcode.h }}in;">
+        {%- if barcode.img %}<img src="{{ barcode.img }}" alt="ISBN barcode">{% endif %}
+    </div>
+    {%- endif %}
+
+    {# ───── Spine (text runs top to bottom) ───── #}
+    {%- if spine_text %}
+    {%- set sw = g.panel_h_in - 2 * g.safety_in %}{% set sh = g.spine_in - 2 * spine_clear %}
+    <div class="cv-spine{% if not meta.author %} cv-spine--single{% endif %}"
+         style="left: {{ g.spine_x0 + g.spine_in / 2 - sw / 2 }}in; top: {{ g.height_in / 2 - sh / 2 }}in; width: {{ sw }}in; height: {{ sh }}in; line-height: {{ sh }}in; font-size: {{ [11, sh * 72 * 0.55] | min }}pt;">
+        <span class="cv-spine-title">{{ meta.title }}</span>
+        {%- if meta.author %}<span class="cv-spine-author">{{ meta.author }}</span>{% endif %}
+    </div>
+    {%- endif %}
+
+    {# ───── Front ───── #}
+    <div class="cv-front-title" style="left: {{ front.x }}in; top: {{ front.y + 0.1 }}in; width: {{ front.w }}in;">
+        <h1>{{ meta.title }}</h1>
+        {%- if meta.subtitle %}<p>{{ meta.subtitle }}</p>{% endif %}
+    </div>
+    <img class="cv-hero" src="{{ hero.uri }}" alt="Front cover scene"
+         style="left: {{ front.x + (front.w - hero.w) / 2 }}in; top: {{ front.y + 1.3 }}in; width: {{ hero.w }}in; height: {{ hero.h }}in;">
+    <div class="cv-front-foot" style="left: {{ front.x }}in; top: {{ front.y + front.h - 0.3 }}in; width: {{ front.w }}in;">
+        {%- if meta.author %}<span>{{ meta.author }}</span>{% endif %}
+    </div>
+
+</section>
+</body>
+</html>

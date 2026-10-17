@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ meta.title }} — front matter</title>
+<style>
+{{ css | safe }}
+</style>
+</head>
+<body class="fm-doc">
+
+{# ============================================================
+   Front matter (front_matter.py). Page 1 is a recto; the sequence
+   ends on a recto so plate 001 opens on a verso. Pages without a
+   folio use the `fm_bare` page; the rest number from 1 (physical).
+   ============================================================ #}
+
+{# 1 · half-title (recto) #}
+<section class="fm-bare fm-half-title">
+    <h1 class="fm-display">{{ meta.title }}</h1>
+</section>
+
+{# 2 · frontispiece (verso) #}
+<section class="fm-bare fm-frontis">
+    <img class="fm-frontis-img" src="{{ frontis_uri }}" alt="One strip per plate, each its colormap">
+    <p class="fm-caption">{{ frontis_caption }}</p>
+</section>
+
+{# 3 · title page (recto) #}
+<section class="fm-bare fm-title">
+    <div class="fm-title-block">
+        <h1 class="fm-display fm-display--title">{{ meta.title }}</h1>
+        {%- if meta.subtitle %}<p class="fm-subtitle">{{ meta.subtitle }}</p>{% endif %}
+    </div>
+    <div class="fm-title-foot">
+        {%- if meta.author %}<p class="fm-author">{{ meta.author }}</p>{% endif %}
+        {%- if meta.publisher %}<p class="fm-publisher">{{ meta.publisher }}</p>{% endif %}
+    </div>
+</section>
+
+{# 4 · copyright and credits (verso) #}
+<section class="fm-bare fm-copyright">
+    <div class="fm-copyright-block">
+        <p class="fm-small"><strong>{{ meta.title }}</strong>{% if meta.subtitle %} — {{ meta.subtitle }}{% endif %}</p>
+        <p class="fm-small">{{ meta.edition }}, {{ meta.year_str }}.
+            {%- if meta.holder %} © {{ meta.year_str }} {{ meta.holder }}.{% endif %} {{ meta.rights }}</p>
+        {%- if meta.isbn %}<p class="fm-small">ISBN {{ meta.isbn }}</p>{% endif %}
+        {%- for block in credits %}
+        <h3 class="fm-credit-head">{{ block.heading }}</h3>
+        {%- for line in block.lines %}
+        <p class="fm-credit">{{ line }}</p>
+        {%- endfor %}
+        {%- endfor %}
+    </div>
+</section>
+
+{# 5 · contents (recto) #}
+<section class="fm-page fm-contents">
+    <h2 class="fm-head">Contents</h2>
+    <ol class="fm-toc">
+        <li><a href="#introduction">Introduction</a><span class="fm-leader"></span><span class="fm-pg"><a class="fm-ref" href="#introduction"></a></span></li>
+        <li><a href="#list-of-scenes">List of scenes</a><span class="fm-leader"></span><span class="fm-pg"><a class="fm-ref" href="#list-of-scenes"></a></span></li>
+        <li><a href="#reading">Reading a scene</a><span class="fm-leader"></span><span class="fm-pg"><a class="fm-ref" href="#reading"></a></span></li>
+        <li><span>Plates {{ plates_range }}</span><span class="fm-leader"></span><span class="fm-pg">{{ plates_page }}</span></li>
+        <li><span>Overview — the book at a glance</span><span class="fm-leader"></span><span class="fm-pg">{{ overview_page }}</span></li>
+    </ol>
+</section>
+
+{# 6 · introduction #}
+<section class="fm-page fm-intro" id="introduction">
+    <h2 class="fm-head">Introduction</h2>
+    {%- for para in intro %}
+    <p class="fm-body">{{ para }}</p>
+    {%- endfor %}
+</section>
+
+{# 8 · list of scenes (opens on a verso; the header repeats on each page) #}
+<section class="fm-page fm-plates" id="list-of-scenes">
+    <h2 class="fm-head fm-head--list">List of scenes</h2>
+    <table class="fm-plate-table">
+        <thead><tr><th class="n">Scene</th><th class="place">Place</th><th class="look">Index · colormap</th><th class="pg">Page</th></tr></thead>
+        <tbody>
+        {%- for r in plate_rows %}
+        <tr><td class="n">{{ r.number }}</td><td class="place">{{ r.place }}</td><td class="look">{{ r.look }}</td><td class="pg">{{ r.page }}</td></tr>
+        {%- endfor %}
+        </tbody>
+    </table>
+</section>
+
+{# 10 · reading a scene (verso: the scene · recto: its specimen card) #}
+<section class="fm-page fm-reading" id="reading">
+    <div class="fm-reading-page">
+        <h2 class="fm-head">Reading a scene</h2>
+        <p class="fm-body">Every spread is one scene. The left-hand page is the image; the right-hand page
+            is its specimen card. The first scene in the book is shown here.</p>
+        <div class="fm-reading-row">
+            {%- if miniatures %}<img class="fm-mini" src="{{ miniatures[0] }}" alt="Scene page">{% endif %}
+            <ol class="fm-key">
+                <li><b>Look</b> — the spectral index, by its abbreviation, and the colormap that colors it.</li>
+                <li><b>Place</b> — where on Earth the frame is.</li>
+                <li><b>Caption</b> — a note on the scene, when it has one.</li>
+                <li><b>Plate number</b> — the scene's number in book order; the list of scenes gives its page.</li>
+                <li><b>The image</b> runs to the edge of the paper. North is up unless the frame was rotated; the specimen card gives the rotation.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="fm-reading-page">
+        <h2 class="fm-head fm-head--cont">The specimen card</h2>
+        <div class="fm-reading-row">
+            {%- if miniatures %}<img class="fm-mini" src="{{ miniatures[1] }}" alt="Specimen card">{% endif %}
+            <ol class="fm-key">
+                <li><b>Title and formula</b> — the index's full name and its formula, in the band symbols of Awesome Spectral Indices.</li>
+                <li><b>True color and locator</b> — the same frame in natural color, and the satellite footprints and page frame on a regional map with a globe.</li>
+                <li><b>Bands in use</b> — the sensor's bands along the spectrum, the formula's inputs marked.</li>
+                <li><b>I · Imagery</b> — satellite, date, scene, cloud cover, projection, frame size and pixel size.</li>
+                <li><b>II · Index</b> — what the index is for, its natural range, the range mapped to color, and the scene's statistics.</li>
+                <li><b>III · Colormap</b> — its name, collection and direction, and its lightness, chroma and hue in OKLCh.</li>
+                <li><b>Gradient band</b> — the colormap on its own across the page.</li>
+                <li><b>Curves</b> — lightness L*, chroma C* and hue h° along the colormap.</li>
+                <li><b>Histogram</b> — the scene's values, colored as printed.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{
+ "default": "natural",
+ "presets": [
+  {
+   "contrast": 0.0,
+   "description": "One fixed reflectance window for all three bands, so colors compare across plates and seasons. A good default for vegetated and mixed scenes.",
+   "gamma": 1.8,
+   "id": "natural",
+   "label": "Natural",
+   "midpoint": 0.5,
+   "preset": null,
+   "saturation": 1.0,
+   "stretch": {
+    "hi": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "lo": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mode": "linked",
+    "pHi": 98.0,
+    "pLo": 2.0,
+    "source": "manual"
+   }
+  },
+  {
+   "contrast": 0.0,
+   "description": "Each band stretched to its own 2–98 % range in the frame. Neutralises casts and fills the tonal range; colors are relative to this scene.",
+   "gamma": 1.1,
+   "id": "balanced",
+   "label": "Balanced",
+   "midpoint": 0.5,
+   "preset": null,
+   "saturation": 1.0,
+   "stretch": {
+    "hi": null,
+    "lo": null,
+    "mode": "per-channel",
+    "pHi": 98.0,
+    "pLo": 2.0,
+    "source": "auto"
+   }
+  },
+  {
+   "contrast": 6.0,
+   "description": "Per-band black points at the 1st percentile remove the blue-heavy atmospheric veil (dark-object subtraction) while one shared gain keeps the color balance; a gentle S-curve and a little chroma restore depth.",
+   "gamma": 1.4,
+   "id": "haze_cut",
+   "label": "Haze-cut",
+   "midpoint": 0.45,
+   "preset": null,
+   "saturation": 1.15,
+   "stretch": {
+    "hi": null,
+    "lo": null,
+    "mode": "dark-object",
+    "pHi": 99.5,
+    "pLo": 1.0,
+    "source": "auto"
+   }
+  },
+  {
+   "contrast": 3.0,
+   "description": "A wide fixed window that keeps snow, ice, salt flats and dunes from clipping to white; a soft S-curve keeps the darks from going flat.",
+   "gamma": 1.6,
+   "id": "bright_surfaces",
+   "label": "Bright surfaces",
+   "midpoint": 0.5,
+   "preset": null,
+   "saturation": 1.05,
+   "stretch": {
+    "hi": [
+     0.9,
+     0.9,
+     0.9
+    ],
+    "lo": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mode": "linked",
+    "pHi": 98.0,
+    "pLo": 2.0,
+    "source": "manual"
+   }
+  }
+ ],
+ "schemaVersion": 3,
+ "specVersion": 1
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Locations pool — review</title>
+<link rel="stylesheet" href="{{ css_rel }}">
+</head>
+<body>
+<div class="shell">
+
+  <header class="review-header">
+    <div>
+      <h1>Locations pool</h1>
+      <div class="subtitle">Stage 3 — candidate review</div>
+    </div>
+    <div class="counts">
+      <span class="proposed">proposed <span class="num">{{ counts.proposed }}</span></span>
+      <span class="approved">approved <span class="num">{{ counts.approved }}</span></span>
+      <span class="rejected">rejected <span class="num">{{ counts.rejected }}</span></span>
+      <span class="needs_revision">needs_revision <span class="num">{{ counts.needs_revision }}</span></span>
+    </div>
+  </header>
+
+  <nav class="toplinks">
+    <a class="active" href="locations.html">locations</a>
+    <a href="indices.html">indices</a>
+    <a href="colormaps.html">colormaps</a>
+  </nav>
+
+  <div class="process-banner">
+    <h3>Review workflow</h3>
+    <p>Walk the contact sheet below. Each card shows the location at 80&nbsp;m
+    Sentinel-2 RGB, picked from the lowest-cloud full-coverage scene across
+    the proposed season window ±2 years. Colored dots summarize: <span
+    style="color:var(--indicator-ok)">●</span>&nbsp;aspect-fit
+    · <span style="color:var(--indicator-ok)">●</span>&nbsp;AOI ceiling
+    · <span style="color:var(--indicator-ok)">●</span>&nbsp;coverage
+    · <span style="color:var(--indicator-ok)">●</span>&nbsp;feasibility
+    (hover for detail).</p>
+    <ol>
+      <li><strong>Scan the thumbnails.</strong> Reject cards where the
+        landscape is too quiet, the AOI is wrong, or coverage / cloud is bad.</li>
+      <li><strong>Click <kbd>more</kbd></strong> on any card for full indicator
+        readout, scene IDs, the bbox, and a one-click <em>open in geojson.io</em>
+        link to verify the AOI in a real map.</li>
+      <li><strong>Edit <code>config/pool/locations.yaml</code></strong>
+        directly — change <code>status:</code> from <code>proposed</code> to
+        <code>approved</code> / <code>rejected</code> / <code>needs_revision</code>.
+        Each card has a <em>copy approved</em> button that puts the YAML
+        snippet on your clipboard.</li>
+      <li><strong>Re-run <code>spectralcular review locations --no-fetch</code></strong>
+        (~2&nbsp;s) to refresh the status pills from your edits.
+        Use <code>spectralcular review locations --refresh</code> to re-fetch a single
+        card you've edited (e.g. shifted the season window) — combine with
+        <code>--only&nbsp;&lt;id&gt;</code>.</li>
+      <li><strong>Done</strong> when no <code>proposed</code> entries remain.
+        Rejected entries stay in YAML so the audit trail survives.</li>
+    </ol>
+  </div>
+
+  <div class="grid">
+    {% for c in cards %}
+    <div class="card" id="{{ c.entry.id }}">
+      <div class="hero">
+        {% if c.rgb_rel %}
+          <img src="{{ c.rgb_rel }}" alt="80 m RGB preview of {{ c.entry.name }}" loading="lazy">
+        {% else %}
+          <div class="empty">no preview<br>{{ c.preview.error or 'cache miss' }}</div>
+        {% endif %}
+      </div>
+
+      <div class="body">
+        <div class="header-row">
+          <h2 title="{{ c.entry.name }}">{{ c.entry.name }}</h2>
+          <span class="status {{ c.status }}">{{ c.status }}</span>
+        </div>
+        <p class="character" title="{{ c.entry.landscape_character }}">{{ c.entry.landscape_character }}</p>
+
+        <div class="dots">
+          <span class="dot {% if c.aspect_ok %}ok{% else %}warn{% endif %}"
+                title="aspect — {{ c.aspect_msg }}">●</span>
+          <span class="dot {% if c.ceiling_ok %}ok{% else %}warn{% endif %}"
+                title="{{ c.ceiling_msg }}">●</span>
+          {% if c.preview.coverage_fraction is not none %}
+          <span class="dot {% if c.preview.coverage_fraction >= 0.98 %}ok{% elif c.preview.coverage_fraction >= 0.85 %}warn{% else %}bad{% endif %}"
+                title="spatial coverage {{ '%.1f' % (c.preview.coverage_fraction * 100) }}%">●</span>
+          {% endif %}
+          {% set best_n = namespace(value=0) %}
+          {% for f in c.preview.feasibility %}{% if f.n_scenes > best_n.value %}{% set best_n.value = f.n_scenes %}{% endif %}{% endfor %}
+          <span class="dot {% if best_n.value >= 4 %}ok{% elif best_n.value > 0 %}warn{% else %}bad{% endif %}"
+                title="best window: {{ best_n.value }} scenes">●</span>
+        </div>
+
+        <details class="more">
+          <summary>more</summary>
+
+          <div class="tags">
+            {% for theme in c.entry.themes %}<span class="tag">{{ theme }}</span>{% endfor %}
+            <span class="tag">{{ c.entry.source }}</span>
+          </div>
+
+          <div class="indicators">
+            <div class="indicator {% if c.aspect_ok %}ok{% else %}warn{% endif %}">
+              <span class="glyph">{% if c.aspect_ok %}✓{% else %}⚠{% endif %}</span>
+              <span>aspect — {{ c.aspect_msg }}</span>
+            </div>
+            <div class="indicator {% if c.ceiling_ok %}ok{% else %}warn{% endif %}">
+              <span class="glyph">{% if c.ceiling_ok %}✓{% else %}⚠{% endif %}</span>
+              <span>{{ c.ceiling_msg }}</span>
+            </div>
+            {% if c.preview.coverage_fraction is not none %}
+            <div class="indicator {% if c.preview.coverage_fraction >= 0.98 %}ok{% elif c.preview.coverage_fraction >= 0.85 %}warn{% else %}bad{% endif %}">
+              <span class="glyph">{% if c.preview.coverage_fraction >= 0.98 %}✓{% elif c.preview.coverage_fraction >= 0.85 %}⚠{% else %}✗{% endif %}</span>
+              <span>spatial coverage {{ '%.1f' % (c.preview.coverage_fraction * 100) }}%</span>
+            </div>
+            {% endif %}
+            {% for f in c.preview.feasibility %}
+            <div class="indicator {% if f.n_scenes >= 4 %}ok{% elif f.n_scenes > 0 %}warn{% else %}bad{% endif %}">
+              <span class="glyph">{% if f.n_scenes >= 4 %}✓{% elif f.n_scenes > 0 %}⚠{% else %}✗{% endif %}</span>
+              <span>
+                {{ f.season_window }} —
+                {% if f.error %}error: {{ f.error }}
+                {% elif f.n_scenes == 0 %}0 scenes &lt; {{ c.entry.cloud_cover_max }}% cloud
+                {% else %}{{ f.n_scenes }} scenes / {{ f.n_tiles }} tiles, cloud min {{ '%.1f' % f.min_cloud }}%, mean {{ '%.1f' % f.mean_cloud }}%
+                {% endif %}
+              </span>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div style="font-family: var(--mono); font-size: 10.5px; color: var(--fg-mute); margin: 4px 0;">
+            {{ c.entry.bbox[0] }}, {{ c.entry.bbox[1] }} → {{ c.entry.bbox[2] }}, {{ c.entry.bbox[3] }}
+          </div>
+
+          <a class="tag" href="{{ c.geojsonio_url }}" target="_blank" rel="noopener">↗ open bbox in geojson.io</a>
+
+          <div class="copyblock">
+            <code>id: {{ c.entry.id }}</code>
+            <button onclick="navigator.clipboard.writeText('  - id: {{ c.entry.id }}\n    status: approved')">copy approved</button>
+          </div>
+
+          {% if c.entry.notes %}
+          <div class="notes"><strong>Notes.</strong> {{ c.entry.notes }}</div>
+          {% endif %}
+          {% if c.entry.reviewer_notes %}
+          <div class="notes"><strong>Reviewer.</strong> {{ c.entry.reviewer_notes }}</div>
+          {% endif %}
+        </details>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+</body>
+</html>

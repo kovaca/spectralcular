@@ -1,0 +1,334 @@
+{
+ "defaultPlatform": "sentinel-2-l2a",
+ "entries": [
+  {
+   "bandsNm": {
+    "blue": [
+     "B02",
+     "blue",
+     490.0
+    ],
+    "cirrus": [
+     "B10",
+     "cirrus",
+     1375.0
+    ],
+    "coastal": [
+     "B01",
+     "coastal",
+     443.0
+    ],
+    "green": [
+     "B03",
+     "green",
+     560.0
+    ],
+    "nir": [
+     "B08",
+     "near-infrared",
+     842.0
+    ],
+    "nir08": [
+     "B8A",
+     "narrow NIR",
+     865.0
+    ],
+    "nir09": [
+     "B09",
+     "water vapour",
+     945.0
+    ],
+    "red": [
+     "B04",
+     "red",
+     665.0
+    ],
+    "rededge1": [
+     "B05",
+     "red edge",
+     705.0
+    ],
+    "rededge2": [
+     "B06",
+     "red edge",
+     740.0
+    ],
+    "rededge3": [
+     "B07",
+     "red edge",
+     783.0
+    ],
+    "swir16": [
+     "B11",
+     "SWIR",
+     1610.0
+    ],
+    "swir22": [
+     "B12",
+     "SWIR",
+     2190.0
+    ]
+   },
+   "cloudProperty": "eo:cloud_cover",
+   "collection": "sentinel-2-l2a",
+   "dtype": "uint16",
+   "gridProperty": "grid:code",
+   "gsdByAsset": {
+    "blue": 10,
+    "cirrus": 60,
+    "coastal": 60,
+    "green": 10,
+    "nir": 10,
+    "nir08": 20,
+    "nir09": 60,
+    "red": 10,
+    "rededge1": 20,
+    "rededge2": 20,
+    "rededge3": 20,
+    "scl": 20,
+    "swir16": 20,
+    "swir22": 20
+   },
+   "id": "sentinel-2-l2a",
+   "label": "Sentinel-2 L2A",
+   "mask": {
+    "asset": "scl",
+    "kind": "scl-classes",
+    "values": [
+     0,
+     1,
+     3,
+     8,
+     9,
+     10,
+     11
+    ]
+   },
+   "nativeResM": 10.0,
+   "nodata": {
+    "*": 0.0
+   },
+   "orbitProperty": null,
+   "paramToAsset": {
+    "A": "coastal",
+    "B": "blue",
+    "G": "green",
+    "N": "nir",
+    "N2": "nir08",
+    "R": "red",
+    "RE1": "rededge1",
+    "RE2": "rededge2",
+    "RE3": "rededge3",
+    "S1": "swir16",
+    "S2": "swir22"
+   },
+   "rgbAssets": [
+    "red",
+    "green",
+    "blue"
+   ],
+   "signing": "none",
+   "stacApi": "https://earth-search.aws.element84.com/v1",
+   "stacQuery": {},
+   "valueCeiling": null,
+   "valueScale": {
+    "*": [
+     0.0001,
+     0.0
+    ],
+    "scl": [
+     1.0,
+     0.0
+    ]
+   },
+   "wavelengthNm": {
+    "lambdaG": 560.0,
+    "lambdaN": 842.0,
+    "lambdaN2": 865.0,
+    "lambdaR": 665.0,
+    "lambdaS1": 1610.0,
+    "lambdaS2": 2190.0
+   }
+  },
+  {
+   "bandsNm": {
+    "blue": [
+     "B2",
+     "blue",
+     482.0
+    ],
+    "coastal": [
+     "B1",
+     "coastal",
+     443.0
+    ],
+    "green": [
+     "B3",
+     "green",
+     561.0
+    ],
+    "lwir11": [
+     "B10",
+     "thermal",
+     10895.0
+    ],
+    "lwir12": [
+     "B11",
+     "thermal",
+     12005.0
+    ],
+    "nir08": [
+     "B5",
+     "near-infrared",
+     865.0
+    ],
+    "red": [
+     "B4",
+     "red",
+     655.0
+    ],
+    "swir16": [
+     "B6",
+     "SWIR",
+     1609.0
+    ],
+    "swir22": [
+     "B7",
+     "SWIR",
+     2201.0
+    ]
+   },
+   "cloudProperty": "eo:cloud_cover",
+   "collection": "landsat-c2-l2",
+   "dtype": "uint16",
+   "gridProperty": [
+    "landsat:wrs_path",
+    "landsat:wrs_row"
+   ],
+   "gsdByAsset": {
+    "blue": 30,
+    "coastal": 30,
+    "green": 30,
+    "lwir11": 30,
+    "lwir12": 30,
+    "nir08": 30,
+    "qa_pixel": 30,
+    "red": 30,
+    "swir16": 30,
+    "swir22": 30
+   },
+   "id": "landsat-c2-l2",
+   "label": "Landsat 8/9 C2 L2",
+   "mask": {
+    "asset": "qa_pixel",
+    "kind": "qa-bits",
+    "values": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "nativeResM": 30.0,
+   "nodata": {
+    "*": 0.0
+   },
+   "orbitProperty": null,
+   "paramToAsset": {
+    "A": "coastal",
+    "B": "blue",
+    "G": "green",
+    "N": "nir08",
+    "R": "red",
+    "S1": "swir16",
+    "S2": "swir22",
+    "T": "lwir11",
+    "T1": "lwir11",
+    "T2": "lwir12"
+   },
+   "rgbAssets": [
+    "red",
+    "green",
+    "blue"
+   ],
+   "signing": "planetary-computer",
+   "stacApi": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "stacQuery": {
+    "platform": {
+     "in": [
+      "landsat-8",
+      "landsat-9"
+     ]
+    }
+   },
+   "valueCeiling": null,
+   "valueScale": {
+    "*": [
+     2.75e-05,
+     -0.2
+    ],
+    "lwir11": [
+     0.00341802,
+     149.0
+    ],
+    "lwir12": [
+     0.00341802,
+     149.0
+    ],
+    "qa_pixel": [
+     1.0,
+     0.0
+    ]
+   },
+   "wavelengthNm": {
+    "lambdaG": 561.0,
+    "lambdaN": 865.0,
+    "lambdaR": 655.0,
+    "lambdaS1": 1609.0,
+    "lambdaS2": 2201.0
+   }
+  },
+  {
+   "bandsNm": {},
+   "cloudProperty": null,
+   "collection": "sentinel-1-rtc",
+   "dtype": "float32",
+   "gridProperty": null,
+   "gsdByAsset": {
+    "hh": 10,
+    "hv": 10,
+    "vh": 10,
+    "vv": 10
+   },
+   "id": "sentinel-1-rtc",
+   "label": "Sentinel-1 RTC",
+   "mask": null,
+   "nativeResM": 10.0,
+   "nodata": {
+    "*": -32768.0
+   },
+   "orbitProperty": "sat:orbit_state",
+   "paramToAsset": {
+    "HH": "hh",
+    "HV": "hv",
+    "VH": "vh",
+    "VV": "vv"
+   },
+   "rgbAssets": null,
+   "signing": "planetary-computer",
+   "stacApi": "https://planetarycomputer.microsoft.com/api/stac/v1",
+   "stacQuery": {},
+   "valueCeiling": 2.0,
+   "valueScale": {
+    "*": [
+     1.0,
+     0.0
+    ]
+   },
+   "wavelengthNm": {}
+  }
+ ],
+ "schemaVersion": 3
+}

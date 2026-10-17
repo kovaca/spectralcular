@@ -1,0 +1,41 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+*.egg-info/
+
+# macOS / editors
+.DS_Store
+.claude/
+.vscode/
+.idea/
+
+# Pipeline caches and outputs (regenerable; tens of GB at book scale).
+# Anchored to the repo root: web/src/lib/data is committed (CI checks it).
+/data/
+/assets/
+/output/
+
+# Curation state belongs to a project folder (`spectralcular init`), not the
+# checkout; keep a stray `candidates lock` run here from showing up in git.
+/config/candidates.yaml
+/config/spreads/
+/spreads.csv
+
+# Vendor template packages are downloaded per user; not redistributable
+lulu-book-template-us-letter/
+
+# Web (nested web/.gitignore also covers node_modules and build)
+web/node_modules/
+web/build/
+web/.svelte-kit/
+
+# Scratch, secrets, stray renders
+*.log
+.env
+.env.*
+*.pdf

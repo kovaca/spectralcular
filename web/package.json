@@ -1,0 +1,51 @@
+{
+	"name": "spectralcular-picker",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@12.5.1",
+	"engines": {
+		"node": ">=24"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/kit": "^2.70.3",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"@types/geojson": "^7946.0.16",
+		"svelte": "^5.57.1",
+		"svelte-check": "^4.7.6",
+		"typescript": "^5.9.3",
+		"vite": "^8.3.1",
+		"vitest": "^4.1.11"
+	},
+	"dependencies": {
+		"@deck.gl/core": "^9.4.0",
+		"@deck.gl/geo-layers": "^9.4.0",
+		"@deck.gl/layers": "^9.4.0",
+		"@deck.gl/mapbox": "^9.4.0",
+		"@deck.gl/mesh-layers": "^9.4.0",
+		"@developmentseed/deck.gl-geotiff": "^0.8.1",
+		"@developmentseed/deck.gl-raster": "^0.8.1",
+		"@developmentseed/geotiff": "^0.8.1",
+		"@luma.gl/core": "^9.4.2",
+		"@luma.gl/engine": "^9.4.2",
+		"@luma.gl/shadertools": "^9.4.2",
+		"@svelte-maplibre-gl/deckgl": "^2.0.2",
+		"@turf/area": "^7.4.0",
+		"@turf/helpers": "^7.4.0",
+		"@turf/intersect": "^7.4.0",
+		"geotiff": "^3.0.5",
+		"maplibre-gl": "^6.11.2",
+		"proj4": "^2.22.0",
+		"svelte-maplibre-gl": "^2.2.1",
+		"zod": "^4.6.5"
+	}
+}

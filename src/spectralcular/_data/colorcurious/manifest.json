@@ -1,0 +1,23 @@
+{
+ "source": "https://colorcurio.us/colormaps",
+ "source_repo": "https://github.com/kovaca/colorcurious",
+ "source_commit": "7f44dbb59445dc0bb6a2cb838550d52afbe25508",
+ "synced_at": "2026-09-06T05:35:36+00:00",
+ "record_count": 386,
+ "slim": true,
+ "sprite_sha256": "baead3b2191901d6e02c61f45c53f27067b7f40588754a704c72cc15db741faf",
+ "licenses": {
+  "CC-BY-4.0": 134,
+  "BSD-3": 91,
+  "MIT": 32,
+  "Apache-2.0": 35,
+  "ISC": 4,
+  "Apache-2.0 (Google) / ISC (d3 port)": 1,
+  "matplotlib (BSD-derived)": 21,
+  "Apache-2.0 (ColorBrewer)": 2,
+  "CC0": 6,
+  "MIT (wrapper) / public-domain (data)": 11,
+  "BSD-3 (Niccoli, mycarta)": 9,
+  "BSD-3-Clause": 40
+ }
+}

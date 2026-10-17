@@ -1,0 +1,197 @@
+# How to read the indices a plate is most likely to use. Exported with each
+# index by `spectralcular export-web` and shown in the plate picker's III Read step.
+#
+#   measures / high / low   one line each, plain language
+#   typical                 where real scenes usually fall; the suggested fixed
+#                           range when plates should read alike across the book
+#   classes                 contiguous labeled value bands (first open below,
+#                           last open above). `expect` lists the reference
+#                           surfaces (config/reference_surfaces.yaml) that must
+#                           fall in the band; tests/test_index_reading.py checks
+#                           every guide against the measured spectra
+#   center                  a value with meaning on both sides; diverging maps
+#                           split here
+#   caveats                 what commonly misleads
+#   source                  where the thresholds come from
+#
+# Sentinel-2 L2A reflectance throughout. Other indices get the automatic
+# reading (formula bounds + reference-surface ticks) without a guide.
+
+NDVI:
+  measures: How much more near-infrared than red light the surface reflects, a proxy for green leaf cover.
+  high: Dense, healthy green canopy.
+  low: Water and snow fall below zero; bare ground, built surfaces and cloud sit just above it.
+  typical: [-0.2, 0.9]
+  center: 0
+  center_label: water & snow · land
+  classes:
+    - {hi: 0.0, label: water · snow, expect: [open_water, turbid_water, snow]}
+    - {lo: 0.0, hi: 0.2, label: bare ground · built · dry grass · cloud, expect: [desert_sand, urban, bare_soil, burn_scar, dry_grass, cloud]}
+    - {lo: 0.2, hi: 0.5, label: sparse or stressed vegetation}
+    - {lo: 0.5, hi: 0.8, label: green crops · grassland · woodland, expect: [cropland]}
+    - {lo: 0.8, label: dense canopy (saturating), expect: [rainforest]}
+  caveats:
+    - Saturates over dense canopy; forests and lush crops crowd together above 0.8. EVI keeps contrast there.
+    - Bright soil lifts sparse canopies; SAVI or MSAVI correct for it.
+    - Thin cloud and haze pull values toward zero; keep the mask on.
+  source: USGS EROS NDVI phenology guidance (bare < 0.1, shrub and grass 0.2–0.3, forest 0.6–0.8); bands checked against the reference surfaces.
+
+EVI:
+  measures: Green leaf cover like NDVI, corrected for soil background and haze with the blue band.
+  high: Dense green canopy, without NDVI's early saturation.
+  low: Water and snow are negative; bare and built ground sit near zero.
+  typical: [-0.1, 0.8]
+  classes:
+    - {hi: 0.0, label: water · snow, expect: [turbid_water, open_water, snow]}
+    - {lo: 0.0, hi: 0.15, label: bare ground · built · dry grass · burns, expect: [desert_sand, urban, bare_soil, burn_scar, dry_grass]}
+    - {lo: 0.15, hi: 0.4, label: sparse to moderate vegetation · cloud, expect: [cloud]}
+    - {lo: 0.4, label: dense green vegetation, expect: [cropland, rainforest]}
+  caveats:
+    - Bright blue (cloud, snow, haze) destabilises the denominator, so values can blow out far past ±1. Mask clouds.
+    - Clouds read as moderate vegetation here, not near zero as in NDVI.
+  source: Huete et al. (2002) coefficients (G 2.5, C1 6, C2 7.5, L 1); bands checked against the reference surfaces.
+
+SAVI:
+  measures: Green leaf cover with a soil-brightness correction (L = 0.5), for sparse canopies over bright ground.
+  high: Dense green canopy.
+  low: Water and snow are negative; bare and built ground sit near zero.
+  typical: [-0.1, 0.6]
+  classes:
+    - {hi: 0.0, label: water · snow, expect: [turbid_water, open_water, snow]}
+    - {lo: 0.0, hi: 0.1, label: bare ground · built · dry grass · burns, expect: [desert_sand, urban, bare_soil, burn_scar, dry_grass, cloud]}
+    - {lo: 0.1, hi: 0.3, label: sparse vegetation}
+    - {lo: 0.3, label: dense green vegetation, expect: [cropland, rainforest]}
+  caveats:
+    - Reads lower than NDVI for the same canopy; don't compare the two on one fixed range.
+  source: Huete (1988); bands checked against the reference surfaces.
+
+MSAVI:
+  measures: Green leaf cover with a soil correction that adapts to canopy density.
+  high: Dense green canopy.
+  low: Water and snow are negative; bare and built ground sit near zero.
+  typical: [-0.1, 0.7]
+  classes:
+    - {hi: 0.0, label: water · snow, expect: [turbid_water, open_water, snow]}
+    - {lo: 0.0, hi: 0.1, label: bare ground · built · dry grass · burns, expect: [desert_sand, urban, bare_soil, burn_scar, dry_grass, cloud]}
+    - {lo: 0.1, hi: 0.35, label: sparse vegetation}
+    - {lo: 0.35, label: dense green vegetation, expect: [cropland, rainforest]}
+  caveats:
+    - Most useful where vegetation is patchy over bright soil (drylands, early-season crops).
+  source: Qi et al. (1994); bands checked against the reference surfaces.
+
+NDWI:
+  measures: Green against near-infrared reflectance, which separates open water from land.
+  high: Open water, clear or turbid.
+  low: Vegetation, strongly negative.
+  typical: [-0.8, 0.6]
+  center: 0
+  center_label: land · water
+  classes:
+    - {hi: -0.3, label: vegetation, expect: [rainforest, cropland, dry_grass]}
+    - {lo: -0.3, hi: 0.0, label: bare ground · built · sand · burns · cloud, expect: [desert_sand, burn_scar, bare_soil, urban, cloud]}
+    - {lo: 0.0, hi: 0.2, label: wet ground · shallow or mixed water · snow, expect: [snow]}
+    - {lo: 0.2, label: open water, expect: [open_water, turbid_water]}
+  caveats:
+    - Built-up surfaces can creep above zero and read as water; MNDWI suppresses them.
+    - This is McFeeters' water index; the canopy-moisture NDWI of Gao is NDMI here.
+  source: McFeeters (1996), water above 0; bands checked against the reference surfaces.
+
+MNDWI:
+  measures: Green against shortwave-infrared reflectance; open water stands out and built-up land is suppressed.
+  high: Open water, and snow (which MNDWI can't tell apart from water).
+  low: Vegetation and bare soil.
+  typical: [-0.7, 0.9]
+  center: 0
+  center_label: land · water
+  classes:
+    - {hi: -0.4, label: vegetation · bare soil · burns, expect: [dry_grass, cropland, burn_scar, rainforest, bare_soil]}
+    - {lo: -0.4, hi: 0.0, label: sand · built surfaces, expect: [desert_sand, urban]}
+    - {lo: 0.0, hi: 0.3, label: cloud · wet ground · water edges, expect: [cloud]}
+    - {lo: 0.3, label: open water · snow, expect: [open_water, turbid_water, snow]}
+  caveats:
+    - Snow and ice read like water; check the season and elevation.
+    - Clear, deep water reflects almost no shortwave infrared, so its value is noisy scene to scene even though it is always high.
+  source: Xu (2006), water above 0; bands checked against the reference surfaces.
+
+NDSI:
+  measures: Green against shortwave-infrared reflectance; snow is bright in green and dark in SWIR.
+  high: Snow and ice, and also water, which shares the signature.
+  low: Snow-free land.
+  typical: [-0.6, 0.9]
+  center: 0.4
+  center_label: snow threshold
+  classes:
+    - {hi: 0.0, label: snow-free land, expect: [dry_grass, cropland, burn_scar, rainforest, bare_soil, desert_sand, urban]}
+    - {lo: 0.0, hi: 0.4, label: cloud · patchy or dirty snow · water edges, expect: [cloud]}
+    - {lo: 0.4, label: snow and ice, or water, expect: [snow, turbid_water, open_water]}
+  caveats:
+    - Water passes the snow threshold too; operational snow maps also require NIR above ~0.11.
+    - Same formula as MNDWI on Sentinel-2; only the reading differs.
+  source: Hall et al. (1995) snow threshold 0.4; bands checked against the reference surfaces.
+
+NDMI:
+  measures: Near-infrared against shortwave-infrared reflectance, a proxy for water held in leaves.
+  high: Well-watered dense canopy; water and snow read high too.
+  low: Dry ground, dry grass and fresh burns.
+  typical: [-0.5, 0.6]
+  center: 0
+  center_label: drier · wetter
+  classes:
+    - {hi: -0.2, label: dry soil · dry grass · burns, expect: [burn_scar, dry_grass, bare_soil]}
+    - {lo: -0.2, hi: 0.0, label: sand · built · drying vegetation, expect: [desert_sand, urban]}
+    - {lo: 0.0, hi: 0.3, label: moderate canopy water (crops, grassland) · cloud, expect: [cropland, cloud]}
+    - {lo: 0.3, label: dense, well-watered canopy · water · snow, expect: [rainforest, turbid_water, snow]}
+  caveats:
+    - Water and snow read high for optical reasons, not because they are "moist vegetation"; mask or crop them out when reading canopy stress.
+    - Also published as Gao's NDWI; not the same index as McFeeters' NDWI.
+  source: Gao (1996) and Wilson & Sader (2002); bands checked against the reference surfaces.
+
+NBR:
+  measures: Near-infrared against long shortwave-infrared reflectance; burning drops the first and raises the second.
+  high: Healthy dense vegetation (and snow).
+  low: Fresh burn scars, then bare soil and dry grass.
+  typical: [-0.5, 0.8]
+  center: 0
+  center_label: burned & bare · vegetated
+  classes:
+    - {hi: -0.1, label: fresh burns · bare soil · dry grass, expect: [burn_scar, bare_soil, dry_grass]}
+    - {lo: -0.1, hi: 0.1, label: sand · built · sparse cover, expect: [desert_sand, urban]}
+    - {lo: 0.1, hi: 0.4, label: moderate vegetation · cloud · water, expect: [cloud, turbid_water]}
+    - {lo: 0.4, label: healthy dense vegetation · snow, expect: [cropland, rainforest, snow]}
+  caveats:
+    - One date can't tell a burn scar from bare soil. Burn severity is the pre- minus post-fire difference (dNBR).
+    - Snow and water read high; mask them when comparing burns.
+  source: Key & Benson (2006), FIREMON; bands checked against the reference surfaces.
+
+NDBI:
+  measures: Shortwave-infrared against near-infrared reflectance; built surfaces and bare ground reflect more SWIR than vegetation.
+  high: Bare soil, dry grass and burns; built-up land is only mildly positive.
+  low: Vegetation, water and snow.
+  typical: [-0.5, 0.4]
+  center: 0
+  center_label: vegetated & wet · built & bare
+  classes:
+    - {hi: -0.2, label: dense vegetation · water · snow, expect: [snow, rainforest, turbid_water]}
+    - {lo: -0.2, hi: 0.0, label: crops in leaf · cloud, expect: [cropland, cloud]}
+    - {lo: 0.0, hi: 0.2, label: built-up · sand, expect: [urban, desert_sand]}
+    - {lo: 0.2, label: bare soil · dry grass · burns, expect: [bare_soil, dry_grass, burn_scar]}
+  caveats:
+    - NDBI confuses cities with bare and dry ground. Here dense city fabric reads lower than a ploughed field.
+    - The reverse of NDMI on Sentinel-2 (NDBI = −NDMI).
+  source: Zha et al. (2003); bands checked against the reference surfaces.
+
+BI:
+  measures: Shortwave-infrared and red against near-infrared and blue, which picks out exposed soil.
+  high: Bare soil, sand, dry grass and burns.
+  low: Vegetation, water and snow.
+  typical: [-0.4, 0.4]
+  center: 0
+  center_label: covered · bare
+  classes:
+    - {hi: -0.15, label: dense vegetation · clear water · snow, expect: [rainforest, open_water, snow]}
+    - {lo: -0.15, hi: 0.05, label: crops in leaf · cloud · turbid water, expect: [cropland, cloud, turbid_water]}
+    - {lo: 0.05, hi: 0.2, label: built-up, expect: [urban]}
+    - {lo: 0.2, label: bare soil · sand · dry grass · burns, expect: [desert_sand, bare_soil, dry_grass, burn_scar]}
+  caveats:
+    - Built-up land sits between vegetation and bare soil; it isn't isolated.
+  source: Rikimaru et al. (2002) bare soil index; bands checked against the reference surfaces.

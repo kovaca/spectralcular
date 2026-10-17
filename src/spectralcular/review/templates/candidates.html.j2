@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Candidate matrix — review</title>
+<link rel="stylesheet" href="{{ css_rel }}">
+</head>
+<body>
+<div class="shell">
+
+  <header class="review-header">
+    <div>
+      <h1>Candidate matrix</h1>
+      <div class="subtitle">Stage 4 — triple selection &amp; gating</div>
+    </div>
+    <div class="counts">
+      <span class="proposed">proposed <span class="num">{{ counts.proposed }}</span></span>
+      <span class="approved">approved <span class="num">{{ counts.approved }}</span></span>
+      <span class="rejected">rejected <span class="num">{{ counts.rejected }}</span></span>
+      <span class="needs_revision">needs_revision <span class="num">{{ counts.needs_revision }}</span></span>
+    </div>
+  </header>
+
+  <nav class="toplinks">
+    <a href="locations.html">locations</a>
+    <a href="indices.html">indices</a>
+    <a href="colormaps.html">colormaps</a>
+    <a class="active" href="candidates.html">candidates</a>
+  </nav>
+
+  <div class="process-banner">
+    <h3>Review workflow</h3>
+    <p>Each row groups the colormap variants for one <strong>location × index</strong>
+    so you compare palettes side by side. Plates use the per-index
+    <em>global</em> normalization (one range across the book). Toggle
+    <kbd>CVD</kbd> on a card to preview approximate
+    <em>{{ cvd_kind }}</em> color vision. Gate on: washed-out / low range
+    coverage, gamut risk (print-safety tag), colormap mismatched with the
+    data's pivot, and colorblind legibility.</p>
+    <ol>
+      <li><strong>Scan each location×index row.</strong> Reject duds; keep the
+        palette(s) that read best and vary across the book.</li>
+      <li><strong>Click <kbd>more</kbd></strong> for the histogram, summary
+        stats, range coverage, and pairing provenance.</li>
+      <li><strong>Edit <code>config/candidates.yaml</code></strong> — set
+        <code>status:</code> to <code>approved</code> / <code>rejected</code> /
+        <code>needs_revision</code>. Each card copies its id snippet.</li>
+      <li><strong>Re-run <code>spectralcular candidates review --no-fetch</code></strong>
+        to refresh pills from cache (~seconds). Use <code>--refresh</code> to
+        recolorize, or <code>--only &lt;location_id&gt;</code> to re-fetch one
+        location's imagery.</li>
+      <li><strong>Then</strong> <code>spectralcular candidates order --auto</code> to
+        sequence and <code>spectralcular candidates lock</code> to emit the merge sheet.</li>
+    </ol>
+  </div>
+
+  {% for g in groups %}
+  <section class="theme-section">
+    <h2 class="theme-title">{{ g.theme }}</h2>
+    {% for sg in g.subgroups %}
+    <div class="li-group">
+      <div class="li-head">
+        <span class="li-loc">{{ sg.location_name }}</span>
+        <span class="li-index">{{ sg.index_name }}</span>
+        <span class="li-norm">{{ sg.norm_desc }}</span>
+      </div>
+      <div class="cmap-row">
+        {% for c in sg.cards %}
+        <div class="ccard" id="{{ c.entry.id }}">
+          <div class="hero">
+            {% if c.thumb_rel %}
+              <img class="plate" src="{{ c.thumb_rel }}" alt="{{ c.index_name }} · {{ c.colormap_short }}" loading="lazy">
+              {% if c.cvd_rel %}<img class="plate cvd" src="{{ c.cvd_rel }}" alt="CVD-simulated" loading="lazy">{% endif %}
+            {% else %}
+              <div class="empty">{{ c.error or 'cache miss' }}</div>
+            {% endif %}
+          </div>
+
+          <div class="body">
+            <div class="header-row">
+              <h3 title="{{ c.colormap_short }}">{{ c.colormap_short }}</h3>
+              <span class="status {{ c.status }}">{{ c.status }}</span>
+            </div>
+
+            <div class="dots">
+              <span class="dot {% if c.print_safety == 'safe' %}ok{% elif c.print_safety == 'watchlist' %}warn{% elif c.print_safety == 'unsafe' %}bad{% endif %}"
+                    title="print-safety: {{ c.print_safety }}">●</span>
+              {% if c.coverage_pct is not none %}
+              <span class="dot {% if c.coverage_pct >= 50 %}ok{% elif c.coverage_pct >= 25 %}warn{% else %}bad{% endif %}"
+                    title="range coverage {{ '%.0f' % c.coverage_pct }}% of global span">●</span>
+              {% endif %}
+              <span class="tag type">{{ c.colormap_type }}</span>
+              {% if c.cvd_rel %}<button class="cvd-toggle" onclick="this.closest('.ccard').classList.toggle('show-cvd')">CVD</button>{% endif %}
+            </div>
+
+            <details class="more">
+              <summary>more</summary>
+              {% if c.hist_rel %}<div class="hist"><img src="{{ c.hist_rel }}" alt="histogram"></div>{% endif %}
+              {% if c.stats %}
+              <div class="statline">
+                min {{ '%.2f' % c.stats.min }} · p1 {{ '%.2f' % c.stats.p1 }} ·
+                med {{ '%.2f' % c.stats.p50 }} · p99 {{ '%.2f' % c.stats.p99 }} ·
+                max {{ '%.2f' % c.stats.max }}
+              </div>
+              {% endif %}
+              {% if c.coverage_pct is not none %}
+              <div class="statline">range coverage {{ '%.0f' % c.coverage_pct }}% of global span</div>
+              {% endif %}
+              <div class="tags">
+                <span class="tag">pair: {{ c.entry.pairing_signal }}</span>
+                <span class="tag">aff: {{ c.entry.affinity_signal }}</span>
+                <span class="print-tag {{ c.print_safety }}">{{ c.print_safety }}</span>
+              </div>
+              <div class="copyblock">
+                <code>{{ c.entry.id }}</code>
+                <button onclick="navigator.clipboard.writeText('  - id: {{ c.entry.id }}\n    status: approved')">copy approved</button>
+              </div>
+              {% if c.entry.notes %}<div class="notes"><strong>Notes.</strong> {{ c.entry.notes }}</div>{% endif %}
+              {% if c.entry.reviewer_notes %}<div class="notes"><strong>Reviewer.</strong> {{ c.entry.reviewer_notes }}</div>{% endif %}
+            </details>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+
+</div>
+</body>
+</html>

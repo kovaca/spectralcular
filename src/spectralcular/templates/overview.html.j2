@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Overview — the book at a glance</title>
+<style>
+{{ css | safe }}
+</style>
+</head>
+<body>
+
+{# ============================================================
+   Overview spread (back matter, just before the index) — the print twin
+   of the picker's Overview tab. Figures are inline SVGs sized in mm by
+   overview.py, so every block's height is known up front.
+   ============================================================ #}
+
+{# ───── Verso: where, when, and how much of the catalog ───── #}
+<section class="page-diag page-overview ov-verso">
+
+    <header class="running-head">
+        <span class="left">Overview</span>
+        <span class="center">{{ plates_label }}</span>
+        <span class="right">The book at a glance</span>
+    </header>
+
+    <div class="title-block">
+        <h1 class="title">The book at a glance</h1>
+        <span class="formula">{{ tally }}</span>
+        <p class="subtitle">{{ subtitle }}</p>
+    </div>
+
+    <section class="ov-block">
+        <div class="section-head">
+            <span class="label"><span class="roman">I</span>Places</span>
+            <span class="meta">{{ places_meta }}</span>
+        </div>
+        {{ world_map_svg | safe }}
+        <div class="ov-legend">
+            {%- for label, color in legend %}
+            <span><i style="background: {{ color }}"></i>{{ label }}</span>
+            {%- endfor %}
+        </div>
+    </section>
+
+    <section class="ov-block ov-when">
+        <div class="ov-dates">
+            <div class="section-head">
+                <span class="label"><span class="roman">II</span>Scene dates</span>
+                <span class="meta">{{ dates_meta }}</span>
+            </div>
+            {{ dates_svg | safe }}
+        </div>
+        <div class="ov-season">
+            <div class="section-head">
+                <span class="label">Season</span>
+                <span class="meta">by month</span>
+            </div>
+            {{ season_svg | safe }}
+        </div>
+    </section>
+
+    <section class="ov-block ov-coverage-block">
+        <div class="section-head">
+            <span class="label"><span class="roman">III</span>Catalog coverage</span>
+            <span class="meta">{{ coverage_meta }}</span>
+        </div>
+        {{ index_coverage_svg | safe }}
+        {{ colormap_coverage_svg | safe }}
+    </section>
+
+    <footer class="colophon">
+        <span class="plate">Overview &nbsp;·&nbsp; where &amp; when</span>
+        <span>{{ book_title }}</span>
+    </footer>
+</section>
+
+{# ───── Recto: every index × colormap combination ───── #}
+<section class="page-diag page-overview">
+
+    <header class="running-head">
+        <span class="left">Overview</span>
+        <span class="center">{{ plates_label }}</span>
+        <span class="right">Index × colormap</span>
+    </header>
+
+    <div class="title-block">
+        <h1 class="title">Index × colormap</h1>
+        <span class="formula">{{ combos_tally }}</span>
+        <p class="subtitle">By theme, then index; each chip is the colormap as printed, over its plate number</p>
+    </div>
+
+    <section class="ov-block">
+        <div class="section-head">
+            <span class="label"><span class="roman">IV</span>Combinations</span>
+            <span class="meta">{{ combos_meta }}</span>
+        </div>
+        {{ combinations_svg | safe }}
+    </section>
+
+    <footer class="colophon">
+        <span class="plate">Overview &nbsp;·&nbsp; combinations</span>
+        <span>{{ book_title }}</span>
+    </footer>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+# Book-level copy for the front matter and the cover (src/spectralcular/book_meta.py).
+# `spectralcular init` copies this template into a new project; edit the copy.
+# Credits that follow from the scenes — imagery years, data sources, the colormap
+# collections used and their licenses — are derived at build time; list anything
+# else under extra_credits. A filled-in example: examples/spectralcular-scenery/book.yaml
+
+title: Untitled Atlas
+subtitle: ""
+author: ""
+publisher: ""
+edition: First edition
+year: null              # null → the year the book is built
+isbn: null              # set before Global Distribution; Lulu supplies the barcode art
+copyright_holder: null  # null → author
+rights: All rights reserved.
+
+# Blank lines separate paragraphs. {n_plates}, {n_places}, {n_indices},
+# {n_colormaps}, {years} and {platforms} are filled in from the scenes.
+introduction: |
+  This book holds {n_plates} scenes of {n_places} places, each a satellite
+  image turned into color by a spectral index and a colormap: {n_indices}
+  indices and {n_colormaps} colormaps in all, on imagery from {platforms},
+  {years}.
+
+  The left-hand page of every spread is the scene itself, printed to the edge
+  of the paper. The right-hand page is its specimen card: the formula and the
+  bands that went into it, the scene and its date, a true-color sample of the
+  same frame, where on Earth it is, and the colormap laid out on its own above
+  a histogram of the values the scene renders.
+
+extra_credits: []
+
+cover:
+  front_plate: null     # plate number, location id or candidate id; null → plate 001
+  back_text: ""
+  barcode_image: null

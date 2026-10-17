@@ -1,0 +1,5635 @@
+{
+ "entries": [
+  {
+   "bbox": [
+    -62.5,
+    -4.5,
+    -61.8,
+    -3.9
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "amazon_basin_rio_negro",
+   "landscapeCharacter": "tropical rainforest with braided river channels",
+   "name": "Amazon Basin (Rio Negro)",
+   "notes": "Lifted from spread_amazon_ndvi_viridis. Bbox exceeds the AOI ceiling and will resample.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-31"
+   ],
+   "source": "existing-spread",
+   "status": "approved",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -93.55,
+    41.95,
+    -93.3,
+    42.18
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "iowa_cornfield_grid",
+   "landscapeCharacter": "orthogonal section-line agricultural geometry",
+   "name": "Iowa cornfield grid (Story County)",
+   "notes": "PLSS one-mile grid + center-pivot circles produce striking NDVI geometry at peak greenness.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    113.85,
+    -1.5,
+    114.1,
+    -1.25
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "kalimantan_deforestation_arc",
+   "landscapeCharacter": "deforestation front — primary forest abutting cleared parcels",
+   "name": "Kalimantan deforestation arc",
+   "notes": "Forest-loss alert hotspot. Cloud-forest region — relax cloud threshold.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    21.1,
+    -2.0,
+    21.35,
+    -1.75
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "congo_basin_salonga",
+   "landscapeCharacter": "intact tropical lowland forest",
+   "name": "Congo Basin — Salonga",
+   "notes": "Salonga National Park interior — perennially cloudy. Reviewer may need a longer window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -120.45,
+    36.65,
+    -120.2,
+    36.9
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "california_central_valley_orchards",
+   "landscapeCharacter": "orchard rows + irrigation canals",
+   "name": "California Central Valley orchards",
+   "notes": "Almond/walnut/pistachio belt north of Coalinga. Strong NDVI texture from row spacing.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    75.7,
+    30.8,
+    75.95,
+    31.05
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "punjab_wheat_plain",
+   "landscapeCharacter": "intensive wheat–rice double-crop plain",
+   "name": "Punjab wheat plain (Ludhiana)",
+   "notes": "Wheat harvest window — fields in transition, mosaic of senescing yellow and green stubble.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-03-15/2023-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    31.2,
+    30.85,
+    31.45,
+    31.1
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "nile_delta_intensive_ag",
+   "landscapeCharacter": "intensive smallholder agricultural mosaic",
+   "name": "Nile Delta intensive agriculture",
+   "notes": "Some of the densest cropping in the world. Water tag for the canal lattice.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    110.35,
+    -7.55,
+    110.5,
+    -7.4
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "java_rice_terraces",
+   "landscapeCharacter": "terraced rice paddy on volcanic flanks",
+   "name": "Java rice terraces (Magelang)",
+   "notes": "Borobudur basin — terraces wrap volcanic foothills. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-07-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    101.6,
+    0.6,
+    101.85,
+    0.85
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "sumatra_oil_palm",
+   "landscapeCharacter": "monoculture oil palm + remnant forest",
+   "name": "Sumatra oil palm plantation",
+   "notes": "Deforestation hotspot. Geometric plantation grid against unstructured forest.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-08-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    34.85,
+    -2.55,
+    35.1,
+    -2.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "serengeti_vegetation_gradient",
+   "landscapeCharacter": "savanna woodland → open grassland gradient",
+   "name": "Serengeti vegetation gradient",
+   "notes": "Wet-season window — peak NDVI contrast between woodland and grassland.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    116.6,
+    -30.95,
+    116.85,
+    -30.7
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "western_australia_wheatbelt",
+   "landscapeCharacter": "broad-acre wheat fields + remnant native bush",
+   "name": "Western Australia wheatbelt (Wongan Hills)",
+   "notes": "Spring window — green crops contrast against tan stubble and dark scrub remnants.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -115.1,
+    54.8,
+    -114.85,
+    55.05
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "canadian_boreal_pine",
+   "landscapeCharacter": "boreal pine forest mosaic with cutblocks",
+   "name": "Canadian boreal pine (Alberta)",
+   "notes": "Industrial cutblocks against intact pine — geometry against unstructured canopy.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    113.5,
+    30.3,
+    113.75,
+    30.55
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "yangtze_rice_paddies",
+   "landscapeCharacter": "monsoon-flooded rice paddy mosaic",
+   "name": "Yangtze rice paddies (Hubei)",
+   "notes": "Flooded-paddy window — water tag for the standing-water lattice.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-07-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -61.1,
+    -34.55,
+    -60.85,
+    -34.3
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "pampas_grassland",
+   "landscapeCharacter": "soybean–corn rotation + pampas remnants",
+   "name": "Pampas grassland (Argentina)",
+   "notes": "Southern hemisphere summer — peak crop greenness.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-15/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -54.2,
+    -28.4,
+    -53.95,
+    -28.15
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "rio_grande_do_sul_soy",
+   "landscapeCharacter": "rolling soybean fields + paddock remnants",
+   "name": "Rio Grande do Sul soybean belt",
+   "notes": "Soy maturity window — distinct crop senescence color.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    44.5,
+    -19.8,
+    44.75,
+    -19.55
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "madagascar_dry_forest",
+   "landscapeCharacter": "dry deciduous forest patches + savanna",
+   "name": "Madagascar dry deciduous forest (Menabe)",
+   "notes": "Wet-season leaf-out — spiny forest greens up sharply against laterite soils.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -3.1,
+    39.1,
+    -2.85,
+    39.35
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "mancha_vineyards",
+   "landscapeCharacter": "vine-row geometry on red Mediterranean soils",
+   "name": "La Mancha vineyards (Spain)",
+   "notes": "Vine-row anisotropy reads strongly in NDVI; soil tag for the iron-rich substrate.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -39.5,
+    -8.5,
+    -39.25,
+    -8.25
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "sertao_caatinga",
+   "landscapeCharacter": "semi-arid thorn scrub + cleared parcels",
+   "name": "Brazilian sertão (Caatinga)",
+   "notes": "Wet-pulse window for the otherwise-dormant caatinga.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-02-01/2024-04-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    39.2,
+    11.3,
+    39.45,
+    11.55
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "ethiopian_highlands_terraces",
+   "landscapeCharacter": "terraced cropland on highland plateaus",
+   "name": "Ethiopian highlands terraces (Wollo)",
+   "notes": "Belg/meher rains window — green terraces against ochre slopes. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    36.3,
+    -0.85,
+    36.55,
+    -0.6
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "kenya_rift_horticulture",
+   "landscapeCharacter": "irrigated horticulture circles around lake margin",
+   "name": "Kenya Rift horticulture (Naivasha)",
+   "notes": "Center-pivot horticulture rings + Lake Naivasha edge for water reference.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -67.8,
+    -10.1,
+    -67.55,
+    -9.85
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "acre_brazil_deforestation",
+   "landscapeCharacter": "fishbone deforestation pattern",
+   "name": "Acre, Brazil — deforestation hotspot",
+   "notes": "Classic Amazonian fishbone road-corridor deforestation. Forest-monitoring reference site.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -72.85,
+    44.1,
+    -72.6,
+    44.35
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "vermont_fall_color",
+   "landscapeCharacter": "deciduous forest fall color mosaic",
+   "name": "Vermont peak fall foliage",
+   "notes": "Tight peak-foliage window. Cloud-relaxed; foliage shifts across days.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-25/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -111.05,
+    36.9,
+    -110.75,
+    37.2
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "lake_powell_glen_canyon",
+   "landscapeCharacter": "drowned canyon + red sandstone shoreline",
+   "name": "Lake Powell — Glen Canyon",
+   "notes": "Lifted from spread_lake_powell_ndwi_balance.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-31"
+   ],
+   "source": "existing-spread",
+   "status": "approved",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    22.55,
+    -19.6,
+    22.8,
+    -19.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "okavango_panhandle",
+   "landscapeCharacter": "inland delta — channels, sedge, gallery forest",
+   "name": "Okavango Delta panhandle",
+   "notes": "Lifted from spread_okavango_ndmi_rain. Annual flood peaks June–August.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "existing-spread",
+   "status": "approved",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    59.5,
+    45.2,
+    59.8,
+    45.5
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "aral_sea_former_bed",
+   "landscapeCharacter": "desiccated lake bed + relict shorelines",
+   "name": "Aral Sea — former eastern bed",
+   "notes": "Water-risk atlas — water disappearance signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -89.4,
+    28.95,
+    -89.1,
+    29.25
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "mississippi_birdfoot_delta",
+   "landscapeCharacter": "distributary delta — sediment plumes + marsh",
+   "name": "Mississippi River birdfoot delta",
+   "notes": "Spring high-discharge window — sediment plume reads strongly.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30",
+    "2024-04-01/2024-06-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -115.85,
+    33.1,
+    -115.6,
+    33.35
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "salton_sea",
+   "landscapeCharacter": "shrinking saline lake + agricultural retreat",
+   "name": "Salton Sea (south shore)",
+   "notes": "Water-risk atlas — endorheic basin shrinkage.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    109.8,
+    30.95,
+    110.05,
+    31.2
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "three_gorges_reservoir",
+   "landscapeCharacter": "engineered reservoir in deep gorge",
+   "name": "Three Gorges reservoir (Wushan)",
+   "notes": "Sharp gorge walls + reservoir contrast.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    14.3,
+    13.1,
+    14.55,
+    13.35
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "lake_chad",
+   "landscapeCharacter": "fragmented endorheic lake + reed mats",
+   "name": "Lake Chad — northern remnant",
+   "notes": "Water-risk atlas — long-term water loss.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2023-12-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    51.8,
+    44.1,
+    52.05,
+    44.35
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "caspian_mangystau",
+   "landscapeCharacter": "shallow saline shelf + rocky shoreline",
+   "name": "Caspian shelf — Mangystau",
+   "notes": "Caspian shrinkage signature on the eastern shore.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -0.05,
+    7.7,
+    0.2,
+    7.95
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "lake_volta",
+   "landscapeCharacter": "drowned-river reservoir + drowned forest snags",
+   "name": "Lake Volta (Kete-Krachi)",
+   "notes": "Dry-season drawdown window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    89.05,
+    21.85,
+    89.3,
+    22.1
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "ganges_brahmaputra_delta",
+   "landscapeCharacter": "tidal mangrove delta + tiger reserve",
+   "name": "Ganges-Brahmaputra delta (Sundarbans)",
+   "notes": "Dry-season window for cleanest tidal-channel imaging.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-11-01/2024-02-28"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    35.45,
+    31.55,
+    35.65,
+    31.8
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "dead_sea",
+   "landscapeCharacter": "hypersaline basin + sinkhole-pocked shore",
+   "name": "Dead Sea — northern basin",
+   "notes": "Water-stress region. Sinkhole field reads as geomorphic texture.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    105.95,
+    9.9,
+    106.2,
+    10.15
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "mekong_delta",
+   "landscapeCharacter": "anastomosing distributary network + paddy",
+   "name": "Mekong delta birds-foot",
+   "notes": "Dry-season window for cleanest channel separation.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    45.65,
+    37.25,
+    45.9,
+    37.5
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "lake_urmia",
+   "landscapeCharacter": "shrinking saline lake + algal blooms",
+   "name": "Lake Urmia — south shore",
+   "notes": "Iran's signature water-loss site. Cyclic algal red phase July–August.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    122.15,
+    31.3,
+    122.4,
+    31.55
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "yangtze_estuary_plume",
+   "landscapeCharacter": "estuarine sediment plume + Pudong littoral",
+   "name": "Yangtze estuary sediment plume",
+   "notes": "Monsoon discharge window — sediment plume contrasts against the East China Sea.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -56.5,
+    -17.4,
+    -56.25,
+    -17.15
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "pantanal_flooded_plain",
+   "landscapeCharacter": "seasonally inundated savanna",
+   "name": "Pantanal flooded plain",
+   "notes": "Late-flood season — water + vegetation interleave is the visual signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-03-01/2023-05-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -4.8,
+    14.65,
+    -4.55,
+    14.9
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "niger_inner_delta",
+   "landscapeCharacter": "anastomosing inland delta + agricultural islands",
+   "name": "Niger inner delta (Mali)",
+   "notes": "Annual flood retreat window — peak channel-vegetation interleave.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -114.05,
+    36.05,
+    -113.8,
+    36.3
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "colorado_river_grand_wash",
+   "landscapeCharacter": "river canyon + cliff face geology",
+   "name": "Colorado River — Grand Wash Cliffs",
+   "notes": "Lake Mead inflow — color contrast at the cliff base.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -80.85,
+    25.45,
+    -80.6,
+    25.7
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "everglades_river_of_grass",
+   "landscapeCharacter": "subtropical sawgrass marsh + tree islands",
+   "name": "Everglades — Shark River Slough",
+   "notes": "Dry-season window — water signal compresses into channels and tree-island moats.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-01-01/2023-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    28.05,
+    36.05,
+    28.2,
+    36.2
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "rhodes_2023_burn_scar",
+   "landscapeCharacter": "post-fire pine forest scar adjacent to coastal scrub",
+   "name": "Rhodes — 2023 Burn Scar",
+   "notes": "Lifted from spread_rhodes_nbr_ember.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "existing-spread",
+   "status": "approved",
+   "themes": [
+    "burn"
+   ]
+  },
+  {
+   "bbox": [
+    -121.75,
+    39.65,
+    -121.55,
+    39.85
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "paradise_camp_fire",
+   "landscapeCharacter": "wildland-urban interface burn scar",
+   "name": "Paradise CA — Camp Fire (2018)",
+   "notes": "Two windows offered. Reviewer picks based on contrast.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2018-12-01/2019-03-31",
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    145.3,
+    -37.55,
+    145.55,
+    -37.3
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "black_saturday_victoria",
+   "landscapeCharacter": "eucalypt forest burn scar (2009)",
+   "name": "Black Saturday (Victoria, AU) — Kinglake",
+   "notes": "Fresh-scar window or 14-year-recovery window — different colormap stories.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2009-03-01/2009-06-30",
+    "2023-01-01/2023-04-30"
+   ],
+   "source": "asi-example",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -57.1,
+    -17.95,
+    -56.85,
+    -17.7
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "pantanal_2020_fire",
+   "landscapeCharacter": "tropical wetland burn scar",
+   "name": "Pantanal 2020 fire scar",
+   "notes": "Record 2020 fires across the Pantanal. Burn + standing water mosaic.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2020-10-01/2020-12-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    21.55,
+    37.55,
+    21.8,
+    37.8
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "greek_peloponnese_2021",
+   "landscapeCharacter": "Mediterranean pine + olive grove burn scar",
+   "name": "Greek Peloponnese 2021 fires (Olympia)",
+   "notes": "August 2021 fires near ancient Olympia. Olive-grove geometry against burn.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-09-01/2021-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -121.1,
+    40.0,
+    -120.85,
+    40.25
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "dixie_fire_2021",
+   "landscapeCharacter": "northern Sierra mixed-conifer burn scar",
+   "name": "Dixie Fire (CA) — 2021",
+   "notes": "Largest single-source CA fire. Spans the Lassen volcanic landscape.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-09-15/2021-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn"
+   ]
+  },
+  {
+   "bbox": [
+    130.7,
+    62.0,
+    130.95,
+    62.25
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "yakutia_2021_fires",
+   "landscapeCharacter": "boreal larch forest burn scar",
+   "name": "Siberian Yakutia 2021 fires",
+   "notes": "Record-breaking Siberian boreal fires. Late-summer scar window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-09-01/2021-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -48.2,
+    -10.15,
+    -47.95,
+    -9.9
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "brazil_cerrado_fires",
+   "landscapeCharacter": "cerrado savanna burn scar mosaic",
+   "name": "Brazil Cerrado fires (Tocantins)",
+   "notes": "Fire-alert hotspot. Burn scars patchwork the cerrado plateau.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    102.1,
+    0.2,
+    102.35,
+    0.45
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "indonesian_peatland_fires",
+   "landscapeCharacter": "peatland fire scars + drainage canals",
+   "name": "Indonesian peatland fires (Riau)",
+   "notes": "2019 peat fires. Smoke + scar combine for atmosphere/burn cross.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2019-09-15/2019-11-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    22.95,
+    -34.1,
+    23.2,
+    -33.85
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "knysna_fire_2017",
+   "landscapeCharacter": "fynbos + plantation burn scar",
+   "name": "South Africa Knysna Fire 2017",
+   "notes": "June 2017 Garden Route fires. Coastal fynbos burn signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2017-07-01/2017-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -105.2,
+    39.9,
+    -105.05,
+    40.05
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "colorado_marshall_fire",
+   "landscapeCharacter": "grassland-suburban burn scar",
+   "name": "Colorado Marshall Fire 2021/22 (Boulder)",
+   "notes": "Dec 30 2021 wildland-urban fire — winter scar against snow-on-snow background.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2022-01-01/2022-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -8.2,
+    39.95,
+    -7.95,
+    40.2
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "portugal_2017_fires",
+   "landscapeCharacter": "Atlantic pine + eucalypt burn scar",
+   "name": "Portugal 2017 fires (Pedrógão Grande)",
+   "notes": "Tragic June 2017 Portuguese fires. Eucalypt-driven fire signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2017-07-01/2017-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    15.02,
+    37.65,
+    15.2,
+    37.85
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "mt_etna",
+   "landscapeCharacter": "stratovolcano flank — lava-flow / forest mosaic",
+   "name": "Mt. Etna",
+   "notes": "Lifted from spread_etna_ndvi_eclipse.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-31"
+   ],
+   "source": "existing-spread",
+   "status": "approved",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -67.0,
+    -20.4,
+    -66.65,
+    -20.05
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "salar_uyuni_atacama",
+   "landscapeCharacter": "salt pan + altiplano fringe",
+   "name": "Salar de Uyuni — eastern margin",
+   "notes": "Sentinel Hub Playground featured AOI.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31",
+    "2024-08-01/2024-10-31"
+   ],
+   "source": "sh-playground",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -69.5,
+    -23.95,
+    -69.25,
+    -23.7
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "atacama_chile",
+   "landscapeCharacter": "hyper-arid desert + nitrate fields",
+   "name": "Atacama Desert (Antofagasta)",
+   "notes": "One of the driest places on Earth. Mineral-color contrast unaffected by vegetation.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    40.2,
+    14.2,
+    40.45,
+    14.4
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "danakil_depression",
+   "landscapeCharacter": "geothermal salt pan + hydrothermal pools",
+   "name": "Danakil Depression (Dallol)",
+   "notes": "Hydrothermal salt patterns. ~150 m below sea level.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "atmosphere"
+   ]
+  },
+  {
+   "bbox": [
+    -116.95,
+    36.2,
+    -116.7,
+    36.45
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "death_valley_badwater",
+   "landscapeCharacter": "salt-pan playa + alluvial fans",
+   "name": "Death Valley — Badwater Basin",
+   "notes": "SH Playground featured AOI. Polygonal salt crust + Badwater spring trace.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "sh-playground",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    137.45,
+    -28.45,
+    137.7,
+    -28.2
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "lake_eyre_playa",
+   "landscapeCharacter": "ephemeral salt-pan playa",
+   "name": "Lake Eyre playa (Kati Thanda)",
+   "notes": "Australia's largest playa. Standing-water tag for partial-fill years.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -3.95,
+    31.1,
+    -3.7,
+    31.3
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "erg_chebbi_morocco",
+   "landscapeCharacter": "high-relief sand sea (Sahara)",
+   "name": "Erg Chebbi (Morocco)",
+   "notes": "Iconic linear dunes against the Tafilalt plain.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -117.5,
+    35.65,
+    -117.25,
+    35.9
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "mojave_alluvial_fans",
+   "landscapeCharacter": "coalescing alluvial fans + saline pan",
+   "name": "Mojave alluvial fans (Trona)",
+   "notes": "Searles Lake alkali pan + fan textures.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    15.3,
+    -24.85,
+    15.55,
+    -24.6
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "namib_sand_sea",
+   "landscapeCharacter": "linear and star dunes + ephemeral pan",
+   "name": "Namib Sand Sea (Sossusvlei)",
+   "notes": "Iconic red dunes + white pans of Sossusvlei.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -16.85,
+    64.85,
+    -16.6,
+    65.05
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "iceland_holuhraun",
+   "landscapeCharacter": "fresh basalt lava field (2014–15 eruption)",
+   "name": "Iceland Holuhraun lava field",
+   "notes": "Black basalt against rhyolitic outwash. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -110.75,
+    44.65,
+    -110.6,
+    44.85
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "yellowstone_hydrothermal",
+   "landscapeCharacter": "geothermal basin + travertine terraces",
+   "name": "Yellowstone hydrothermal (Norris)",
+   "notes": "Norris geyser basin — silica sinter + thermophile color.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    35.4,
+    29.5,
+    35.65,
+    29.75
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "wadi_rum_jordan",
+   "landscapeCharacter": "sandstone monoliths + sand desert",
+   "name": "Wadi Rum (Jordan)",
+   "notes": "Sandstone jebels + red sand corridors.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    115.1,
+    -30.6,
+    115.25,
+    -30.45
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "pinnacles_australia",
+   "landscapeCharacter": "limestone karst pinnacles + dunes",
+   "name": "Pinnacles Desert (Western Australia)",
+   "notes": "Nambung NP — yellow dunes pocked with limestone columns.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -67.05,
+    -25.45,
+    -66.8,
+    -25.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "hombre_muerto_lithium",
+   "landscapeCharacter": "lithium-brine salar + extraction ponds",
+   "name": "Salar del Hombre Muerto (Argentina)",
+   "notes": "Active lithium evaporation field — colored brine ponds.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    58.4,
+    30.6,
+    58.65,
+    30.85
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "iran_lut_desert",
+   "landscapeCharacter": "yardang field + sand corridors",
+   "name": "Iran — Dasht-e Lut",
+   "notes": "World's hottest recorded surface temp. Wind-aligned yardangs.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    52.05,
+    35.85,
+    52.2,
+    36.0
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "damavand_volcano",
+   "landscapeCharacter": "stratovolcano cone + sulfur fumaroles",
+   "name": "Mount Damavand (Iran)",
+   "notes": "Persia's highest peak. Sulfur-rim discoloration around the summit.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -154.95,
+    19.4,
+    -154.75,
+    19.55
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "hawaii_kilauea_2018",
+   "landscapeCharacter": "fresh basalt lava field + coastal entry",
+   "name": "Kīlauea 2018 lower east rift (HI)",
+   "notes": "2018 Leilani Estates flow + Kapoho ocean entry.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2018-08-01/2019-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -106.4,
+    32.7,
+    -106.2,
+    32.9
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "white_sands_nm",
+   "landscapeCharacter": "gypsum dune field",
+   "name": "White Sands (New Mexico)",
+   "notes": "World's largest gypsum dune field — exceptionally bright.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    55.05,
+    25.0,
+    55.28,
+    25.23
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "dubai_palm_jumeirah",
+   "landscapeCharacter": "engineered littoral — reclamation + shallows",
+   "name": "Dubai littoral — Palm Jumeirah",
+   "notes": "Sentinel Hub Playground featured AOI.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-03-31"
+   ],
+   "source": "sh-playground",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -112.4,
+    33.5,
+    -112.15,
+    33.75
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "phoenix_grid_edge",
+   "landscapeCharacter": "desert-suburban grid against bare desert",
+   "name": "Phoenix grid edge (Sun City)",
+   "notes": "Razor edge between irrigated suburbs and Sonoran desert.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    139.7,
+    35.55,
+    139.95,
+    35.8
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "tokyo_bay_reclamation",
+   "landscapeCharacter": "engineered harbor + reclamation islands",
+   "name": "Tokyo Bay reclamation (Odaiba)",
+   "notes": "Tokyo Bay's engineered shoreline + Yume-no-Shima.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -74.05,
+    40.65,
+    -73.85,
+    40.9
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "manhattan_nyc",
+   "landscapeCharacter": "high-density vertical urban core",
+   "name": "Manhattan Island",
+   "notes": "The classic — Manhattan + parts of Brooklyn/Queens.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    72.8,
+    19.0,
+    72.95,
+    19.15
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "dharavi_mumbai",
+   "landscapeCharacter": "high-density informal settlement",
+   "name": "Dharavi (Mumbai)",
+   "notes": "Dry-season window for least monsoon residue.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-11-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    116.2,
+    39.85,
+    116.45,
+    40.1
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "beijing_central",
+   "landscapeCharacter": "imperial axis + ring-road geometry",
+   "name": "Beijing — Forbidden City corridor",
+   "notes": "Autumn — least haze, sharpest grid imaging.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    3.3,
+    6.4,
+    3.55,
+    6.65
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "lagos_coastal_sprawl",
+   "landscapeCharacter": "informal coastal city + lagoon",
+   "name": "Lagos coastal sprawl",
+   "notes": "Dry-season harmattan window. Clearest littoral imaging.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    113.8,
+    22.55,
+    114.05,
+    22.8
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "shenzhen_growth",
+   "landscapeCharacter": "ultra-rapid-growth urban edge",
+   "name": "Shenzhen — Bao'an / Qianhai",
+   "notes": "Reclamation + growth front. Compare across years to see expansion.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -115.3,
+    36.0,
+    -115.05,
+    36.25
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "las_vegas_valley",
+   "landscapeCharacter": "desert urban + airport geometry",
+   "name": "Las Vegas valley + airport",
+   "notes": "Vegas's hard urban edge against the Mojave.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -46.75,
+    -23.65,
+    -46.5,
+    -23.4
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "sao_paulo_center",
+   "landscapeCharacter": "high-density Brazilian metropolis",
+   "name": "São Paulo central core",
+   "notes": "Winter dry season for clearest air.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -99.2,
+    19.3,
+    -98.95,
+    19.55
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "mexico_city_basin",
+   "landscapeCharacter": "high-altitude basin metropolis",
+   "name": "Mexico City basin (Iztapalapa)",
+   "notes": "Atmosphere tag for the basin's pollution-trapping reputation.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "atmosphere"
+   ]
+  },
+  {
+   "bbox": [
+    31.1,
+    29.95,
+    31.35,
+    30.2
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "cairo_nile",
+   "landscapeCharacter": "river-edge megalopolis + desert margin",
+   "name": "Cairo + Nile corridor",
+   "notes": "Cairo's three-zone signature: Nile, urban, Sahara — within one bbox.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    114.1,
+    22.2,
+    114.3,
+    22.4
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "hong_kong_harbor",
+   "landscapeCharacter": "harbor metropolis + reclamation",
+   "name": "Hong Kong harbor",
+   "notes": "Victoria Harbour + Kowloon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    103.65,
+    1.2,
+    103.9,
+    1.45
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "singapore_reclamation",
+   "landscapeCharacter": "ultra-engineered island state",
+   "name": "Singapore land reclamation",
+   "notes": "Cloud-prone year-round. Reviewer may need broader window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    28.95,
+    41.0,
+    29.2,
+    41.2
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "istanbul_bosphorus",
+   "landscapeCharacter": "two-continent metropolis straddling strait",
+   "name": "Istanbul Bosphorus",
+   "notes": "Bosphorus + Golden Horn + airports east and west.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -73.1,
+    -50.55,
+    -72.85,
+    -50.3
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "perito_moreno_glacier_front",
+   "landscapeCharacter": "tidewater glacier calving front",
+   "name": "Perito Moreno glacier front",
+   "notes": "Patagonian summer window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -50.2,
+    69.1,
+    -49.95,
+    69.3
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "ilulissat_greenland",
+   "landscapeCharacter": "calving icefjord + iceberg armada",
+   "name": "Ilulissat Icefjord (Greenland)",
+   "notes": "Sermeq Kujalleq's iceberg armada — the most iconic calving fjord.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -61.0,
+    80.5,
+    -60.4,
+    80.85
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "petermann_glacier",
+   "landscapeCharacter": "outlet glacier + floating tongue",
+   "name": "Petermann Glacier (Greenland)",
+   "notes": "Bbox extends meridionally to capture the floating tongue's full length.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -62.5,
+    -67.2,
+    -62.1,
+    -66.95
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "larsen_ice_shelf",
+   "landscapeCharacter": "ice shelf + meltwater hydrology",
+   "name": "Larsen C / Trail Inlet (Antarctica)",
+   "notes": "Antarctic summer melt window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    74.85,
+    36.3,
+    75.1,
+    36.55
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "hindu_kush_glaciers",
+   "landscapeCharacter": "high-altitude glacier system",
+   "name": "Hindu Kush glaciers (Pakistan)",
+   "notes": "Late-summer ablation window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    86.75,
+    27.95,
+    87.0,
+    28.15
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "khumbu_glacier_nepal",
+   "landscapeCharacter": "Himalayan debris-covered glacier",
+   "name": "Khumbu Glacier (Nepal)",
+   "notes": "Mount Everest's southern tongue.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2023-12-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    76.4,
+    35.65,
+    76.65,
+    35.85
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "baltoro_karakoram",
+   "landscapeCharacter": "debris-laden trunk glacier",
+   "name": "Baltoro Glacier (Karakoram)",
+   "notes": "K2 / Concordia drainage.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -16.35,
+    64.0,
+    -16.1,
+    64.2
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "jokulsarlon_iceland",
+   "landscapeCharacter": "proglacial lagoon + tongue retreat",
+   "name": "Jökulsárlón (Iceland)",
+   "notes": "Vatnajökull outlet — iceberg-filled lagoon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -16.8,
+    64.3,
+    -16.55,
+    64.5
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "vatnajokull_iceland",
+   "landscapeCharacter": "temperate ice cap + nunataks",
+   "name": "Vatnajökull ice cap (Iceland)",
+   "notes": "Europe's largest temperate ice cap.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -73.3,
+    -49.95,
+    -73.05,
+    -49.7
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "upsala_glacier_patagonia",
+   "landscapeCharacter": "calving glacier + lake margin",
+   "name": "Upsala Glacier (Patagonia)",
+   "notes": "Famous retreat sequence.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -150.4,
+    60.1,
+    -150.15,
+    60.35
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "kenai_icefield_alaska",
+   "landscapeCharacter": "icefield + outlet glaciers",
+   "name": "Kenai Icefield (Alaska)",
+   "notes": "Bear / Tustumena outlet glaciers.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -72.4,
+    6.4,
+    -72.3,
+    6.5
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "cocuy_colombia",
+   "landscapeCharacter": "tropical glacier remnants",
+   "name": "Sierra Nevada del Cocuy (Colombia)",
+   "notes": "Last tropical glaciers in Colombia. Small bbox to fit the remnants.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    79.8,
+    42.2,
+    80.05,
+    42.45
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "tien_shan_glaciers",
+   "landscapeCharacter": "high-Asia glacier system",
+   "name": "Tien Shan glaciers (Inylchek)",
+   "notes": "South Inylchek glacier and Lake Merzbacher.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -73.3,
+    -51.05,
+    -73.05,
+    -50.8
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "torres_del_paine_grey",
+   "landscapeCharacter": "Patagonian piedmont glacier + lake",
+   "name": "Grey Glacier (Torres del Paine)",
+   "notes": "Grey Glacier face into Lago Grey.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    6.85,
+    45.85,
+    7.0,
+    46.0
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "mer_de_glace_alps",
+   "landscapeCharacter": "valley glacier + retreat tongue",
+   "name": "Mer de Glace (French Alps)",
+   "notes": "Mont Blanc massif. Recent retreat is dramatic.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    114.2,
+    1.5,
+    114.4,
+    1.7
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "borneo_heart_intact",
+   "landscapeCharacter": "intact dipterocarp lowland forest",
+   "name": "Borneo Heart — intact forest (Sarawak)",
+   "notes": "Heart of Borneo. Cloud-forest — relax cloud threshold; window may need widening.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    18.3,
+    0.0,
+    18.5,
+    0.2
+   ],
+   "cloudCoverMax": 35.0,
+   "id": "congo_central_intact",
+   "landscapeCharacter": "equatorial intact forest",
+   "name": "Congo central — intact forest",
+   "notes": "Equatorial cloud-forest. Window may need widening.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    108.1,
+    12.65,
+    108.3,
+    12.85
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "vietnam_central_highlands_coffee",
+   "landscapeCharacter": "coffee plantation + remnant forest",
+   "name": "Vietnam central highlands coffee (Đắk Lắk)",
+   "notes": "Dry-season window for cleanest plantation grid.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    63.8,
+    53.1,
+    64.0,
+    53.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "kazakhstan_wheat_steppe",
+   "landscapeCharacter": "broad-acre dryland wheat on steppe",
+   "name": "Kazakhstan wheat steppe (Kostanay)",
+   "notes": "Mid-summer crop maturity window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    31.85,
+    49.3,
+    32.05,
+    49.5
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "ukraine_chornozem_belt",
+   "landscapeCharacter": "intensive grain agriculture on black earth",
+   "name": "Ukraine chornozem belt (Cherkasy)",
+   "notes": "Pre-war (or recovered) cropland; classic chernozem geometry.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-15/2023-08-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -60.1,
+    -22.2,
+    -59.9,
+    -22.0
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "paraguay_chaco_clearing",
+   "landscapeCharacter": "Chaco scrub clearing front (rectangular parcels)",
+   "name": "Paraguay Chaco clearing front",
+   "notes": "Deforestation-alert hotspot.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -91.55,
+    37.1,
+    -91.35,
+    37.3
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "missouri_ozarks_oak",
+   "landscapeCharacter": "deciduous oak-hickory forest mosaic",
+   "name": "Missouri Ozarks oak-hickory",
+   "notes": "Peak fall color window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-25/2023-10-25"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    126.65,
+    35.0,
+    126.85,
+    35.2
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "south_korea_smart_farms",
+   "landscapeCharacter": "polyethylene greenhouse + paddy mosaic",
+   "name": "South Korea greenhouse cluster (Naju)",
+   "notes": "Plastic greenhouses + paddy standing water — distinctive bright/dark mosaic.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -102.5,
+    34.75,
+    -102.3,
+    34.95
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "texas_panhandle_pivots",
+   "landscapeCharacter": "center-pivot circles on the Ogallala plain",
+   "name": "Texas panhandle center-pivots (Hereford)",
+   "notes": "Iconic Ogallala pivot circles — water tag for visible irrigation contrast.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    31.4,
+    22.55,
+    31.6,
+    22.75
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "egyptian_toshka",
+   "landscapeCharacter": "engineered irrigation circles in Sahara",
+   "name": "Toshka project — desert reclamation",
+   "notes": "Engineered desert agriculture — circles against Nubian sandstone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -55.85,
+    -12.65,
+    -55.65,
+    -12.45
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "mato_grosso_soybean_circles",
+   "landscapeCharacter": "broad-acre soybean / cerrado-clearing",
+   "name": "Mato Grosso soybean (Sorriso)",
+   "notes": "Brazil's soybean heartland — fishbone clearing meeting plantation grid.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-15"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -9.1,
+    53.0,
+    -8.9,
+    53.2
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "ireland_rainshadow_pasture",
+   "landscapeCharacter": "karst limestone pavement + thin pasture",
+   "name": "Ireland Burren karst pasture",
+   "notes": "Distinctive limestone pavement texture against patchy grass.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-15/2023-07-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -7.95,
+    31.1,
+    -7.75,
+    31.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "morocco_high_atlas_terraces",
+   "landscapeCharacter": "stepped agricultural terraces in Atlas valleys",
+   "name": "High Atlas terraces (Imlil)",
+   "notes": "Spring window — terraced almond/walnut against red sandstone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    32.85,
+    23.95,
+    33.05,
+    24.15
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "aswan_high_dam",
+   "landscapeCharacter": "engineered reservoir + Nubian Desert margin",
+   "name": "Aswan High Dam — Lake Nasser",
+   "notes": "Lake Nasser meeting the Nubian sandstone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    94.4,
+    26.7,
+    94.6,
+    26.9
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "brahmaputra_braided",
+   "landscapeCharacter": "broad braided river channel + sandbars",
+   "name": "Brahmaputra braided channel (Assam)",
+   "notes": "Dry-season window — exposed braid bars contrast cleanly.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-11-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -111.5,
+    57.0,
+    -111.3,
+    57.2
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "athabasca_oil_sands",
+   "landscapeCharacter": "tailings ponds + bitumen mining",
+   "name": "Athabasca oil sands tailings (Alberta)",
+   "notes": "Water-risk atlas flag. Industrial tailings — color-saturated.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -115.65,
+    32.65,
+    -115.45,
+    32.85
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "colorado_river_imperial_valley",
+   "landscapeCharacter": "trans-border irrigated agriculture + dry delta",
+   "name": "Colorado River — Imperial Valley delta",
+   "notes": "All-American Canal terminus — water-loss signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    128.75,
+    -16.2,
+    128.95,
+    -16.0
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "ord_river_kununurra",
+   "landscapeCharacter": "tropical reservoir + irrigated agriculture",
+   "name": "Ord River — Lake Argyle (Kununurra)",
+   "notes": "Dry-season window — irrigation green against red rock.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -69.1,
+    -16.1,
+    -68.9,
+    -15.9
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "titicaca_island_sun",
+   "landscapeCharacter": "high-altitude lake + reed-bed shore",
+   "name": "Lake Titicaca — Isla del Sol",
+   "notes": "Dry-season — lake clarity peaks.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -0.65,
+    11.4,
+    -0.45,
+    11.6
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "burkina_faso_reservoirs",
+   "landscapeCharacter": "engineered reservoir in Sahel",
+   "name": "Burkina Faso Bagre reservoir",
+   "notes": "Dry-season window — drawdown signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-11-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -68.3,
+    -23.65,
+    -68.1,
+    -23.45
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "salar_atacama_lithium",
+   "landscapeCharacter": "evaporation ponds for lithium extraction",
+   "name": "Salar de Atacama — lithium ponds",
+   "notes": "Vibrant turquoise + ochre evaporation ponds in Chilean Andes.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    77.45,
+    8.05,
+    77.65,
+    8.25
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "kanyakumari_southern_tip",
+   "landscapeCharacter": "rocky cape + tropical shoreline",
+   "name": "Kanyakumari — peninsular India tip",
+   "notes": "Three-seas confluence point — exposed coastal geology.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -121.2,
+    42.55,
+    -121.0,
+    42.75
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "oregon_bootleg_2021",
+   "landscapeCharacter": "Cascade pine burn scar (2021)",
+   "name": "Oregon Bootleg Fire 2021",
+   "notes": "Largest 2021 US fire.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-09-01/2021-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    31.55,
+    36.65,
+    31.75,
+    36.85
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "turkey_manavgat_2021",
+   "landscapeCharacter": "Mediterranean pine burn scar",
+   "name": "Turkey Manavgat 2021 fires",
+   "notes": "Antalya coast fires.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-09-01/2021-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -111.5,
+    56.65,
+    -111.3,
+    56.85
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "alberta_fort_mcmurray_2016",
+   "landscapeCharacter": "boreal urban-interface burn scar",
+   "name": "Fort McMurray 2016 burn (Alberta)",
+   "notes": "Beast wildfire scar.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2016-09-01/2016-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -110.85,
+    33.3,
+    -110.65,
+    33.5
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "arizona_telegraph_2021",
+   "landscapeCharacter": "chaparral + saguaro burn scar",
+   "name": "Arizona Telegraph Fire 2021 (Globe)",
+   "notes": "Sonoran chaparral fire — desert burn signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2021-08-01/2021-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    15.65,
+    -24.75,
+    15.85,
+    -24.55
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "namibia_sossusvlei_dunes",
+   "landscapeCharacter": "high-relief star + linear dune field",
+   "name": "Namibia Sossusvlei dunes (alt)",
+   "notes": "Adjacent to existing Namib entry — the Sossusvlei pan core.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    44.45,
+    -20.3,
+    44.65,
+    -20.1
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "madagascar_avenue_baobabs",
+   "landscapeCharacter": "laterite soils + baobab savanna",
+   "name": "Madagascar Avenue of the Baobabs (Morondava)",
+   "notes": "Distinctive red lateritic earth + baobab dots.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    38.1,
+    13.2,
+    38.3,
+    13.4
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "simien_mountains_ethiopia",
+   "landscapeCharacter": "highland escarpment + afro-alpine plateau",
+   "name": "Simien Mountains (Ethiopia)",
+   "notes": "Dramatic dissected escarpment.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    90.65,
+    28.85,
+    90.85,
+    29.05
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "tibet_yamdrok_lake",
+   "landscapeCharacter": "high-altitude turquoise lake + bare ridges",
+   "name": "Tibet — Yamdrok Lake",
+   "notes": "Saturated turquoise endorheic lake.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -70.65,
+    -23.55,
+    -70.45,
+    -23.35
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "piedmont_terraces_chile",
+   "landscapeCharacter": "Pacific coastal cliffs + alluvial fans",
+   "name": "Atacama coastal terraces",
+   "notes": "Antofagasta coast — coastal cordillera meets sea.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -110.2,
+    37.0,
+    -110.0,
+    37.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "monument_valley_az",
+   "landscapeCharacter": "isolated sandstone buttes + red mesa",
+   "name": "Monument Valley (AZ/UT)",
+   "notes": "Iconic Western landscape — high-contrast butte shadows.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -109.85,
+    35.0,
+    -109.65,
+    35.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "painted_desert_az",
+   "landscapeCharacter": "stratified bentonite badlands",
+   "name": "Painted Desert (Arizona)",
+   "notes": "Petrified Forest NP — striped sediment colors.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -75.2,
+    -14.8,
+    -75.0,
+    -14.6
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "nazca_lines",
+   "landscapeCharacter": "arid stone-pavement plateau",
+   "name": "Nazca Lines plateau (Peru)",
+   "notes": "Ancient geoglyph plateau — uniform desert pavement.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    103.8,
+    1.2,
+    103.95,
+    1.35
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "singapore_southern_isles",
+   "landscapeCharacter": "engineered island chain",
+   "name": "Singapore — Southern Islands",
+   "notes": "Southern Islands + Sentosa. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    126.95,
+    37.5,
+    127.15,
+    37.7
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "seoul_han_river",
+   "landscapeCharacter": "river-edge megalopolis + reclamation",
+   "name": "Seoul — Han River corridor",
+   "notes": "Autumn — clearest air.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    151.15,
+    -33.95,
+    151.35,
+    -33.75
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "sydney_harbor",
+   "landscapeCharacter": "harbor metropolis + headlands",
+   "name": "Sydney Harbour",
+   "notes": "Sydney CBD + Harbour Bridge axis.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -43.3,
+    -23.05,
+    -43.1,
+    -22.85
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "rio_carioca_basin",
+   "landscapeCharacter": "coastal metropolis + granite morros",
+   "name": "Rio de Janeiro — Carioca basin",
+   "notes": "Botafogo + Copacabana + favelas. Atlantic coast morros.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    38.65,
+    8.95,
+    38.85,
+    9.15
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "addis_ababa_highland",
+   "landscapeCharacter": "high-altitude basin metropolis",
+   "name": "Addis Ababa — highland metropolis",
+   "notes": "Dry-season window.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    28.65,
+    41.2,
+    28.85,
+    41.4
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "istanbul_third_airport",
+   "landscapeCharacter": "engineered airport + forest clearing",
+   "name": "Istanbul third airport (Arnavutköy)",
+   "notes": "New IST airport — engineered scar in Belgrade Forest.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -73.85,
+    40.55,
+    -73.65,
+    40.75
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "nyc_jfk_jamaica_bay",
+   "landscapeCharacter": "airport + tidal wetland mosaic",
+   "name": "JFK + Jamaica Bay (NYC)",
+   "notes": "JFK runways embedded in salt marsh.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -105.1,
+    39.65,
+    -104.9,
+    39.85
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "denver_metro_grid",
+   "landscapeCharacter": "urban grid against Front Range",
+   "name": "Denver metro grid + foothills",
+   "notes": "City–mountain interface.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -147.1,
+    60.95,
+    -146.9,
+    61.15
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "alaska_columbia_glacier",
+   "landscapeCharacter": "tidewater glacier + Prince William Sound",
+   "name": "Columbia Glacier (Alaska)",
+   "notes": "Iconic retreating tidewater glacier.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -140.55,
+    59.95,
+    -140.35,
+    60.15
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "alaska_malaspina_glacier",
+   "landscapeCharacter": "piedmont lobe glacier + moraine swirls",
+   "name": "Malaspina Glacier (Alaska)",
+   "notes": "Earth's largest piedmont glacier — concentric moraine pattern.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -63.4,
+    79.4,
+    -63.1,
+    79.65
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "greenland_humboldt_glacier",
+   "landscapeCharacter": "tidewater outlet glacier — broad calving front",
+   "name": "Humboldt Glacier (NW Greenland)",
+   "notes": "Greenland's broadest tidewater calving front.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    17.3,
+    78.65,
+    17.6,
+    78.85
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "svalbard_nordenskjold_glacier",
+   "landscapeCharacter": "Arctic glacier + medial moraines",
+   "name": "Svalbard — Nordenskiöldbreen",
+   "notes": "Striped medial moraines reading clearly at coarse res.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -73.1,
+    -49.55,
+    -72.9,
+    -49.35
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "argentina_viedma_glacier",
+   "landscapeCharacter": "Patagonian outlet glacier + lake terminus",
+   "name": "Viedma Glacier (Argentina)",
+   "notes": "Lago Viedma headwaters.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-01-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    37.3,
+    -3.1,
+    37.45,
+    -2.95
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "kilimanjaro_summit",
+   "landscapeCharacter": "tropical summit ice cap on volcano",
+   "name": "Kilimanjaro summit ice cap",
+   "notes": "Disappearing tropical glacier.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "snow_ice",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    138.6,
+    35.25,
+    138.85,
+    35.5
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "mt_fuji_japan",
+   "landscapeCharacter": "iconic stratovolcano + alpine crater",
+   "name": "Mt. Fuji (Japan)",
+   "notes": "Snow-capped Fuji + concentric vegetation belts.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    105.3,
+    -6.2,
+    105.55,
+    -5.95
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "anak_krakatau",
+   "landscapeCharacter": "young volcanic island — fresh eruptive deposits",
+   "name": "Anak Krakatau (Indonesia)",
+   "notes": "Reborn caldera island — bare lava + circling sea.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    15.1,
+    38.65,
+    15.3,
+    38.85
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "stromboli_italy",
+   "landscapeCharacter": "permanently active volcanic island",
+   "name": "Stromboli (Italy)",
+   "notes": "Sciara del Fuoco — the lava-incinerated descent toward the sea.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    130.55,
+    31.5,
+    130.8,
+    31.7
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "sakurajima_japan",
+   "landscapeCharacter": "active volcano + Kagoshima bay shoreline",
+   "name": "Sakurajima (Japan)",
+   "notes": "Volcanic ash plumes + urban shoreline.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -78.55,
+    -0.8,
+    -78.3,
+    -0.55
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "cotopaxi_ecuador",
+   "landscapeCharacter": "snow-capped Andean stratovolcano",
+   "name": "Cotopaxi (Ecuador)",
+   "notes": "Equatorial glacier on volcanic cone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -86.8,
+    12.45,
+    -86.55,
+    12.65
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "cerro_negro_nicaragua",
+   "landscapeCharacter": "young cinder cone + agricultural surround",
+   "name": "Cerro Negro (Nicaragua)",
+   "notes": "Black volcanic cone against tropical agriculture.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    177.1,
+    -37.65,
+    177.3,
+    -37.45
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "white_island_nz",
+   "landscapeCharacter": "active marine volcanic crater",
+   "name": "White Island / Whakaari (NZ)",
+   "notes": "Sulfur-saturated crater lake on offshore volcano.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    14.3,
+    40.75,
+    14.55,
+    40.95
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "vesuvius_italy",
+   "landscapeCharacter": "stratovolcano + Naples urban edge",
+   "name": "Vesuvius (Italy)",
+   "notes": "Naples Bay's looming cone + dense suburbs.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    121.75,
+    -8.85,
+    121.9,
+    -8.7
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "kelimutu_3color_lakes",
+   "landscapeCharacter": "three-color volcanic crater lakes",
+   "name": "Kelimutu — three-color crater lakes (Indonesia)",
+   "notes": "Famous trio of mineral-stained crater lakes that shift color.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -91.3,
+    -1.0,
+    -91.05,
+    -0.8
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "galapagos_sierra_negra",
+   "landscapeCharacter": "shield volcano + caldera floor",
+   "name": "Galápagos — Sierra Negra (Ecuador)",
+   "notes": "Massive shield-volcano caldera + endemic vegetation.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -62.25,
+    16.65,
+    -62.1,
+    16.8
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "soufriere_montserrat",
+   "landscapeCharacter": "active volcano + abandoned exclusion zone",
+   "name": "Soufrière Hills (Montserrat)",
+   "notes": "Pyroclastic-flow scarred slopes + abandoned Plymouth.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "burn"
+   ]
+  },
+  {
+   "bbox": [
+    128.0,
+    41.95,
+    128.2,
+    42.1
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "mt_paektu_caldera",
+   "landscapeCharacter": "summit caldera lake on stratovolcano",
+   "name": "Mt. Paektu — Heaven Lake caldera (Korea/China)",
+   "notes": "Heaven Lake — the saturated blue crater lake at the China–DPRK border.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -112.3,
+    40.45,
+    -112.05,
+    40.65
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "bingham_canyon_utah",
+   "landscapeCharacter": "open-pit copper mine — terraced excavation",
+   "name": "Bingham Canyon mine (Utah)",
+   "notes": "World's deepest open-pit mine — concentric terraces.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    113.85,
+    62.45,
+    114.1,
+    62.65
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "mir_mine_yakutia",
+   "landscapeCharacter": "abandoned diamond pipe — circular pit",
+   "name": "Mir Mine (Yakutia, Russia)",
+   "notes": "Iconic 525 m–deep circular crater in Siberian taiga.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -115.65,
+    35.4,
+    -115.4,
+    35.6
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "mountain_pass_rare_earth",
+   "landscapeCharacter": "rare-earth open-pit mine in Mojave",
+   "name": "Mountain Pass mine (California)",
+   "notes": "Strategic rare-earth pit + bright tailings ponds.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -69.2,
+    -24.4,
+    -68.95,
+    -24.15
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "escondida_chile_copper",
+   "landscapeCharacter": "world's largest copper mine — twin pits",
+   "name": "Escondida copper mine (Chile)",
+   "notes": "Atacama-set vast copper terraces + leach pads.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -50.3,
+    -6.2,
+    -50.05,
+    -5.95
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "carajas_brazil_iron",
+   "landscapeCharacter": "terraced iron-ore pits in Amazon clearing",
+   "name": "Carajás iron mine (Brazil)",
+   "notes": "Massive iron-ore terraces carved into Amazonian forest.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    137.05,
+    -4.15,
+    137.25,
+    -3.95
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "grasberg_indonesia",
+   "landscapeCharacter": "high-altitude open-pit copper-gold mine",
+   "name": "Grasberg mine (Indonesia)",
+   "notes": "Highest open-pit mine in the world — 4 km elevation in Papua.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -72.85,
+    11.0,
+    -72.6,
+    11.2
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "cerrejon_colombia_coal",
+   "landscapeCharacter": "huge open-pit coal mine + tailings",
+   "name": "El Cerrejón coal mine (Colombia)",
+   "notes": "South America's largest coal mine — Guajira desert.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    6.4,
+    51.0,
+    6.65,
+    51.2
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "garzweiler_germany_lignite",
+   "landscapeCharacter": "lignite open-pit + reclaimed agriculture",
+   "name": "Garzweiler lignite mine (Germany)",
+   "notes": "Active lignite extraction + reclaimed farmland mosaic.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -105.3,
+    43.65,
+    -105.05,
+    43.85
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "black_thunder_coal_wy",
+   "landscapeCharacter": "broad-strip coal mine on prairie",
+   "name": "Black Thunder coal mine (Wyoming)",
+   "notes": "Largest US coal mine — terraced strip on Powder River grassland.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    22.85,
+    -27.85,
+    23.1,
+    -27.65
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "sishen_iron_south_africa",
+   "landscapeCharacter": "linear iron-ore strip mine in Kalahari",
+   "name": "Sishen iron mine (South Africa)",
+   "notes": "Long iron-ore strip cut across red Kalahari.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -6.65,
+    37.6,
+    -6.5,
+    37.8
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "rio_tinto_spain",
+   "landscapeCharacter": "ancient copper mines + acid-stained river",
+   "name": "Rio Tinto mines (Spain)",
+   "notes": "Vibrant red-orange acid-stained tailings — namesake of Mars analogs.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    124.95,
+    46.5,
+    125.2,
+    46.7
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "daqing_oilfield_china",
+   "landscapeCharacter": "industrial oil field + flat agricultural plain",
+   "name": "Daqing oilfield (China)",
+   "notes": "Vast geometric oilfield surface infrastructure.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    37.4,
+    30.95,
+    37.65,
+    31.15
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "wadi_assirhan_pivots_ksa",
+   "landscapeCharacter": "center-pivot circles in Arabian desert",
+   "name": "Wadi As-Sirhan pivots (Saudi Arabia)",
+   "notes": "Iconic green circles against red Arabian sand.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    23.15,
+    24.05,
+    23.4,
+    24.25
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "kufra_libya_pivots",
+   "landscapeCharacter": "Great Man-Made River–fed irrigation circles",
+   "name": "Kufra pivots (Libya)",
+   "notes": "Bright green circles fed by fossil aquifer in Sahara.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -2.85,
+    36.7,
+    -2.6,
+    36.9
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "almeria_greenhouse_sea",
+   "landscapeCharacter": "sea of plastic greenhouses against arid hills",
+   "name": "Almería greenhouse sea (Spain)",
+   "notes": "Reflective polyethylene 'mar de plástico' — visible from space.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -54.65,
+    -25.55,
+    -54.4,
+    -25.3
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "itaipu_dam",
+   "landscapeCharacter": "engineered hydro reservoir + dam",
+   "name": "Itaipu Dam reservoir (Brazil/Paraguay)",
+   "notes": "World's second-largest hydro plant + sharp reservoir geometry.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -114.85,
+    36.0,
+    -114.6,
+    36.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "lake_mead_hoover",
+   "landscapeCharacter": "engineered reservoir + concrete dam",
+   "name": "Lake Mead — Hoover Dam (NV/AZ)",
+   "notes": "Bathtub-ring drought signature against red rock.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    126.55,
+    37.3,
+    126.8,
+    37.5
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "songdo_korea",
+   "landscapeCharacter": "engineered tidelands → planned city",
+   "name": "Songdo planned city (South Korea)",
+   "notes": "Built-from-scratch city on reclaimed mudflats.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    54.55,
+    24.35,
+    54.7,
+    24.5
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "masdar_city_uae",
+   "landscapeCharacter": "planned eco-city against desert",
+   "name": "Masdar City (UAE)",
+   "notes": "Compact desert eco-city + Abu Dhabi airport context.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-10-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -112.8,
+    41.35,
+    -112.55,
+    41.55
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "spiral_jetty_utah",
+   "landscapeCharacter": "earthwork sculpture in saline lake",
+   "name": "Spiral Jetty (Great Salt Lake)",
+   "notes": "Robert Smithson's Spiral Jetty — pink lake margin.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    100.15,
+    7.5,
+    100.4,
+    7.7
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "songkhla_aquaculture_thailand",
+   "landscapeCharacter": "shrimp pond rectangular geometry",
+   "name": "Songkhla aquaculture grid (Thailand)",
+   "notes": "Vast aquaculture pond grid on tidal flats.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -6.45,
+    37.1,
+    -6.2,
+    37.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "villa_huelva_pivots",
+   "landscapeCharacter": "strawberry pivots adjacent to wetland",
+   "name": "Doñana area pivots (Spain)",
+   "notes": "Plastic-covered strawberry fields adjacent to Doñana wetlands.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -11.5,
+    21.05,
+    -11.25,
+    21.25
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "richat_eye_sahara",
+   "landscapeCharacter": "concentric eroded dome — bullseye pattern",
+   "name": "Richat Structure — Eye of the Sahara (Mauritania)",
+   "notes": "Iconic 50-km bullseye in the Adrar plateau.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-04-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    58.3,
+    40.15,
+    58.55,
+    40.35
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "darvaza_door_to_hell",
+   "landscapeCharacter": "gas-fired pit in Karakum desert",
+   "name": "Darvaza gas crater (Turkmenistan)",
+   "notes": "Door-to-Hell crater + Karakum sand sheets.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -72.75,
+    -46.75,
+    -72.5,
+    -46.55
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "marble_caves_chile",
+   "landscapeCharacter": "marble formations + glacier-fed turquoise lake",
+   "name": "Marble Caves / Lago General Carrera (Chile)",
+   "notes": "Patagonian marble caves on saturated turquoise lake.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    35.45,
+    -3.3,
+    35.7,
+    -3.05
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "ngorongoro_crater",
+   "landscapeCharacter": "intact volcanic caldera + crater floor",
+   "name": "Ngorongoro Crater (Tanzania)",
+   "notes": "World's largest intact caldera — wildlife-rich crater floor.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    128.3,
+    -17.55,
+    128.55,
+    -17.35
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "bungle_bungles",
+   "landscapeCharacter": "banded sandstone beehive domes",
+   "name": "Bungle Bungles / Purnululu (Australia)",
+   "notes": "Striped sandstone domes — reads as pixelated stripe pattern.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-05-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    130.95,
+    -25.4,
+    131.2,
+    -25.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "uluru_australia",
+   "landscapeCharacter": "isolated sandstone monolith on red plain",
+   "name": "Uluru / Ayers Rock (Australia)",
+   "notes": "Solitary monolith + Kata Tjuta domes.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    29.05,
+    37.85,
+    29.2,
+    38.0
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "pamukkale_travertines",
+   "landscapeCharacter": "white travertine terraces + thermal pools",
+   "name": "Pamukkale travertines (Turkey)",
+   "notes": "Snow-white travertine cascades.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    34.75,
+    38.55,
+    34.95,
+    38.75
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "goreme_cappadocia",
+   "landscapeCharacter": "tuff fairy chimneys + sub-cliff cities",
+   "name": "Göreme — Cappadocia (Turkey)",
+   "notes": "Eroded volcanic tuff landscape — fairy chimneys.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -111.5,
+    36.8,
+    -111.25,
+    37.0
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "antelope_canyon_az",
+   "landscapeCharacter": "slot-canyon eroded sandstone plateau",
+   "name": "Antelope Canyon plateau (Arizona)",
+   "notes": "Sandstone plateau cut by slot canyons.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -69.15,
+    -18.95,
+    -68.95,
+    -18.75
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "salar_de_surire",
+   "landscapeCharacter": "altiplano salt pan + flamingo lagoons",
+   "name": "Salar de Surire (Chile)",
+   "notes": "Bolivian-border altiplano playa with pink flamingo lagoons.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -119.65,
+    49.0,
+    -119.5,
+    49.15
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "spotted_lake_canada",
+   "landscapeCharacter": "mineral spotted lake — patterned ground",
+   "name": "Spotted Lake / Khiluk (Canada)",
+   "notes": "Rare mineral 'polka-dot' lake in Okanagan.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    73.3,
+    38.5,
+    73.6,
+    38.75
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "pamir_marco_polo",
+   "landscapeCharacter": "high-altitude plateau lakes + glacier",
+   "name": "Pamir Marco Polo plateau (Tajikistan)",
+   "notes": "Karakul + Roof of the World — cold endorheic lake.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    110.4,
+    29.3,
+    110.55,
+    29.45
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "zhangjiajie_pillars_china",
+   "landscapeCharacter": "vertical quartz-sandstone pillars + cloud forest",
+   "name": "Zhangjiajie sandstone pillars (China)",
+   "notes": "Avatar-like sandstone forest. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    145.65,
+    -16.9,
+    145.9,
+    -16.65
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "great_barrier_reef_cairns",
+   "landscapeCharacter": "coral platform + sandy lagoon sea",
+   "name": "Great Barrier Reef — Cairns sector",
+   "notes": "Coral patches against turquoise sand lagoon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    151.85,
+    -23.55,
+    152.1,
+    -23.3
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "heron_island_reef",
+   "landscapeCharacter": "single coral cay + platform reef",
+   "name": "Heron Island reef (Australia)",
+   "notes": "Iconic single-cay platform reef.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    73.4,
+    4.0,
+    73.65,
+    4.25
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "maldives_male_atoll",
+   "landscapeCharacter": "ring-shaped coral atoll + lagoon",
+   "name": "Maldives — Malé atoll",
+   "notes": "Capital atoll — engineered island + ring reef.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    -77.85,
+    24.55,
+    -77.6,
+    24.8
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "bahamas_tongue_ocean",
+   "landscapeCharacter": "deep submarine canyon + carbonate banks",
+   "name": "Bahamas Tongue of the Ocean",
+   "notes": "Deep oceanic blue cutting through pale carbonate banks.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    46.3,
+    -9.5,
+    46.55,
+    -9.3
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "aldabra_atoll",
+   "landscapeCharacter": "raised coral atoll + central lagoon",
+   "name": "Aldabra Atoll (Seychelles)",
+   "notes": "World's second-largest atoll — central lagoon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    130.45,
+    -0.65,
+    130.7,
+    -0.4
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "raja_ampat_indonesia",
+   "landscapeCharacter": "karst island archipelago + reef passages",
+   "name": "Raja Ampat (Indonesia)",
+   "notes": "Coral Triangle's epicentre — limestone karst islands.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -87.65,
+    17.25,
+    -87.45,
+    17.45
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "blue_hole_belize",
+   "landscapeCharacter": "circular submarine sinkhole + Lighthouse Reef",
+   "name": "Great Blue Hole (Belize)",
+   "notes": "Iconic circular cobalt blue sinkhole.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -159.85,
+    -18.95,
+    -159.65,
+    -18.75
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "aitutaki_lagoon_cooks",
+   "landscapeCharacter": "triangular reef-bound lagoon",
+   "name": "Aitutaki triangular lagoon (Cook Islands)",
+   "notes": "Storied triangular Polynesian lagoon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -135.5,
+    56.95,
+    -135.25,
+    57.2
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "tongass_old_growth",
+   "landscapeCharacter": "temperate old-growth coastal rainforest",
+   "name": "Tongass old-growth (Alaska)",
+   "notes": "Coastal temperate old-growth + fjord.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -124.05,
+    47.75,
+    -123.8,
+    48.0
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "olympic_hoh_rainforest",
+   "landscapeCharacter": "temperate rainforest + glaciated peaks",
+   "name": "Olympic Hoh rainforest (WA)",
+   "notes": "Hoh + Mt. Olympus — extreme rainfall + glacier.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    145.3,
+    -16.3,
+    145.55,
+    -16.05
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "daintree_rainforest",
+   "landscapeCharacter": "tropical rainforest meets coral coast",
+   "name": "Daintree (Australia)",
+   "notes": "Where rainforest meets the Great Barrier Reef.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    23.75,
+    52.6,
+    24.0,
+    52.8
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "bialowieza_forest",
+   "landscapeCharacter": "primeval mixed forest — last lowland European",
+   "name": "Białowieża Forest (Poland/Belarus)",
+   "notes": "Peak fall window — Europe's last primeval forest.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-25/2023-10-25"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    102.3,
+    4.3,
+    102.55,
+    4.55
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "taman_negara_malaysia",
+   "landscapeCharacter": "ancient lowland rainforest",
+   "name": "Taman Negara (Malaysia)",
+   "notes": "130-million-year-old rainforest. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    130.45,
+    30.25,
+    130.7,
+    30.5
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "yakushima_cedar",
+   "landscapeCharacter": "ancient sugi cedar montane forest",
+   "name": "Yakushima cedar forest (Japan)",
+   "notes": "Ancient cedars on subtropical island.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-06-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -124.05,
+    40.2,
+    -123.8,
+    40.45
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "redwoods_avenue_giants",
+   "landscapeCharacter": "coastal redwood old-growth",
+   "name": "Redwoods — Humboldt (CA)",
+   "notes": "Coast-redwood corridor + Eel River.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    119.55,
+    30.55,
+    119.8,
+    30.75
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "anji_bamboo_sea",
+   "landscapeCharacter": "vast monoculture bamboo forest",
+   "name": "Anji bamboo sea (China)",
+   "notes": "Crouching Tiger's bamboo sea.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    135.8,
+    34.3,
+    136.0,
+    34.5
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "yoshino_cherry_japan",
+   "landscapeCharacter": "cherry-blossom mountain at peak bloom",
+   "name": "Yoshino cherry blossoms (Japan)",
+   "notes": "Tight bloom window — pink mountain in early April.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-04-01/2024-04-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    146.5,
+    -42.85,
+    146.7,
+    -42.65
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "tasmania_old_eucalypt",
+   "landscapeCharacter": "tallest hardwood forest + clear-cuts",
+   "name": "Tasmania old-growth eucalypts (Styx)",
+   "notes": "World's tallest hardwoods + recent logging coupes.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    4.45,
+    52.2,
+    4.65,
+    52.35
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "tulip_fields_lisse",
+   "landscapeCharacter": "tulip field stripes + bulb-region polders",
+   "name": "Tulip fields — Lisse (Netherlands)",
+   "notes": "Tight bloom window — striped color-saturated polders.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2024-04-15/2024-05-10"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    5.9,
+    43.75,
+    6.1,
+    43.95
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "provence_lavender_valensole",
+   "landscapeCharacter": "lavender field rows + almond groves",
+   "name": "Provence lavender — Valensole (France)",
+   "notes": "Tight peak-bloom window — purple stripe geometry.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-07-25"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    11.2,
+    43.35,
+    11.45,
+    43.55
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "chianti_tuscany",
+   "landscapeCharacter": "rolling vineyards + cypress avenues",
+   "name": "Chianti — Tuscan vineyards (Italy)",
+   "notes": "Storied Tuscan vineyard + olive mosaic.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    3.9,
+    49.15,
+    4.1,
+    49.35
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "champagne_reims",
+   "landscapeCharacter": "chalk-soil vineyards + medieval town",
+   "name": "Champagne vineyards — Reims (France)",
+   "notes": "Vineyard rows on chalky bedrock.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    104.0,
+    21.75,
+    104.2,
+    21.95
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "mu_cang_chai_terraces",
+   "landscapeCharacter": "stepped rice paddies on northern Vietnamese hills",
+   "name": "Mu Cang Chai rice terraces (Vietnam)",
+   "notes": "Pre-harvest amber rice terraces. Cloud-prone.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-15/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    121.0,
+    16.85,
+    121.2,
+    17.05
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "banaue_terraces_philippines",
+   "landscapeCharacter": "ancient stepped rice terraces (Ifugao)",
+   "name": "Banaue rice terraces (Philippines)",
+   "notes": "Pre-monsoon flooded terraces — high-altitude rice.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-05-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    102.65,
+    23.0,
+    102.85,
+    23.2
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "yuanyang_rice_china",
+   "landscapeCharacter": "Hani stepped rice terraces",
+   "name": "Yuanyang rice terraces (China)",
+   "notes": "Winter flooded terraces — water mirror season.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    142.3,
+    43.3,
+    142.5,
+    43.5
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "furano_lavender_hokkaido",
+   "landscapeCharacter": "lavender + flower field stripes",
+   "name": "Furano flower fields — Hokkaido (Japan)",
+   "notes": "Brightly-striped flower geometry against forested hills.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-10"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    126.3,
+    33.2,
+    126.5,
+    33.4
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "jeju_green_tea_korea",
+   "landscapeCharacter": "tea field stripes + volcanic landscape",
+   "name": "Jeju green tea fields (Korea)",
+   "notes": "Striped tea rows on Hallasan volcanic flank.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    4.45,
+    43.4,
+    4.7,
+    43.6
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "camargue_rice_france",
+   "landscapeCharacter": "rice paddies + saline ponds + Rhône delta",
+   "name": "Camargue rice + salt pans (France)",
+   "notes": "Pink salt pans + green rice in Rhône delta.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    107.3,
+    53.1,
+    107.55,
+    53.3
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "lake_baikal_olkhon",
+   "landscapeCharacter": "world's deepest freshwater lake + island",
+   "name": "Lake Baikal — Olkhon Island (Russia)",
+   "notes": "Olkhon Island in Baikal — clear-water signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    -122.25,
+    42.85,
+    -122.0,
+    43.05
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "crater_lake_oregon",
+   "landscapeCharacter": "summit caldera lake — deep blue",
+   "name": "Crater Lake (Oregon)",
+   "notes": "Saturated cobalt caldera lake.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-15"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    98.75,
+    2.55,
+    99.0,
+    2.8
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "lake_toba_caldera",
+   "landscapeCharacter": "supervolcano caldera lake + Samosir Island",
+   "name": "Lake Toba caldera (Indonesia)",
+   "notes": "Largest caldera lake — Samosir Island in middle.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -120.2,
+    38.95,
+    -119.95,
+    39.2
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "lake_tahoe_basin",
+   "landscapeCharacter": "alpine lake + glaciated granite shore",
+   "name": "Lake Tahoe basin (CA/NV)",
+   "notes": "Cobalt alpine lake against granite peaks.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    29.55,
+    -6.25,
+    29.8,
+    -6.0
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "lake_tanganyika_mahale",
+   "landscapeCharacter": "rift-valley lake + chimpanzee mountain",
+   "name": "Lake Tanganyika — Mahale (Tanzania)",
+   "notes": "Deep rift lake + Mahale forested escarpment.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -134.0,
+    69.2,
+    -133.4,
+    69.5
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "mackenzie_delta_inuvik",
+   "landscapeCharacter": "Arctic delta — thaw lakes + braided channels",
+   "name": "Mackenzie Delta (Canada)",
+   "notes": "Thaw-lake speckled delta. High latitude — wider lon span needed.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    126.3,
+    72.3,
+    127.1,
+    72.65
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "lena_delta_russia",
+   "landscapeCharacter": "Arctic distributary delta + tundra",
+   "name": "Lena Delta (Russia)",
+   "notes": "Vast tundra delta. Wider lon span — high latitude.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    72.5,
+    67.3,
+    73.2,
+    67.6
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "ob_delta_russia",
+   "landscapeCharacter": "Arctic delta + thawing peat plains",
+   "name": "Ob Delta (Russia)",
+   "notes": "Wider lon — peat-thaw signature.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    80.0,
+    71.85,
+    80.8,
+    72.15
+   ],
+   "cloudCoverMax": 30.0,
+   "id": "yenisei_delta_russia",
+   "landscapeCharacter": "Arctic delta + tundra braids",
+   "name": "Yenisei Delta (Russia)",
+   "notes": "Crystalline meltwater + braided channels.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-15/2023-08-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "snow_ice"
+   ]
+  },
+  {
+   "bbox": [
+    31.55,
+    2.2,
+    31.8,
+    2.4
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "murchison_falls_uganda",
+   "landscapeCharacter": "Nile constricted falls + savanna",
+   "name": "Murchison Falls (Uganda)",
+   "notes": "Nile squeezed through 7 m gap + open savanna.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-02-28"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    35.95,
+    -2.5,
+    36.2,
+    -2.3
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "lake_natron_tanzania",
+   "landscapeCharacter": "alkaline lake — flamingo + microbial red",
+   "name": "Lake Natron (Tanzania)",
+   "notes": "Blood-red alkaline lake — Ol Doinyo Lengai context.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-07-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    36.2,
+    -1.95,
+    36.4,
+    -1.75
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "lake_magadi_kenya",
+   "landscapeCharacter": "soda lake + trona evaporites",
+   "name": "Lake Magadi (Kenya)",
+   "notes": "Pink-white evaporite crust on Rift Valley floor.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    29.95,
+    51.3,
+    30.2,
+    51.55
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "chernobyl_exclusion_zone",
+   "landscapeCharacter": "abandoned reactor + reforesting Pripyat",
+   "name": "Chernobyl exclusion zone (Ukraine)",
+   "notes": "Reactor + ghost city + new sarcophagus.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "vegetation"
+   ]
+  },
+  {
+   "bbox": [
+    -76.45,
+    40.75,
+    -76.3,
+    40.9
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "centralia_mine_fire_pa",
+   "landscapeCharacter": "abandoned coal town + smoldering ground",
+   "name": "Centralia mine fire (PA)",
+   "notes": "60-year underground coal fire — sparse vegetation contrast.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-11-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "burn",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    165.3,
+    11.55,
+    165.55,
+    11.75
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "bikini_atoll_marshall",
+   "landscapeCharacter": "atoll + nuclear test craters",
+   "name": "Bikini Atoll (Marshall Islands)",
+   "notes": "Bravo + Castle craters in lagoon.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "burn"
+   ]
+  },
+  {
+   "bbox": [
+    -110.95,
+    44.45,
+    -110.75,
+    44.65
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "yellowstone_grand_prismatic",
+   "landscapeCharacter": "thermophile-stained hot spring + geothermal",
+   "name": "Grand Prismatic Spring (Yellowstone)",
+   "notes": "Bright concentric thermal terraces.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-08-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    -67.85,
+    -23.1,
+    -67.65,
+    -22.9
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "alma_observatory_atacama",
+   "landscapeCharacter": "high-altitude radio dish array + altiplano",
+   "name": "ALMA Observatory plateau (Chile)",
+   "notes": "Geometric dish array on altiplano.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    63.2,
+    45.85,
+    63.45,
+    46.05
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "baikonur_cosmodrome",
+   "landscapeCharacter": "soviet-era launch complexes + steppe",
+   "name": "Baikonur Cosmodrome (Kazakhstan)",
+   "notes": "Concrete launch pads + access roads on steppe.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "urban",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    -43.25,
+    -2.65,
+    -43.0,
+    -2.4
+   ],
+   "cloudCoverMax": 25.0,
+   "id": "lencois_maranhenses",
+   "landscapeCharacter": "white sand dunes + seasonal lagoons",
+   "name": "Lençóis Maranhenses (Brazil)",
+   "notes": "Massive sand-dune sheets pocked with rainwater lagoons.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology",
+    "water"
+   ]
+  },
+  {
+   "bbox": [
+    123.1,
+    -34.2,
+    123.3,
+    -34.0
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "lake_hillier_pink",
+   "landscapeCharacter": "stable bubblegum-pink saline lake",
+   "name": "Lake Hillier — Middle Island (Australia)",
+   "notes": "Tiny pink lake on forested island.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-12-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    40.2,
+    14.2,
+    40.45,
+    14.4
+   ],
+   "cloudCoverMax": 10.0,
+   "id": "dallol_ethiopia",
+   "landscapeCharacter": "polychromatic salt + sulfur springs",
+   "name": "Dallol hydrothermal (Ethiopia)",
+   "notes": "Iron-yellow + emerald-green salt patterns. Lowest active volcano.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2023-12-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    126.95,
+    37.95,
+    127.2,
+    38.15
+   ],
+   "cloudCoverMax": 20.0,
+   "id": "dmz_korea",
+   "landscapeCharacter": "uninhabited buffer strip + intensive farms",
+   "name": "Korean DMZ corridor",
+   "notes": "Sharp DMZ contrast — wild buffer + intense agriculture.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "urban"
+   ]
+  },
+  {
+   "bbox": [
+    59.05,
+    43.65,
+    59.3,
+    43.85
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "aral_ship_graveyard",
+   "landscapeCharacter": "abandoned port + dry seabed + ships",
+   "name": "Aral Sea ship graveyard (Moynaq)",
+   "notes": "Old port now 100 km from water — ships in sand.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-06-01/2023-09-30"
+   ],
+   "source": "public-atlas",
+   "status": "proposed",
+   "themes": [
+    "water",
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    100.05,
+    38.85,
+    100.3,
+    39.05
+   ],
+   "cloudCoverMax": 5.0,
+   "id": "danxia_landform_china",
+   "landscapeCharacter": "rainbow-banded sandstone hills",
+   "name": "Zhangye Danxia (China)",
+   "notes": "Striped sandstone — deeply colored sedimentary layers.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-04-01/2023-10-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "soil_geology"
+   ]
+  },
+  {
+   "bbox": [
+    53.85,
+    12.55,
+    54.05,
+    12.75
+   ],
+   "cloudCoverMax": 15.0,
+   "id": "socotra_dragon_blood",
+   "landscapeCharacter": "endemic dragon-blood tree forest",
+   "name": "Socotra Dragon's Blood plateau (Yemen)",
+   "notes": "Iconic mushroom-shaped trees on Yemen's Galapagos.",
+   "reviewerNotes": "",
+   "seasonWindows": [
+    "2023-09-01/2024-03-31"
+   ],
+   "source": "wildcard",
+   "status": "proposed",
+   "themes": [
+    "vegetation",
+    "soil_geology"
+   ]
+  }
+ ],
+ "schemaVersion": 3
+}

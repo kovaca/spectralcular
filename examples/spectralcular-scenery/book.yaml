@@ -1,0 +1,48 @@
+# Book-level copy for the front matter and the cover (src/spectralcular/book_meta.py).
+# Credits that follow from the scenes — imagery years, data sources, the colormap
+# collections used and their licenses — are derived at build time; list anything
+# else under extra_credits.
+
+title: Spectralcular Scenery
+subtitle: An exploration of spectral indices and colormaps applied to satellite data of interesting places around the world
+author: Alex Kovac
+publisher: ""
+edition: First edition
+year: null            # null → the year the book is built
+isbn: null            # set before Global Distribution; Lulu supplies the barcode art
+copyright_holder: null  # null → author
+rights: All rights reserved.
+
+# Blank lines separate paragraphs.
+introduction: |
+  Each scene in this book pairs three things: a place on Earth, a spectral
+  index computed from satellite data of that place, and a colormap that turns
+  the index into a gloriously chromatic display. The place supplies the
+  subject, the index encodes a measurement tuned to a given property —
+  vegetation vigor, surface water, burn scars, bare mineral soil — and the
+  colormap gets applied in an effort to display that well.
+
+  The left-hand page of every spread is the scene itself, printed to the edge
+  of the paper. The right-hand page is its specimen card: the formula and the
+  bands that went into it, the scene and its date, a true color sample of the
+  same scene, where on Earth it is, and the colormap laid out on its own with
+  its lightness, chroma and hue, above a histogram of the values the scene
+  renders. I love histograms, and hope you will too.
+
+  The imagery is Copernicus Sentinel-2 surface reflectance at 10 to 20 meters
+  per pixel, chosen scene by scene for clear skies. A scene frames up to about
+  26 by 34 kilometers at full resolution — one satellite pixel per printed
+  dot — and wider frames trade detail for reach. Index formulas come from the
+  Awesome Spectral Indices catalog; the colormaps come from the scientific and
+  cartographic collections credited on the copyright page.
+
+extra_credits: []
+
+cover:
+  front_plate: everglades_river_of_grass   # plate number, location id or candidate id; null → plate 001
+  back_text: |
+    Every scene in this book is a single satellite snapshot turned into color:
+    a place, a spectral index that measures something about it, and a colormap
+    that decides how the measurement gets rendered. Take a gander, it's
+    spectralcular.
+  barcode_image: null

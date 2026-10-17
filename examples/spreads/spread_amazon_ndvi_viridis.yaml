@@ -1,0 +1,37 @@
+asset_id: amazon_basin_ndvi_viridis
+
+location:
+  name: Amazon Basin
+  bbox: [-62.5, -4.5, -61.8, -3.9]   # lon_min, lat_min, lon_max, lat_max
+
+imagery:
+  source: sentinel-2-l2a
+  date_range: 2023-07-01/2023-08-31
+  cloud_cover_max: 10
+
+index:
+  name: NDVI
+  bands:
+    N: nir   # Sentinel-2 B08 — Element 84 asset key
+    R: red   # Sentinel-2 B04
+
+colormap:
+  name: bids:viridis
+  normalization:
+    method: percentile
+    lower: 1
+    upper: 99
+
+layout:
+  template: full_image_plus_diagnostics
+  page_size: Letter
+  orientation: portrait
+  dpi: 300
+  annotations: minimal
+  outputs: [pdf, html]
+  caption: "Amazon Basin — NDVI, July–August 2023"
+  plate_number: "001"
+  interpretive_note: >
+    Dense Amazonian rainforest registers high NDVI across the scene; darker
+    bands trace river channels and exposed sediment along the Rio Negro tributary
+    system. NDVI percentile-clipped to 1–99 to preserve contrast in the high tail.

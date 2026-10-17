@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+{%- if kind == 'truecolor' %}{% set look_label = 'True color · ' ~ truecolor.preset %}{% else %}{% set look_label = index_short ~ ' · ' ~ colormap_short_name %}{% endif %}
+<title>{% if kind == 'truecolor' %}True color{% else %}{{ index_long_name }}{% endif %} — {{ location_name }}</title>
+<style>
+/* Bundled fonts — matplotlib's DejaVu — used for page-1 overlays so the
+   PIL-rendered halo and the CSS-rendered text use identical glyph metrics. */
+@font-face {
+    font-family: 'GB Mono';
+    src: url('{{ font_mono_uri }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GB Mono';
+    src: url('{{ font_mono_bold_uri }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GB Serif';
+    src: url('{{ font_serif_uri }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GB Serif';
+    src: url('{{ font_serif_italic_uri }}') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'GB Serif';
+    src: url('{{ font_serif_bold_uri }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GB Serif';
+    src: url('{{ font_serif_bolditalic_uri }}') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+{{ css | safe }}
+</style>
+</head>
+<body>
+
+{# ============================================================
+   Page 1 — full-bleed image plate
+   Layer order, low → high z-index:
+     1. .plate-image  (colorized index PNG)
+     2. .halo         (feathered darkened-blurred imagery patch behind text)
+     3. .overlay--*   (crisp editorial text with subtle drop shadow)
+   ============================================================ #}
+<section class="page-image">
+    {%- if plate_page %}
+    {# Print: plate + halo already flattened into one opaque page image. #}
+    <img class="plate-image" src="{{ plate_page }}"
+         alt="{% if kind == 'truecolor' %}True color{% else %}{{ index_long_name }}{% endif %} of {{ location_name }}">
+    {%- else %}
+    <img class="plate-image" src="{{ image_png }}"
+         alt="{% if kind == 'truecolor' %}True color{% else %}{{ index_long_name }}{% endif %} of {{ location_name }}">
+    <img class="halo" src="{{ halo_png }}" alt="">
+    {%- endif %}
+    <div class="overlay overlay--top-left">{{ look_label }}</div>
+    <div class="overlay overlay--top-right">{{ location_name | upper }}</div>
+    {% if caption %}
+    <div class="overlay overlay--bottom-left">{{ caption }}</div>
+    {% endif %}
+    <div class="overlay overlay--bottom-right">PLATE {{ plate_number }}</div>
+</section>
+
+{# ============================================================
+   Page 2 — diagnostic / specimen card (docs/DESIGN.md, "Atlas paper")
+   Top half identifies the plate: title, the two pictures that locate it,
+   the bands that made it. Bottom half is the specimen record: three fact
+   columns, the gradient band with its OKLCh curves, the histogram.
+   Every block has a fixed height in book.css so all rectos align.
+   ============================================================ #}
+<section class="page-diag">
+
+    <header class="running-head">
+        <span class="left">{{ look_label }}</span>
+        <span class="center">Plate {{ plate_number }}</span>
+        <span class="right">{{ location_name | upper }}</span>
+    </header>
+
+    <div class="title-block">
+        {%- if kind == 'truecolor' %}
+        <h1 class="title">True color</h1>
+        <span class="formula">R G B = {{ truecolor.channel_bands }}</span>
+        {%- else %}
+        <h1 class="title{% if title_long %} title--long{% endif %}">{{ index_long_name }}</h1>
+        <span class="formula">{{ index_formula }}</span>
+        {%- endif %}
+        <p class="subtitle">{{ location_name }}</p>
+    </div>
+
+    {# ───── Feature: true color + locator (true-color plates: linear | rendered | locator) ───── #}
+    <div class="feature">
+        {%- if kind == 'truecolor' %}
+        <figure class="feature-thumb">
+            {%- if linear_thumbnail_png %}
+            <img src="{{ linear_thumbnail_png }}" alt="The framed bands with no tone pipeline">
+            {%- else %}
+            <div class="feature-empty">No linear preview</div>
+            {%- endif %}
+            <figcaption>Linear &nbsp;·&nbsp; unstretched</figcaption>
+        </figure>
+        <figure class="feature-thumb">
+            <img src="{{ image_png }}" alt="The rendered plate">
+            <figcaption>Rendered &nbsp;·&nbsp; {{ truecolor.preset }}</figcaption>
+        </figure>
+        {%- else %}
+        <figure class="feature-thumb">
+            {% if rgb_thumbnail_png %}
+            <img src="{{ rgb_thumbnail_png }}" alt="True-color preview of the framed area">
+            {% else %}
+            <div class="feature-empty">No true-color preview for this platform</div>
+            {% endif %}
+            <figcaption>True color &nbsp;·&nbsp; {{ platform_label }} &nbsp;·&nbsp; {{ acquired_short }}</figcaption>
+        </figure>
+        {%- endif %}
+        <figure class="feature-locator">
+            <img src="{{ scene_locator_svg }}" alt="Scene footprint locator">
+            <figcaption>{{ 'Scene footprints' if scene_count > 1 else 'Scene footprint' }}
+                {{ scene_tiles_label }} &nbsp;·&nbsp; page frame</figcaption>
+        </figure>
+    </div>
+
+    {# ───── Bands in use ───── #}
+    <div class="bands">
+        <div class="section-head">
+            <span class="label">Bands in use</span>
+            <span class="meta">{{ bands_used_label }}</span>
+        </div>
+        <div class="band-ruler-wrap">{{ band_ruler_svg | safe }}</div>
+    </div>
+
+    {# ───── Three fact columns ───── #}
+    <div class="cols">
+        <section class="col col--imagery">
+            <div class="section-head">
+                <span class="label"><span class="roman">I</span>Imagery</span>
+            </div>
+            <ul class="kv-list">
+                <li><span class="k">platform</span> <span class="v">{{ platform_label }}</span></li>
+                <li><span class="k">{{ 'dates' if scene_count > 1 else 'date' }}</span> <span class="v">{{ date_label }}</span></li>
+                <li><span class="k">{{ 'scenes' if scene_count > 1 else 'scene' }}</span>
+                    <span class="v">{{ scene_ids_short | join(' · ') }}</span></li>
+                <li><span class="k">cloud</span>    <span class="v">{{ cloud_label }}%</span></li>
+                <li><span class="k">crs</span>      <span class="v">{{ crs }}</span></li>
+                <li><span class="k">{{ 'frame' if frame_rotation_label else 'ground' }}</span>
+                    <span class="v">{{ bbox_size_km }}{% if frame_rotation_label %} · {{ frame_rotation_label }}{% endif %}</span></li>
+                <li><span class="k">gsd</span>      <span class="v">{{ gsd_label }}</span></li>
+            </ul>
+        </section>
+        {%- if kind == 'truecolor' %}
+        <section class="col col--index">
+            <div class="section-head">
+                <span class="label"><span class="roman">II</span>Stretch</span>
+            </div>
+            <ul class="kv-list">
+                <li><span class="k">mode</span>    <span class="v">{{ truecolor.mode }}</span></li>
+                <li><span class="k">window</span>  <span class="v">{{ truecolor.window_source }}</span></li>
+                {%- for ch in truecolor.channels %}
+                <li><span class="k">{{ ch.name }}</span> <span class="v">{{ ch.window }}</span></li>
+                {%- endfor %}
+                <li><span class="k">median</span>  <span class="v">{{ truecolor.medians }}</span></li>
+                <li><span class="k">pixels</span>  <span class="v">{{ truecolor.n_pixels_human }} · {{ truecolor.valid_pct }}% valid</span></li>
+            </ul>
+        </section>
+        <section class="col col--colormap">
+            <div class="section-head">
+                <span class="label"><span class="roman">III</span>Tone</span>
+            </div>
+            <ul class="kv-list">
+                <li><span class="k">preset</span>     <span class="v">{{ truecolor.preset }}</span></li>
+                <li><span class="k">gamma</span>      <span class="v">{{ truecolor.gamma }}</span></li>
+                <li><span class="k">contrast</span>   <span class="v">{{ truecolor.contrast }}</span></li>
+                <li><span class="k">saturation</span> <span class="v">{{ truecolor.saturation }}</span></li>
+                <li><span class="k">order</span>      <span class="v">stretch → γ → S → C</span></li>
+                <li><span class="k">input</span>      <span class="v">surface reflectance</span></li>
+            </ul>
+        </section>
+        {%- else %}
+        <section class="col col--index">
+            <div class="section-head">
+                <span class="label"><span class="roman">II</span>Index</span>
+            </div>
+            <ul class="kv-list">
+                <li><span class="k">area</span>    <span class="v">{{ application_domain }}</span></li>
+                <li><span class="k">domain</span>  <span class="v">{{ index_domain_str }}</span></li>
+                <li><span class="k">norm</span>    <span class="v">{{ normalization_desc }}</span></li>
+                <li><span class="k">range</span>   <span class="v">{{ vmin }} / {{ vmax }}</span></li>
+                <li><span class="k">extrema</span> <span class="v">{{ stats.min }} / {{ stats.max }}</span></li>
+                <li><span class="k">mean/med</span> <span class="v">{{ stats.mean }} / {{ stats.p50 }}</span></li>
+                <li><span class="k">pixels</span>  <span class="v">{{ n_pixels_human }} · {{ stats.valid_pct }}% valid</span></li>
+            </ul>
+        </section>
+        <section class="col col--colormap">
+            <div class="section-head">
+                <span class="label"><span class="roman">III</span>Colormap</span>
+            </div>
+            <ul class="kv-list">
+                <li><span class="k">name</span>      <span class="v">{{ colormap_short_name }}</span></li>
+                <li><span class="k">source</span>    <span class="v">{{ colormap_source }}</span></li>
+                <li><span class="k">reversed</span>  <span class="v">{{ colormap_facts.reversed }}</span></li>
+                <li><span class="k">L*</span>        <span class="v">{{ colormap_facts.lightness }}</span></li>
+                <li><span class="k">C* peak</span>   <span class="v">{{ colormap_facts.chroma }}</span></li>
+                <li><span class="k">hue</span>       <span class="v">{{ colormap_facts.hue }}</span></li>
+                <li><span class="k">maps</span>      <span class="v">{{ vmin }} → {{ vmax }}</span></li>
+            </ul>
+        </section>
+        {%- endif %}
+    </div>
+
+    {# ───── Gradient band (trim to trim), OKLCh curves, histogram ─────
+       True color: neutral-grey ramp through the tone pipeline, tone curves
+       per channel, per-channel reflectance histograms with the windows. #}
+    {%- if kind == 'truecolor' %}
+    <img class="gradient-band" src="{{ gradient_band_png }}" alt="neutral reflectance ramp through the tone pipeline">
+    <img class="oklch-chart" src="{{ oklch_chart_svg }}"
+         alt="Tone curves: reflectance to display value, red, green and blue">
+    <img class="histogram" src="{{ histogram_svg }}"
+         alt="histograms of red, green and blue reflectance with the stretch windows">
+    {%- else %}
+    <img class="gradient-band" src="{{ gradient_band_png }}" alt="colormap band">
+    <img class="oklch-chart" src="{{ oklch_chart_svg }}"
+         alt="Colormap trajectory: L*, C*, h° in OKLCh">
+    <img class="histogram" src="{{ histogram_svg }}"
+         alt="histogram of index values across the natural domain">
+    {%- endif %}
+
+    <footer class="colophon">
+        <span class="plate">Plate <span class="num">{{ plate_number }}</span> &nbsp;·&nbsp; {{ asset_id }}</span>
+        <span>{{ book_title }}</span>
+    </footer>
+
+</section>
+
+</body>
+</html>

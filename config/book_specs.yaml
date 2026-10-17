@@ -1,0 +1,182 @@
+# Physical book specification — the print-on-demand "menu picks" that every
+# render depends on. Lock these BEFORE producing content at scale; the pipeline
+# and the web picker read this file so a change lands everywhere at once.
+#
+# Inputs live here. Derived geometry (plate pixels, AOI ceiling, spine width,
+# cover document size) is computed in src/spectralcular/book_specs.py; the few
+# derived values restated below for readability are checked against it at load.
+#
+# Current choice: Lulu, US Letter portrait, perfect-bound paperback, 500 pages
+# (250 spreads), 80# premium coated white interior. Swap the vendor block and
+# trim to target another printer or an A4 book.
+
+vendor:
+  name: lulu
+  spec_sheet_url: https://www.lulu.com/sell/sell-on-lulu/print-pricing
+  # Lulu's templates, Book Creation Guide and PDF job-options presets are free
+  # downloads from lulu.com (not redistributed here). Keep them outside the
+  # repo, e.g. in a sibling folder.
+  # Lulu Print API SKU once paper/binding is final. Full-bleed color plates
+  # want Premium Color on 80# coated white (Book Creation Guide p.4); the
+  # order is a matte hardcover case wrap (paperback would be ….PB.…).
+  pod_package_id: null
+  notes: ""
+
+trim:
+  page_size: us_letter
+  width_in: 8.5
+  height_in: 11.0
+  orientation: portrait
+
+bleed_in: 0.125                  # 3.18 mm — applies to interior + paperback cover
+safety_margin_in: 0.5            # 12.7 mm — vendor safety margin from trim edge
+
+# Inner-edge gutter for the 400–600 page-count band (vendor book creation guide).
+# `recommended_inner_margin_in` applies when content is contained; the
+# `full_bleed_inner_margin_in` is the minimum inner margin to keep important
+# content from disappearing into the gutter on full-bleed pages. Plate inner
+# edges must respect full_bleed_inner_margin_in.
+gutter:
+  page_count_band: "400_to_600"
+  add_to_inner_margin_in: 0.625      # 16 mm
+  recommended_inner_margin_in: 1.125 # 29 mm — non-bleed
+  full_bleed_inner_margin_in: 1.25   # 32 mm — full-bleed pages
+
+# Lulu's full table (Book Creation Guide p.10), by interior page count. The
+# band above is the planning target's; `spectralcular print` / preflight look up the
+# band for the book's actual page count here. Margins are from the trim edge
+# ("full bleed" adds the 0.125" bleed).
+gutter_table:
+  - {max_pages: 60,   add_to_inner_margin_in: 0.0,   recommended_inner_margin_in: 0.5,   full_bleed_inner_margin_in: 0.625}
+  - {max_pages: 150,  add_to_inner_margin_in: 0.125, recommended_inner_margin_in: 0.625, full_bleed_inner_margin_in: 0.75}
+  - {max_pages: 400,  add_to_inner_margin_in: 0.5,   recommended_inner_margin_in: 1.0,   full_bleed_inner_margin_in: 1.125}
+  - {max_pages: 600,  add_to_inner_margin_in: 0.625, recommended_inner_margin_in: 1.125, full_bleed_inner_margin_in: 1.25}
+  - {max_pages: null, add_to_inner_margin_in: 0.75,  recommended_inner_margin_in: 1.25,  full_bleed_inner_margin_in: 1.375}
+
+dpi: 300                         # POD standard
+source_gsd_m: 10                 # Sentinel-2 visible/NIR ground sample distance
+
+# Derived: largest AOI that fills the plate at one source pixel per print pixel.
+#   max_km = (trim_in + 2 * bleed_in) * dpi * gsd_m / 1000
+aoi_ceiling_km:
+  width: 26.25                   # (8.5 + 0.25) * 300 * 10 / 1000
+  height: 33.75                  # (11.0 + 0.25) * 300 * 10 / 1000
+
+color:
+  delivery_space: sRGB           # POD vendor converts to press CMYK on ingest
+  delivery_profile: sRGB IEC61966-2.1
+  soft_proof_profile: Coated GRACoL 2006   # the vendor's press CMYK target
+  rules:
+    max_total_area_coverage_pct: 270   # TAC ≤ 270%
+    min_tint_pct: 20                   # avoid solid fills below 20%
+    bw_in_color_book: grayscale        # B&W images set to grayscale color space
+
+paper:
+  stock: premium_coated_white
+  weight_lb: 80
+  weight_class: text
+
+binding: hardcover_casewrap      # as ordered from Lulu (2026-10): Premium Color, 80# coated white, matte case wrap
+
+cross_spread_plates: false       # gutter loss is structural at 500 pp: plates stay on one page
+
+page_count:
+  # Lulu has no hard multiple-of-4 rule for perfect binding but recommends it
+  # (the printer otherwise adds blank leaves at the back). Checked on target.
+  signature_multiple: 4
+  target: 500                    # 250 spreads × 2 — planning figure; the cover uses the real count
+
+# Interior page rules (Lulu spec sheet + help center, 2026). Page 1 is a recto.
+page_rules:
+  min_pages: 32                  # perfect bound, US Letter, all color papers
+  max_pages: 800
+  max_consecutive_blank: 2       # Global Distribution; "intentionally left blank" pages are fine
+  min_text_pt: 7                 # Global Distribution rejects smaller text; < 5 pt warns on upload
+
+# One-piece cover document. `spectralcular print` sizes it for the interior's
+# real page count; preflight checks it.
+#
+# hardcover_casewrap (Lulu US Letter casewrap template):
+#   panel  = board 8.625 × 11.25"; the sheet wraps 0.75" round the board edges
+#   width  = 2 × (wrap + board_w) + spine        (214 pages → 19.5")
+#   height = board_h + 2 × wrap                  (12.75")
+#   spine from Lulu's page-range table           (195–222 pages → 0.75")
+#   safety margin 0.5" inside the board edge (1.25" from the sheet edge)
+# paperback_perfect_bind (set type: and it uses these instead):
+#   width  = 2 × (trim_w + bleed) + spine,  height = trim_h + 2 × bleed
+#   spine  = pages / 444 + 0.06"
+cover:
+  type: hardcover_casewrap
+  wrap_in: 0.75
+  board_w_in: 8.625
+  board_h_in: 11.25
+  # Hardcover spine widths (Lulu Book Creation Guide p.14), by interior page count.
+  spine_table:
+    - {max_pages: 84,  spine_in: 0.25}
+    - {max_pages: 140, spine_in: 0.5}
+    - {max_pages: 168, spine_in: 0.625}
+    - {max_pages: 194, spine_in: 0.688}
+    - {max_pages: 222, spine_in: 0.75}
+    - {max_pages: 250, spine_in: 0.813}
+    - {max_pages: 278, spine_in: 0.875}
+    - {max_pages: 306, spine_in: 0.938}
+    - {max_pages: 334, spine_in: 1.0}
+    - {max_pages: 360, spine_in: 1.063}
+    - {max_pages: 388, spine_in: 1.125}
+    - {max_pages: 416, spine_in: 1.188}
+    - {max_pages: 444, spine_in: 1.25}
+    - {max_pages: 472, spine_in: 1.313}
+    - {max_pages: 500, spine_in: 1.375}
+    - {max_pages: 528, spine_in: 1.438}
+    - {max_pages: 556, spine_in: 1.5}
+    - {max_pages: 582, spine_in: 1.563}
+    - {max_pages: 610, spine_in: 1.625}
+    - {max_pages: 638, spine_in: 1.688}
+    - {max_pages: 666, spine_in: 1.75}
+    - {max_pages: 694, spine_in: 1.813}
+    - {max_pages: 722, spine_in: 1.875}
+    - {max_pages: 750, spine_in: 1.938}
+    - {max_pages: 778, spine_in: 2.0}
+    - {max_pages: 799, spine_in: 2.063}
+    - {max_pages: 800, spine_in: 2.125}
+  # Paperback alternative.
+  spine_formula:
+    per_page_in: 0.0022522523    # 1 / 444
+    offset_in: 0.06
+  bleed_in: 0.125
+  safety_margin_in: 0.5
+  # Spine text: none at ≤ 80 pages (≤ 100 for Global Distribution); keep
+  # 0.125" clear of both spine folds (Book Creation Guide p.16).
+  spine_text_min_pages: 100
+  spine_text_clearance_in: 0.125
+  barcode_area:
+    # Lulu help center (2026): 2.5 × 1.7" including 0.25" white padding,
+    # ≥ 0.25" from any edge, black on white. Reserved only when the book has
+    # an ISBN (config/book.yaml); Lulu supplies the barcode artwork.
+    width_in: 2.5
+    height_in: 1.7
+    inset_from_trim_in: 0.5      # back cover, bottom-right, inside the safety margin (from the board edge on a casewrap)
+    required: false              # only for retail distribution
+
+# What `spectralcular print` writes. Lulu names no PDF/X or PDF/A standard; these mirror
+# its own Distiller presets (Lulu-Interior/Cover-Print-PDF.joboptions): color
+# left unchanged as sRGB, no transparency, images downsampled to 300 ppi and
+# JPEG-compressed with no chroma subsampling, fonts embedded and subset.
+print_pdf:
+  color: sRGB                    # untagged RGB is tagged with an sRGB ICC + output intent
+  image_ppi: 300                 # every raster is resampled to exactly this at its placed size
+  min_image_ppi: 300             # Book Creation Guide: 300 minimum …
+  max_image_ppi: 600             # … 600 maximum
+  jpeg_quality: 88               # 4:4:4; ~3.5 MB per noisy 10 m plate (100 plates at 90 came to 506 MB)
+  flatten_transparency: true
+  file_size_warn_mb: 500         # Lulu: keep under 500 MB (distribution, normalizing step)
+  file_size_max_mb: 1000         # Lulu: "no file limit", but recommends under 1 GB
+
+typography:
+  # Print embedding needs fonts licensed for it; pick from a source that grants
+  # it (Google Fonts / OFL, or a foundry license) before the final proof.
+  source: google_fonts
+  embedding_licensed: true
+
+attribution:
+  data_source: "Contains modified Copernicus Sentinel-2 data, processed by ESA."

@@ -1,0 +1,43 @@
+asset_id: etna_ndvi_eclipse
+
+location:
+  name: Mt. Etna
+  # Etna's summit cone and flanks. The volcano rises from ~0 m at the
+  # Ionian coast to 3357 m at the central crater; NDVI's vegetation-vs-bare
+  # contrast traces the lava-flow / forest mosaic beautifully on the
+  # eastern slope. Bbox ≈ 17.6 × 22.3 km at lat 37.75°N — well inside
+  # both the AOI ceiling and a single MGRS tile.
+  bbox: [15.02, 37.65, 15.20, 37.85]    # lon_min, lat_min, lon_max, lat_max — east of the UTM 33 V/W column boundary at 15°E so we land wholly in MGRS tile 33SWB and avoid cross-day mosaicking
+
+imagery:
+  source: sentinel-2-l2a
+  date_range: 2023-07-01/2023-08-31
+  cloud_cover_max: 10
+
+index:
+  name: NDVI
+  bands:
+    N: nir   # Sentinel-2 B08
+    R: red   # Sentinel-2 B04
+
+colormap:
+  name: cmasher:eclipse
+  normalization:
+    method: percentile
+    lower: 1
+    upper: 99
+
+layout:
+  template: full_image_plus_diagnostics
+  page_size: Letter
+  orientation: portrait
+  dpi: 300
+  annotations: minimal
+  outputs: [pdf, html]
+  caption: "Mt. Etna — NDVI, July–August 2023"
+  plate_number: "004"
+  interpretive_note: >
+    Etna's summit cone sits as a low-NDVI black void inside concentric
+    forested flanks; recent lava flows trace as dark spurs through the
+    canopy. Eclipse colormap pulls the volcanic surface toward shadow
+    while letting the vegetated belt take chromatic depth.

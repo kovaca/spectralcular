@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Colormaps pool — review</title>
+<link rel="stylesheet" href="{{ css_rel }}">
+</head>
+<body>
+<div class="shell">
+
+  <header class="review-header">
+    <div>
+      <h1>Colormaps pool</h1>
+      <div class="subtitle">Stage 3 — candidate review</div>
+    </div>
+    <div class="counts">
+      <span class="proposed">proposed <span class="num">{{ counts.proposed }}</span></span>
+      <span class="approved">approved <span class="num">{{ counts.approved }}</span></span>
+      <span class="rejected">rejected <span class="num">{{ counts.rejected }}</span></span>
+      <span class="needs_revision">needs_revision <span class="num">{{ counts.needs_revision }}</span></span>
+    </div>
+  </header>
+
+  <nav class="toplinks">
+    <a href="locations.html">locations</a>
+    <a href="indices.html">indices</a>
+    <a class="active" href="colormaps.html">colormaps</a>
+  </nav>
+
+  <div class="grid">
+    {% for c in cards %}
+    <div class="card">
+      <div class="cmap-hero">
+        <img src="{{ c.gradient_rel }}" alt="{{ c.entry.name }} gradient">
+      </div>
+
+      <div class="cmap-body">
+        <div class="header-row">
+          <div>
+            <h2>{{ c.entry.name }}</h2>
+          </div>
+          <span class="status {{ c.status }}">{{ c.status }}</span>
+        </div>
+
+        <div class="cmap-tags tags">
+          <span class="tag">{{ c.entry.type }}</span>
+          <span class="tag">{{ c.entry.semantic_register }}</span>
+          <span class="tag print-tag {{ c.entry.print_safety }}">print: {{ c.entry.print_safety }}</span>
+        </div>
+        {% if c.metric_chips %}
+        <div class="cmap-tags tags metrics">
+          {% for label, cls in c.metric_chips %}<span class="{{ cls }}">{{ label }}</span>{% endfor %}
+        </div>
+        {% endif %}
+        {% if c.entry.tags %}
+        <div class="cmap-tags tags catalog-tags">
+          {% for t in c.entry.tags %}<span class="tag muted">{{ t }}</span>{% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="oklch">
+          <img src="{{ c.oklch_rel }}" alt="{{ c.entry.name }} OKLCh trajectory">
+        </div>
+
+        {% if c.entry.pairs_with %}
+        <div class="notes">
+          <strong>Pairs with.</strong>
+          {% for p in c.entry.pairs_with %}<span class="tag" style="margin-right:4px;">{{ p }}</span>{% endfor %}
+        </div>
+        {% endif %}
+
+        {% if c.entry.notes %}
+        <div class="notes"><strong>Notes.</strong> {{ c.entry.notes }}</div>
+        {% endif %}
+        {% if c.attribution %}
+        <div class="notes attribution"><strong>Source.</strong> {{ c.attribution }}{% if c.entry.source.url %} · <a href="{{ c.entry.source.url }}">link</a>{% endif %}</div>
+        {% endif %}
+
+        <div class="copyblock">
+          <code>name: {{ c.entry.name }}</code>
+          <button onclick="navigator.clipboard.writeText('  - name: {{ c.entry.name }}\n    status: approved')">copy approved</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+</body>
+</html>

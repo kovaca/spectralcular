@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Indices pool — review</title>
+<link rel="stylesheet" href="{{ css_rel }}">
+</head>
+<body>
+<div class="shell">
+
+  <header class="review-header">
+    <div>
+      <h1>Indices pool</h1>
+      <div class="subtitle">Stage 3 — candidate review</div>
+    </div>
+    <div class="counts">
+      <span class="proposed">proposed <span class="num">{{ counts.proposed }}</span></span>
+      <span class="approved">approved <span class="num">{{ counts.approved }}</span></span>
+      <span class="rejected">rejected <span class="num">{{ counts.rejected }}</span></span>
+      <span class="needs_revision">needs_revision <span class="num">{{ counts.needs_revision }}</span></span>
+    </div>
+  </header>
+
+  <nav class="toplinks">
+    <a href="locations.html">locations</a>
+    <a class="active" href="indices.html">indices</a>
+    <a href="colormaps.html">colormaps</a>
+  </nav>
+
+  <div class="theme-summary">
+    {% for theme, n in by_theme.items() %}<span>{{ theme }} <strong>{{ n }}</strong></span>{% endfor %}
+  </div>
+
+  <table class="indices">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>theme</th>
+        <th>formula</th>
+        <th>bands</th>
+        <th>res</th>
+        <th>domain</th>
+        <th>expressive in</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in cards %}
+      <tr>
+        <td>
+          <strong>{{ c.entry.name }}</strong>
+          <div style="color: var(--fg-mute); font-size: 11px;">{{ c.long_name }}</div>
+        </td>
+        <td class="theme">{{ c.entry.theme }}</td>
+        <td class="formula">{{ c.formula }}</td>
+        <td class="formula">{{ c.bands_pretty }}</td>
+        <td class="formula">{{ c.resolution_floor_m }} m</td>
+        <td class="formula">
+          {% if c.domain %}[{{ c.domain[0] }}, {{ c.domain[1] }}]{% else %}—{% endif %}
+        </td>
+        <td>
+          {% for x in c.entry.expressive_in %}<span class="tag" style="margin-right:4px;">{{ x }}</span>{% endfor %}
+        </td>
+        <td><span class="status {{ c.status }}">{{ c.status }}</span></td>
+      </tr>
+      {% if c.entry.notes %}
+      <tr>
+        <td></td>
+        <td colspan="7" class="notes" style="color: var(--fg-dim); padding-top: 0;">{{ c.entry.notes }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

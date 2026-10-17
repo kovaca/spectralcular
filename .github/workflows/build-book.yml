@@ -1,0 +1,75 @@
+# EXPERIMENTAL — "GitHub Actions as the print shop".
+#
+# Give it a plate-picker selection (exported from the web app and committed to
+# the repo) and it renders the spreads at print resolution, assembles the book
+# and finishes the print files (`spectralcular print`), uploaded as an artifact.
+# Fetches Sentinel-2 from the public Earth Search STAC (no credentials).
+#
+# A book.yaml next to the manifest (title, introduction, cover copy) is used
+# when present; otherwise the book gets the config/book.yaml template.
+#
+# Budget: ~250 MB of disk and ~1 min per scene (the 100-scene example: ~25 GB,
+# 1.5–2 h), which is at or past a hosted runner's limits. Use `only` for a one-scene smoke test, or run
+# examples/spectralcular-scenery/build.sh locally / on a larger runner.
+
+name: Build book from selection
+
+on:
+  workflow_dispatch:
+    inputs:
+      manifest:
+        description: Path (in the repo) to a <book>.selection.json
+        required: true
+        default: examples/spectralcular-scenery/selection.json
+      only:
+        description: Optional candidate id to build just one spread (smoke test)
+        required: false
+        default: mt_etna__NDVI__cmocean_delta
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      SPECTRALCULAR_CONTACT: "+https://github.com/${{ github.repository }}"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Install system libraries (WeasyPrint)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz0b fonts-dejavu-core
+      - run: uv sync --frozen
+      - name: Create the project and import the selection
+        run: |
+          echo "SPECTRALCULAR_PROJECT_DIR=$RUNNER_TEMP/book" >> "$GITHUB_ENV"
+          book_yaml="$(dirname "${{ inputs.manifest }}")/book.yaml"
+          if [ -f "$book_yaml" ]; then
+            uv run spectralcular init "$RUNNER_TEMP/book" --book "$book_yaml"
+          else
+            uv run spectralcular init "$RUNNER_TEMP/book"
+          fi
+          uv run spectralcular --project-dir "$RUNNER_TEMP/book" import "${{ inputs.manifest }}"
+          uv run spectralcular --project-dir "$RUNNER_TEMP/book" candidates lock --force
+      - name: Render spreads
+        run: |
+          if [ -n "${{ inputs.only }}" ]; then
+            uv run spectralcular -v build --only "${{ inputs.only }}"
+          else
+            uv run spectralcular -v build --keep-going
+          fi
+      - name: Assemble and finish the print files
+        # A one-spread smoke test is too short for a perfect-bound book, so the
+        # preflight reports a page-count failure; the files are uploaded anyway.
+        run: uv run spectralcular -v print || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: book
+          path: |
+            ${{ runner.temp }}/book/output/print/
+            ${{ runner.temp }}/book/output/proof.pdf
+            ${{ runner.temp }}/book/output/spreads/*.pdf
+          retention-days: 14

@@ -1,0 +1,50 @@
+asset_id: okavango_ndmi_rain
+
+location:
+  name: Okavango Delta
+  # Eastern panhandle of the delta, where channelised flow fans out
+  # into the Kalahari. NDMI rises across waterlogged sedge meadows and
+  # gallery forest while the savanna fringe sits low. Bbox ≈ 26.2 ×
+  # 33.4 km at lat 19.5°S — right at the AOI ceiling.
+  bbox: [22.55, -19.60, 22.80, -19.30]   # lon_min, lat_min, lon_max, lat_max
+
+imagery:
+  source: sentinel-2-l2a
+  # The annual flood, fed by Angolan summer rains, peaks in the delta
+  # June–August. Pick from the dry-season window so flood extent is
+  # established and cloud is minimal.
+  date_range: 2023-06-01/2023-08-31
+  cloud_cover_max: 10
+
+index:
+  name: NDMI
+  bands:
+    N: nir       # Sentinel-2 B08 (10 m)
+    S1: swir16   # Sentinel-2 B11 (20 m, SWIR-1)
+
+colormap:
+  # Reversed: forward cmocean:rain runs dark→light (low values dark),
+  # which inverts the moisture intuition. Reversal puts dry sand-channel
+  # NDMI as light beige and waterlogged vegetation as dark green —
+  # semantically aligned with the index.
+  name: cmocean:rain_r
+  normalization:
+    method: percentile
+    lower: 1
+    upper: 99
+
+layout:
+  template: full_image_plus_diagnostics
+  page_size: Letter
+  orientation: portrait
+  dpi: 300
+  annotations: minimal
+  outputs: [pdf, html]
+  caption: "Okavango Delta — NDMI, June–August 2023"
+  plate_number: "005"
+  interpretive_note: >
+    The Okavango's annual flood spreads inland from June, fed by Angolan
+    summer rains; NDMI's NIR/SWIR-1 ratio rises across waterlogged sedge
+    meadows and gallery forest while the dry Kalahari fringe sits low.
+    Reversed rain colormap puts dry sand and channel reflection as light
+    beige and waterlogged sedge as deep green — moisture darkens.

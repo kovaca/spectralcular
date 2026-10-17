@@ -1,0 +1,56 @@
+name: Deploy plate picker to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4   # version from web/package.json "packageManager"
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build under the site's base path
+        # "/<repo>" for a project site, "" for a custom domain — SvelteKit needs
+        # it at build time (see web/svelte.config.js). One-time setup:
+        # Settings → Pages → Source: "GitHub Actions".
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: pnpm build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

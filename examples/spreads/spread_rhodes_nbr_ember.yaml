@@ -1,0 +1,44 @@
+asset_id: rhodes_nbr_ember
+
+location:
+  name: Rhodes — 2023 Burn Scar
+  # SE quadrant of the burn area, kept inside MGRS tile 35SPV so
+  # same-day multi-scene mosaic isn't required (known data_loader
+  # limitation: cross-day mosaicking is not yet supported). Bbox
+  # ≈ 13.5 × 16.7 km at lat 36°N — well inside the AOI ceiling.
+  bbox: [28.05, 36.05, 28.20, 36.20]    # lon_min, lat_min, lon_max, lat_max
+
+imagery:
+  source: sentinel-2-l2a
+  # Post-fire window — fires were 18–25 July 2023; scars stabilise by
+  # August and read sharply against unburned canopy through autumn.
+  date_range: 2023-08-01/2023-10-31
+  cloud_cover_max: 10
+
+index:
+  name: NBR
+  bands:
+    N: nir       # Sentinel-2 B08 (10 m)
+    S2: swir22   # Sentinel-2 B12 (20 m, SWIR-2)
+
+colormap:
+  name: cmasher:ember
+  normalization:
+    method: percentile
+    lower: 2
+    upper: 98
+
+layout:
+  template: full_image_plus_diagnostics
+  page_size: Letter
+  orientation: portrait
+  dpi: 300
+  annotations: minimal
+  outputs: [pdf, html]
+  caption: "Rhodes — NBR after the July 2023 wildfires"
+  plate_number: "003"
+  interpretive_note: >
+    Rhodes' interior pine forest was scorched in the July 2023 fires;
+    NBR's NIR/SWIR-2 ratio collapses across the burn scar while
+    unburned coastal scrub holds. Ember colormap reads char as black
+    against living canopy in warm tones.

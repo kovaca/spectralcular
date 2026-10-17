@@ -1,0 +1,742 @@
+/* ============================================================
+   Spectralcular Scenery — print stylesheet
+   US Letter portrait + 0.125" (3.175 mm) bleed.
+   Page surface = 8.75 × 11.25" = 222.25 × 285.75 mm. Trim = 215.9 × 279.4 mm.
+
+   Design conventions: docs/DESIGN.md ("Atlas paper", 2026-09-07).
+
+   Horizontal padding on the diagnostic page (--page-pad-x) is set to
+   36 mm symmetric so the binding edge stays ≥ 32 mm from trim — Lulu's
+   recommended interior margin at 400–600 pages on full-bleed pages.
+   Outer edge has the same 36 mm padding (well clear of the 12.7 mm
+   safety margin); we use symmetric padding so the same render is safe
+   on both verso and recto until the assembly step assigns binding sides.
+
+   The diagnostic page has zero horizontal page-margin: the gradient band
+   breaks out to the trim edges via negative margins on --page-pad-x. All
+   other content sits inside the 36 mm padding ring.
+   ============================================================ */
+
+:root {
+    --ink:        #1a1a1a;
+    --ink-soft:   #4a4845;
+    --ink-mute:   #7a7771;
+    --rule:       #cfcdc7;
+    --rule-soft:  #e2dfd7;
+    --paper:      #f7f4ec;
+    --paper-2:    #fbf9f4;
+    --paper-edge: #efeae0;
+    --accent:     #9a3324;
+
+    --serif: "Iowan Old Style", "Charter", "Hoefler Text", "Iowan Old Style BT",
+             Georgia, serif;
+    --mono:  "Berkeley Mono", "JetBrains Mono", "SF Mono", ui-monospace,
+             "Menlo", monospace;
+
+    /* Layout tokens. --page-pad-x must clear the 32 mm gutter recommendation
+       at 400–600 pp; 36 mm gives a small buffer past trim. */
+    --page-pad-x: 36mm;
+    /* Vertical rhythm between the recto's fixed-height blocks. */
+    --gap: 5.6mm;
+}
+
+@page {
+    size: 8.75in 11.25in;     /* US Letter + 0.125" bleed on all sides */
+    margin: 21mm 19mm 17mm 19mm;
+    background: var(--paper);
+}
+
+@page image_page {
+    margin: 0;
+}
+
+@page diagnostic_page {
+    /* Zero horizontal margin so .gradient-band can break out to the page
+       edges via negative margins. The .page-diag wrapper restores the
+       --page-pad-x ring for all other content. Top/bottom = bleed (3.18 mm)
+       + ~14/12 mm editorial breathing room. */
+    margin: 17mm 0 15mm 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 9pt;
+    line-height: 1.45;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+/* ============================================================
+   Page 1 — full-bleed image plate (222 × 286 mm including bleed)
+   ============================================================ */
+
+.page-image {
+    page: image_page;
+    page-break-after: always;
+    width: 8.75in;
+    height: 11.25in;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d10;
+}
+
+.page-image .plate-image,
+.page-image .halo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8.75in;
+    height: 11.25in;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+}
+
+.page-image .plate-image { z-index: 1; }
+
+/* Feathered halo — pre-baked PNG (alpha-clipped darkened+blurred imagery)
+   that sits behind text. See halo.py. */
+.page-image .halo { z-index: 2; }
+
+.page-image .overlay {
+    position: absolute;
+    z-index: 3;
+    color: var(--paper);
+    /* Page-1 overlays use the bundled DejaVu fonts (see @font-face above)
+       so PIL-rendered halo and CSS-rendered text share glyph metrics.
+       Letter-spacing is set to 0 here because PIL's draw.text() doesn't
+       apply tracking — keeping CSS tracking off avoids halo/text drift. */
+    font-family: 'GB Mono', monospace;
+    font-size: 7.5pt;
+    /* line-height pinned to halo.TextOverlay.line_spacing default so the
+       PIL-rendered halo and the CSS-rendered text share inter-line
+       stepping; halo.py compensates for CSS half-leading on the first
+       and last lines. */
+    line-height: 1.18;
+    letter-spacing: 0;
+    /* Kerning, ligatures, and other OpenType features make CSS glyph
+       advances differ from PIL's plain advance widths and produce
+       cumulative left-to-right drift between the halo and the overlay
+       text. Reset all of them so the two renderers use identical
+       horizontal metrics. */
+    font-kerning: none;
+    font-variant-ligatures: none;
+    font-feature-settings: normal;
+    /* Horizontal pad clears the 32 mm gutter recommendation at 400–600 pp
+       (3.18 mm bleed + 32 mm trim margin = 35.18 mm; 36 mm rounds up).
+       Vertical pad = 3.18 mm bleed + Lulu's 12.7 mm safety margin, rounded
+       up: text outside the safety margin fails Global Distribution review.
+       Must match halo.TextOverlay.pad_mm. */
+    padding: 16mm 36mm;
+}
+
+.page-image .overlay--top-left  { top: 0; left: 0; }
+.page-image .overlay--top-right {
+    top: 0;
+    right: 0;
+    text-align: right;
+    font-weight: 700;
+}
+
+.page-image .overlay--bottom-left {
+    bottom: 0;
+    left: 0;
+    font-family: 'GB Serif', serif;
+    font-style: italic;
+    font-size: 9pt;
+    /* max-width is constrained by the 36 mm gutter on both sides;
+       the available width inside the safe area is 222 - 72 = 150 mm. */
+    max-width: 110mm;
+}
+.page-image .overlay--bottom-right {
+    bottom: 0;
+    right: 0;
+    text-align: right;
+}
+
+/* ============================================================
+   Page 2 — diagnostic / specimen card
+   Content height = 11.25in − 17mm top page margin − 15mm bottom
+                  ≈ 285.75 − 32 = 253.75 mm. Use 252 mm for 1.75 mm slack.
+
+   Fixed vertical budget (docs/DESIGN.md):
+     running head 5 · title 24 · feature 44 · bands 19 · columns 46 ·
+     gradient band 12 · OKLCh 23 · histogram 30 · colophon 8  = 211 mm
+     + six --gap of 5.6 mm and one 3 mm gap                  ≈ 247 mm
+   The remaining slack is absorbed by the colophon's margin-top: auto so
+   every block lands at the same position on every plate.
+   ============================================================ */
+
+.page-diag {
+    page: diagnostic_page;
+    padding: 0 var(--page-pad-x);
+    height: 252mm;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Every block is a rigid flex item: it may never grow or shrink, so an
+   unusually long value cannot push the histogram off the page. */
+.page-diag > * {
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+/* ─── Running head ─── */
+.running-head {
+    flex-basis: 5mm;
+    height: 5mm;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: var(--ink-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding-bottom: 1.2mm;
+    border-bottom: 0.4pt solid var(--rule);
+}
+.running-head .left  { color: var(--ink-soft); }
+.running-head .center {
+    color: var(--ink-mute);
+    font-feature-settings: "tnum" 1;
+}
+.running-head .right {
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+/* ─── Centerd title block ─── */
+.title-block {
+    flex-basis: 24mm;
+    height: 24mm;
+    overflow: hidden;
+    text-align: center;
+    margin-top: var(--gap);
+}
+
+.title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15pt;
+    line-height: 1.10;
+    letter-spacing: -0.005em;
+    margin: 0 auto 2mm auto;
+    color: var(--ink);
+    max-width: 140mm;
+}
+
+/* Long index names (> 48 characters) take two lines at this size and still
+   leave room for the formula and the place in the 24 mm block. */
+.title--long { font-size: 12.5pt; }
+
+.title-block .formula {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    color: var(--accent);
+    padding: 0.5mm 2mm 0.6mm 2mm;
+    border: 0.4pt solid var(--accent);
+    margin: 0 0 2mm 0;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* ─── Shared: ruled section heads and kv lists ─── */
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 0.4pt solid var(--rule);
+    padding-bottom: 0.8mm;
+    margin-bottom: 1.6mm;
+}
+.section-head .label {
+    font-family: var(--mono);
+    font-size: 6.8pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+.section-head .label .roman {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 3mm;
+    letter-spacing: 0.14em;
+}
+.section-head .meta {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-feature-settings: "tnum" 1;
+}
+
+.kv-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.kv-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5mm;
+    padding: 0.45mm 0;
+    line-height: 1.3;
+    border-bottom: 0.3pt dotted var(--rule);
+}
+.kv-list li:last-child {
+    border-bottom: none;
+}
+.kv-list li .k {
+    flex: 0 0 13mm;
+    font-family: var(--mono);
+    font-size: 6.2pt;
+    color: var(--ink-mute);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding-top: 0.3mm;
+}
+.kv-list li .v {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-family: var(--mono);
+    font-size: 7.2pt;
+    color: var(--ink);
+    font-feature-settings: "tnum" 1;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+/* ─── Two-column feature: true color preview + scene locator ─── */
+.feature {
+    flex-basis: 44mm;
+    height: 44mm;
+    margin-top: var(--gap);
+    display: flex;
+    gap: 4mm;
+}
+.feature figure {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+}
+.feature img,
+.feature .feature-empty {
+    display: block;
+    width: 100%;
+    height: 40mm;
+    box-sizing: border-box;
+    border: 0.4pt solid var(--rule);
+    background: var(--paper-edge);
+}
+/* The preview is a portrait crop of the page; shown as a landscape slice. */
+.feature-thumb img { object-fit: cover; object-position: center; }
+/* The locator is drawn landscape (render_assets.render_scene_locator_svg). */
+.feature-locator img { object-fit: contain; object-position: center; }
+.feature .feature-empty {
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: var(--ink-mute);
+    text-align: center;
+    padding-top: 18mm;
+}
+.feature figcaption {
+    font-family: var(--mono);
+    font-size: 6pt;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    margin-top: 1.2mm;
+    font-feature-settings: "tnum" 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ─── Bands in use ─── */
+.bands {
+    flex-basis: 19mm;
+    height: 19mm;
+    margin-top: var(--gap);
+    overflow: hidden;
+}
+.bands .section-head .meta { text-transform: none; letter-spacing: 0.04em; }
+.band-ruler-wrap { width: 100%; }
+.band-ruler-wrap svg,
+.band-ruler {
+    display: block;
+    width: 100%;
+    height: 12mm;
+}
+
+/* ─── Three fact columns ─── */
+.cols {
+    flex-basis: 46mm;
+    height: 46mm;
+    margin-top: var(--gap);
+    display: flex;
+    gap: 4mm;
+    overflow: hidden;
+}
+.cols .col {
+    flex: 1 1 0;
+    min-width: 0;
+    border-top: 0.4pt solid var(--rule);
+    padding-top: 1mm;
+}
+.cols .col .section-head { margin-bottom: 1.2mm; }
+
+/* ─── Gradient band, OKLCh curves, histogram ─── */
+.gradient-band {
+    /* Span trim-to-trim (full 8.5" width), NOT page-edge-to-page-edge.
+       The gradient is a color-gamut reference for the colormap; if it
+       extended into the 0.125" bleed zone, the post-trim cut would lop
+       off the chromatic extremes and distort the swatch. Stopping at the
+       trim line guarantees the full gamut survives binding. */
+    flex-basis: 12mm;
+    height: 12mm;
+    width: 8.5in;
+    margin-top: var(--gap);
+    margin-left: calc(0.125in - var(--page-pad-x));
+    margin-right: calc(0.125in - var(--page-pad-x));
+    display: block;
+}
+.oklch-chart {
+    /* Three panels L*, C*, h°, rendered at a 6.5 : 1 figure so the full
+       150 mm content width gives ≈ 23 mm of height at readable type. */
+    flex-basis: 23mm;
+    height: 23mm;
+    width: 100%;
+    margin-top: 3mm;
+    display: block;
+}
+.histogram {
+    /* 720 × 144 pt figure: full width → 30 mm tall, no letterboxing. */
+    flex-basis: 30mm;
+    height: 30mm;
+    width: 100%;
+    margin-top: var(--gap);
+    display: block;
+}
+
+/* ─── Footer ─── */
+.colophon {
+    flex-basis: 8mm;
+    height: 8mm;
+    /* margin-top: auto pushes the footer to the bottom of the flex column
+       so the few mm of slack between the histogram and the page bottom
+       are absorbed here, not redistributed across the blocks above. */
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 1.5mm;
+    border-top: 0.4pt solid var(--rule);
+    font-family: var(--mono);
+    font-size: 6.5pt;
+    color: var(--ink-mute);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    font-feature-settings: "tnum" 1;
+}
+.colophon .plate {
+    color: var(--ink);
+    /* Long candidate ids would push the book title onto a second line. */
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 4mm;
+    /* WeasyPrint's flex doesn't shrink the id below its content width: cap it. */
+    max-width: 112mm;
+}
+.colophon > span:last-child { flex: none; white-space: nowrap; }
+.colophon .plate .num {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+/* ============================================================
+   Overview spread — back matter, just before the index
+   (overview.py + overview.html.j2). Reuses the diagnostic page's
+   frame (.page-diag, running head, title block, section heads,
+   colophon); every figure is an inline SVG sized in mm upstream.
+
+   Verso budget: running head 5 · title 24 · places 82 · dates 31 ·
+   coverage ≈ 67 · colophon 8 + four --gap ≈ 239 mm of 252.
+   Recto budget: running head 5 · title 24 · section head 5 ·
+   combinations 190 · colophon 8 + two --gap ≈ 243 mm.
+   ============================================================ */
+
+.ov-verso { break-after: page; }
+
+.ov-block { margin-top: var(--gap); }
+.ov-block svg { display: block; }
+.page-overview .section-head { gap: 3mm; }
+.page-overview .section-head .meta { text-transform: none; letter-spacing: 0.04em; }
+.page-overview .section-head .label { white-space: nowrap; }
+
+.ov-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6mm 3.5mm;
+    margin-top: 1.2mm;
+    font-family: var(--mono);
+    font-size: 5.6pt;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+}
+.ov-legend i {
+    display: inline-block;
+    width: 1.7mm;
+    height: 1.7mm;
+    border-radius: 50%;
+    margin-right: 1mm;
+    vertical-align: -0.1mm;
+}
+
+.ov-when { display: flex; gap: 6mm; }
+.ov-when > div { flex: 0 0 auto; }
+.ov-dates { width: 104mm; }
+.ov-season { width: 40mm; }
+
+.ov-coverage-block svg + svg { margin-top: 3mm; }
+
+/* ============================================================
+   Front matter (front_matter.py + front_matter.html.j2).
+   Same 36 mm side padding as the specimen card, which clears
+   Lulu's inner-margin recommendation up to 600 pages. Folios are
+   physical page numbers; the half-title, frontispiece, title and
+   copyright pages carry none. Nothing here is set below 7 pt
+   (Lulu Global Distribution rejects smaller text).
+   ============================================================ */
+
+@page fm {
+    size: 8.75in 11.25in;
+    margin: 26mm 36mm 24mm 36mm;
+    @bottom-center {
+        content: counter(page);
+        font-family: var(--mono);
+        font-size: 7pt;
+        letter-spacing: 0.12em;
+        color: var(--ink-mute);
+        vertical-align: top;
+        /* 3 mm keeps the folio ≥ 12.7 mm inside the trim (Lulu safety margin). */
+        padding-top: 3mm;
+    }
+}
+@page fm_bare {
+    size: 8.75in 11.25in;
+    margin: 26mm 36mm 24mm 36mm;
+}
+
+.fm-doc { background: var(--paper); }
+.fm-bare { page: fm_bare; break-before: page; height: 235.75mm; position: relative; }
+.fm-page { page: fm; break-before: page; }
+.fm-plates, .fm-reading { break-before: left; }
+.fm-reading-page + .fm-reading-page { break-before: page; }
+
+.fm-display {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30pt;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin: 0;
+}
+.fm-half-title .fm-display { position: absolute; top: 34%; left: 0; right: 0; text-align: center; font-size: 20pt; }
+
+.fm-frontis-img { display: block; width: 150mm; height: 200mm; margin: 6mm auto 0 auto; }
+.fm-caption {
+    font-family: var(--mono);
+    font-size: 7pt;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    text-align: center;
+    margin-top: 4mm;
+}
+
+.fm-title-block { position: absolute; top: 22%; left: 0; right: 0; text-align: center; }
+.fm-display--title { font-size: 36pt; }
+.fm-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--ink-soft);
+    margin: 5mm 0 0 0;
+}
+.fm-tally {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 9mm 0 0 0;
+}
+.fm-title-foot { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; }
+.fm-author { font-family: var(--serif); font-size: 13pt; margin: 0 0 3mm 0; }
+.fm-publisher {
+    font-family: var(--mono);
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0;
+}
+
+.fm-copyright-block { position: absolute; bottom: 0; left: 0; right: 0; }
+.fm-small, .fm-credit { font-family: var(--serif); font-size: 7.5pt; line-height: 1.45; color: var(--ink-soft); margin: 0 0 1mm 0; }
+.fm-credit-head {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 7pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 4mm 0 1mm 0;
+}
+
+.fm-head {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18pt;
+    color: var(--ink);
+    margin: 0 0 7mm 0;
+    padding-bottom: 2mm;
+    border-bottom: 0.4pt solid var(--rule);
+}
+.fm-head--cont { font-size: 11pt; color: var(--ink-soft); }
+/* 50 rows a page: 235.75 mm content − 13 mm head − 5 mm header ≈ 4.3 mm a row. */
+.fm-head--list { margin-bottom: 3mm; padding-bottom: 1.5mm; font-size: 15pt; }
+.fm-body {
+    font-family: var(--serif);
+    font-size: 10pt;
+    line-height: 1.55;
+    margin: 0 0 3.5mm 0;
+    text-align: left;
+    hyphens: auto;
+}
+
+.fm-toc { list-style: none; margin: 0; padding: 0; }
+.fm-toc li {
+    display: flex;
+    align-items: baseline;
+    font-family: var(--serif);
+    font-size: 11pt;
+    margin: 0 0 3.5mm 0;
+}
+.fm-toc a { color: inherit; text-decoration: none; }
+.fm-leader { flex: 1 1 auto; border-bottom: 0.6pt dotted var(--ink-mute); margin: 0 2mm; transform: translateY(-1mm); }
+.fm-pg { font-family: var(--mono); font-size: 8pt; color: var(--ink-soft); }
+.fm-ref::after { content: target-counter(attr(href), page); }
+
+.fm-plate-table { width: 150mm; border-collapse: collapse; table-layout: fixed; }
+.fm-plate-table th {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    text-align: left;
+    padding: 0 0 1.4mm 0;
+    border-bottom: 0.4pt solid var(--rule);
+}
+.fm-plate-table td {
+    font-size: 7.5pt;
+    line-height: 1.12;
+    padding: 0.5mm 1.5mm 0.45mm 0;
+    border-bottom: 0.3pt solid var(--rule-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.fm-plate-table .n { width: 13mm; font-family: var(--mono); color: var(--accent); }
+.fm-plate-table .place { width: 70mm; font-family: var(--serif); }
+.fm-plate-table .look { font-family: var(--mono); font-size: 7pt; color: var(--ink-soft); }
+.fm-plate-table .pg { width: 11mm; text-align: right; font-family: var(--mono); color: var(--ink-soft); padding-right: 0; }
+
+.fm-reading-row { display: flex; gap: 7mm; align-items: flex-start; margin-top: 4mm; }
+.fm-mini { flex: 0 0 74mm; width: 74mm; border: 0.4pt solid var(--rule); }
+.fm-key { flex: 1 1 auto; margin: 0; padding-left: 5mm; }
+.fm-key li { font-family: var(--serif); font-size: 8.5pt; line-height: 1.45; margin: 0 0 2.2mm 0; color: var(--ink-soft); }
+.fm-key b { font-weight: 400; color: var(--ink); font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.04em; }
+
+/* ============================================================
+   Cover spread (cover.py + cover.html.j2). Paper wraps the
+   spine; nothing below 7 pt.
+   ============================================================ */
+
+.cv-blurb p {
+    font-family: var(--serif);
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 2.5mm 0;
+}
+.cv-mosaic { display: block; }
+.cv-back-foot { display: flex; justify-content: space-between; align-items: baseline; }
+.cv-back-title { font-family: var(--serif); font-size: 10pt; color: var(--ink); }
+.cv-back-author, .cv-front-foot {
+    font-family: var(--mono);
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+.cv-barcode { background: #ffffff; }
+.cv-barcode img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.cv-spine {
+    transform: rotate(90deg);
+    transform-origin: center center;
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: var(--serif);
+}
+.cv-spine--single { justify-content: center;
+    color: var(--ink);
+}
+.cv-spine-author { font-family: var(--mono); font-size: 0.8em; letter-spacing: 0.1em; color: var(--ink-soft); }
+.cv-front-title { text-align: center; }
+.cv-front-title h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 34pt;
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 0;
+}
+.cv-front-title p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12pt;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    /* A box a little over half the one-line width, centered: the subtitle
+       breaks into two near-even lines (WeasyPrint has no text-wrap: balance). */
+    max-width: 4.1in;
+    margin: 2.5mm auto 0 auto;
+}
+.cv-hero { display: block; }
+.cv-front-foot { text-align: center; }

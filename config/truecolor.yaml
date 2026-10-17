@@ -1,0 +1,65 @@
+# True-color tone presets — starting points for a true-color plate.
+#
+# The tone pipeline (src/spectralcular/truecolor.py) runs, per pixel:
+#   linear stretch (lo → hi, reflectance) → gamma → sigmoidal contrast → OKLab saturation
+#
+# stretch.mode    linked: one window for r, g, b (keeps the color balance)
+#                 dark-object: a black point per band, one shared span — removes
+#                   the additive haze offset without changing the gains
+#                 per-channel: a window per band (neutralises haze and casts,
+#                   but colors become relative to the scene)
+# stretch.source  manual: lo/hi as written (one value applies to all three bands)
+#                 auto: lo/hi from the frame's own p_lo / p_hi percentiles,
+#                 re-derived whenever the frame moves
+# gamma           t ** (1/gamma); > 1 lifts the midtones
+# contrast        sigmoidal strength (0 = off) around `midpoint`
+# saturation      OKLab chroma scale (1 = unchanged)
+#
+# `spectralcular export-web` copies these into web/src/lib/data/truecolor.json.
+version: 1
+default: natural
+presets:
+  - id: natural
+    label: Natural
+    description: >-
+      One fixed reflectance window for all three bands, so colors compare
+      across plates and seasons. A good default for vegetated and mixed scenes.
+    stretch: {mode: linked, source: manual, lo: 0.0, hi: 0.30}
+    gamma: 1.8
+    contrast: 0
+    midpoint: 0.5
+    saturation: 1.0
+
+  - id: balanced
+    label: Balanced
+    description: >-
+      Each band stretched to its own 2–98 % range in the frame. Neutralises
+      casts and fills the tonal range; colors are relative to this scene.
+    stretch: {mode: per-channel, source: auto, p_lo: 2, p_hi: 98}
+    gamma: 1.1
+    contrast: 0
+    midpoint: 0.5
+    saturation: 1.0
+
+  - id: haze_cut
+    label: Haze-cut
+    description: >-
+      Per-band black points at the 1st percentile remove the blue-heavy
+      atmospheric veil (dark-object subtraction) while one shared gain keeps
+      the color balance; a gentle S-curve and a little chroma restore depth.
+    stretch: {mode: dark-object, source: auto, p_lo: 1, p_hi: 99.5}
+    gamma: 1.4
+    contrast: 6
+    midpoint: 0.45
+    saturation: 1.15
+
+  - id: bright_surfaces
+    label: Bright surfaces
+    description: >-
+      A wide fixed window that keeps snow, ice, salt flats and dunes from
+      clipping to white; a soft S-curve keeps the darks from going flat.
+    stretch: {mode: linked, source: manual, lo: 0.0, hi: 0.90}
+    gamma: 1.6
+    contrast: 3
+    midpoint: 0.5
+    saturation: 1.05
