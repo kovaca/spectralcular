@@ -122,9 +122,9 @@
 	.note b { font-family: var(--mono); font-weight: 500; font-size: 11px; }
 	.note.warn { color: var(--warn); }
 	.note.bad { color: var(--bad); margin-top: 10px; }
-	.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; min-width: 0; }
+	.controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; margin-bottom: 8px; min-width: 0; }
 	.controls .input { min-width: 0; }
-	.controls.years { grid-template-columns: 64px 1fr; align-items: end; }
+	.controls.years { grid-template-columns: 64px minmax(0, 1fr); align-items: end; }
 	.controls .seg { align-self: start; margin-top: 2px; }
 	.range { width: 100%; margin: 6px 0 4px; }
 	.search { width: 100%; justify-content: center; }

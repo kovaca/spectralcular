@@ -388,7 +388,7 @@
 	@media (max-width: 1279px) { .app { grid-template-columns: 300px 1fr 300px; } }
 
 	/* Narrow: one stage, with the rail and inspector as sheets sharing its grid cell. */
-	.app.narrow { grid-template-columns: 1fr; grid-template-rows: 48px 1fr 46px; grid-template-areas: 'top' 'stage' 'bar'; }
+	.app.narrow { grid-template-columns: minmax(0, 1fr); grid-template-rows: 48px 1fr 46px; grid-template-areas: 'top' 'stage' 'bar'; }
 	.app.narrow .top { gap: 10px; padding: 0 12px; }
 	.app.narrow .project-name { flex: 1; width: auto; font-size: 17px; }
 	.app.narrow .state { display: none; }

@@ -169,7 +169,7 @@
 <style>
 	.browser { display: flex; flex-direction: column; height: 100%; min-height: 0; }
 	.filters { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; border-bottom: var(--hair) solid var(--rule); }
-	.row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+	.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
 	.nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2px; }
 	.keys { display: flex; gap: 2px; }
 	.list { list-style: none; margin: 0; padding: 0; flex: 1; min-height: 0; }
