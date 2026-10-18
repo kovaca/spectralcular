@@ -55,6 +55,14 @@ a { color: inherit; }
 .input:focus { border-color: var(--accent); outline: none; }
 .input[type='search']::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; width: 9px; height: 9px; cursor: pointer; background: var(--ink-mute); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 1l8 8M9 1l-8 8' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1 1l8 8M9 1l-8 8' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat; }
 .input[type='search']::-webkit-search-cancel-button:hover { background: var(--ink); }
+/* Date inputs carry UA padding/margins on their inner parts (iOS: the value box; Chromium and
+   desktop Safari: the edit fields) that make them ~1.5 px taller than the other inputs. */
+.input[type='date']::-webkit-date-and-time-value { margin-block: 0; }
+.input[type='date']::-webkit-datetime-edit,
+.input[type='date']::-webkit-datetime-edit-fields-wrapper,
+.input[type='date']::-webkit-datetime-edit-month-field,
+.input[type='date']::-webkit-datetime-edit-day-field,
+.input[type='date']::-webkit-datetime-edit-year-field { padding-block: 0; }
 textarea.input { font-family: var(--serif); font-size: 13px; }
 .pill { display: inline-block; padding: 1px 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; border: var(--hair) solid var(--rule); color: var(--ink-soft); }
 .pill.ok { color: var(--ok); border-color: var(--ok); }
