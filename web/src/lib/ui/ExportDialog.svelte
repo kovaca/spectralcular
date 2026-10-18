@@ -114,4 +114,17 @@
 	.spacer { flex: 1; }
 	.filename { font-size: 11px; color: var(--ink-mute); }
 	.how { margin: 0; padding: 8px 18px 14px; font-size: 11px; color: var(--ink-mute); }
+	@media (max-width: 640px) {
+		.export { max-height: 90dvh; }
+		header { padding: 14px 14px 8px; }
+		h2 { font-size: 20px; }
+		.tabs { padding: 0 14px; overflow-x: auto; scrollbar-width: none; }
+		.tabs::-webkit-scrollbar { display: none; }
+		.tabs button { flex: 0 0 auto; white-space: nowrap; }
+		pre { padding: 10px 14px; min-height: 160px; }
+		footer { flex-wrap: wrap; padding: 10px 14px; }
+		.filename { flex: 1 0 100%; overflow-wrap: anywhere; }
+		.spacer { display: none; }
+		.how { padding: 8px 14px 12px; overflow-wrap: anywhere; }
+	}
 </style>
